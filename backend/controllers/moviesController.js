@@ -1,6 +1,6 @@
 import movies from "../models/model.js";
 
-export const getTrending = async (req, res) => {
+export const getMovies = async (req, res) => {
   try {
     const allMovies = await movies.find();
     res.status(200).json(allMovies);
