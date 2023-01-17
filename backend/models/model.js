@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const modelSchema = mongoose.Schema({
+const moviesSchema = mongoose.Schema({
   title: String,
   thumbnail: {},
   year: Number,
@@ -10,6 +10,6 @@ const modelSchema = mongoose.Schema({
   isTrending: Boolean,
 });
 
-const model = mongoose.model("model", modelSchema);
+const movies = mongoose.model("movies", moviesSchema);
 
-export default model;
+export default movies;

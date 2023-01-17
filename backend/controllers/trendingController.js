@@ -1,5 +1,10 @@
-import model from "../models/model.js";
+import movies from "../models/model.js";
 
 export const getTrending = async (req, res) => {
-  res.send("this will be trending items");
+  try {
+    const allMovies = await movies.find();
+    res.status(200).json(allMovies);
+  } catch (error) {
+    console.log(error.message);
+  }
 };
