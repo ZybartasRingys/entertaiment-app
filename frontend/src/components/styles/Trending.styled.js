@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 /* Trending Section */
 
@@ -14,17 +14,18 @@ export const TrendingSection = styled.section`
     margin-top: 15px;
 
     h1 {
-      font-family: 'Outfit', sans-serif;
+      font-family: "Outfit", sans-serif;
       font-size: 20px;
       font-weight: 300;
     }
   }
-`
+`;
 
 /* Trending Card Container */
 export const CardContainer = styled.div`
   border-radius: 8px;
   display: flex;
+  border: 1px solid white;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -38,7 +39,7 @@ export const CardContainer = styled.div`
     font-size: 15px;
     color: #ffffff;
   }
-`
+`;
 
 /* Trending IconContainer */
 export const IconContainer = styled.div`
@@ -49,7 +50,7 @@ export const IconContainer = styled.div`
     align-items: center;
     margin-top: 8px;
   }
-`
+`;
 /* Trending card bookmark Icon div*/
 export const IconDiv = styled.button`
   width: 32px;
@@ -66,7 +67,7 @@ export const IconDiv = styled.button`
     background-color: #ffffff;
     opacity: 1;
   }
-`
+`;
 
 /* Trending card  text container*/
 export const TextContainer = styled.div`
@@ -88,7 +89,7 @@ export const TextContainer = styled.div`
       font-weight: 300;
     }
   }
-`
+`;
 
 /* Trending card  text div*/
 export const TextDiv = styled.div`
@@ -99,13 +100,13 @@ export const TextDiv = styled.div`
     margin-bottom: 5px;
     justify-content: space-between;
   }
-`
+`;
 
 /* Trending card title div*/
 export const TitleDiv = styled.div`
   width: 100%;
   text-align: start !important;
-`
+`;
 
 /* Search input Container */
 
@@ -117,4 +118,4 @@ export const Div = styled.div`
     justify-content: center;
     align-items: center;
   }
-`
+`;
