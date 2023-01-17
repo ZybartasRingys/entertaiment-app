@@ -13,7 +13,9 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
-app.use("/movies");
+app.get("/", (req, res) => {
+  res.send("Hello from entertaiment app");
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
