@@ -1,6 +1,4 @@
 import Header from "./Header";
-import Search from "./Search";
-import Trending from "./Trending/Trending";
 
 export default function Layout({ children }) {
   return (
@@ -9,11 +7,7 @@ export default function Layout({ children }) {
         <Header />
       </header>
 
-      <main>
-        {children}
-        <Search />
-        <Trending />
-      </main>
+      <main>{children}</main>
     </>
   );
 }

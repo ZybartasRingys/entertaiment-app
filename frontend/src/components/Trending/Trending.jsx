@@ -1,17 +1,21 @@
-import TrendingCard from './TrendingCard'
-import Loading from '../Loading'
+// Components
+import TrendingCard from "./TrendingCard";
 
-import { TrendingSection } from '../../components/styles/Trending.styled'
-
-import { useStateContext } from '../../Context/StateContext'
+//Loader Component
+import Loading from "../Loading";
+/* Styled Componenets imports*/
+import { TrendingSection } from "../../components/styles/Trending.styled";
+// Context
+import { useStateContext } from "../../Context/StateContext";
 
 function Trending() {
-  const { loading } = useStateContext()
+  const { loading } = useStateContext();
   return (
     <TrendingSection>
+      <h1>Trending</h1>
       {loading ? <Loading /> : <TrendingCard />}
     </TrendingSection>
-  )
+  );
 }
 
-export default Trending
+export default Trending;

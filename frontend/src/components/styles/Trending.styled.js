@@ -94,6 +94,7 @@ export const TextContainer = styled.div`
 /* Trending card  text div*/
 export const TextDiv = styled.div`
   display: flex;
+  border: 1px solid white;
 
   @media (max-width: 768px) {
     width: 60%;

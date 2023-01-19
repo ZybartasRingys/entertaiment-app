@@ -25,6 +25,12 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 15px;
+ 
+}
+
+.slide {
+  min-width: 70% !important;
+  margin-left: 16px ;
 }
 
 .movie-icon {

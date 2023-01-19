@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext } from "react";
 import {
   CardContainer,
   IconDiv,
@@ -7,20 +7,32 @@ import {
   TextDiv,
   Div,
   IconContainer,
-} from '../../components/styles/Trending.styled'
+} from "../../components/styles/Trending.styled";
 
 // icons
 
-import { ReactComponent as BookmarkIcon } from '../../assets/icon-bookmark-empty.svg'
-import { ReactComponent as MovieIcon } from '../../assets/icon-category-movie.svg'
+import { ReactComponent as BookmarkIcon } from "../../assets/icon-bookmark-empty.svg";
+import { ReactComponent as MovieIcon } from "../../assets/icon-category-movie.svg";
+import { BsDot } from "react-icons/bs";
 
-import { useStateContext } from '../../Context/StateContext'
+// react Carousel
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+
+import { useStateContext } from "../../Context/StateContext";
 
 function TrendingCard() {
-  const { loading, setLoading, trending } = useStateContext()
+  const { loading, setLoading, trending } = useStateContext();
 
   return (
-    <>
+    <Carousel
+      className="carousel"
+      showArrows={true}
+      showThumbs={false}
+      centerMode={true}
+      showIndicators={false}
+      showStatus={false}
+    >
       {trending.map((trendingMovie, id) => (
         <CardContainer key={id}>
           <IconContainer>
@@ -29,27 +41,32 @@ function TrendingCard() {
             </IconDiv>
           </IconContainer>
 
+          {console.log(`.${trendingMovie.thumbnail.trending.large}`)}
+
           <TextContainer>
             <TextDiv>
               <Div>
-                <p></p>
+                <p>{trendingMovie.year}</p>
+                <BsDot />
               </Div>
               <Div>
-                <p></p>
+                <MovieIcon />
+                <p>{trendingMovie.category}</p>
+                <BsDot />
               </Div>
               <Div>
-                <p>PG</p>
+                <p>{trendingMovie.rating}</p>
               </Div>
             </TextDiv>
 
             <TitleDiv>
-              <p>{trendingMovie.title}</p>
+              <h5>{trendingMovie.title}</h5>
             </TitleDiv>
           </TextContainer>
         </CardContainer>
       ))}
-    </>
-  )
+    </Carousel>
+  );
 }
 
-export default TrendingCard
+export default TrendingCard;
