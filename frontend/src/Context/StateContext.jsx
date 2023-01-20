@@ -1,15 +1,13 @@
-import { createContext, useContext, useState, useEffect } from "react";
-import axios from "axios";
+import { createContext, useContext, useState, useEffect } from 'react'
+import axios from 'axios'
 
-const Context = createContext();
+const Context = createContext()
 
 export const StateContext = ({ children }) => {
-  const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [trending, setTrending] = useState([]);
-  const [recomended, setRecomended] = useState([]);
-
-  console.log(movies);
+  const [movies, setMovies] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [trending, setTrending] = useState([])
+  const [recomended, setRecomended] = useState([])
 
   // function to get Movies from database
   useEffect(() => {
@@ -19,18 +17,18 @@ export const StateContext = ({ children }) => {
      */
     const getMovies = async () => {
       try {
-        setLoading(true);
-        const response = await axios.get(`http://localhost:5000/movies`);
+        setLoading(true)
+        const response = await axios.get(`http://localhost:5000/movies`)
 
-        setMovies(response.data);
-        setLoading(false);
+        setMovies(response.data)
+        setLoading(false)
       } catch (error) {
-        console.log(error.message);
+        console.log(error.message)
       }
-    };
+    }
 
-    getMovies();
-  }, []);
+    getMovies()
+  }, [])
 
   // function to set trending movies
 
@@ -42,19 +40,19 @@ export const StateContext = ({ children }) => {
     const setTrendingMovies = () => {
       const trendingMovies = movies.filter(
         (trendingMovie) => trendingMovie.isTrending === true
-      );
+      )
 
-      setTrending(trendingMovies);
-    };
+      setTrending(trendingMovies)
+    }
 
-    setTrendingMovies();
-  }, [movies]);
+    setTrendingMovies()
+  }, [movies])
 
   return (
     <Context.Provider value={{ movies, loading, setLoading, trending }}>
       {children}
     </Context.Provider>
-  );
-};
+  )
+}
 
-export const useStateContext = () => useContext(Context);
+export const useStateContext = () => useContext(Context)

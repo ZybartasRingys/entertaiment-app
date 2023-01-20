@@ -1,13 +1,8 @@
-import { RecomendedSection } from "../styles/Recomended.styled";
+import React from 'react'
+import { RecomendedSection } from '../styles/Recomended.styled'
 
 function Recomended() {
-  return (
-    <>
-      <RecomendedSection>
-        <h1>Recommended for you</h1>
-      </RecomendedSection>
-    </>
-  );
+  return <div>Hello from recommended</div>
 }
 
-export default Recomended;
+export default Recomended
