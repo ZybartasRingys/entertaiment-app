@@ -1,6 +1,10 @@
 /* Styled Componenets imports*/
 
-import { RecomendedContainer } from '../styles/Recomended.styled'
+import {
+  RecomendedContainer,
+  CardTop,
+  CardBottom,
+} from '../styles/Recomended.styled'
 
 /* Styled Componenets imports*/
 import {
@@ -10,9 +14,6 @@ import {
   Div,
   IconContainer,
 } from '../styles/Trending.styled'
-
-/* Styled Componenets imports*/
-import { CardTop, CardBottom } from '../styles/Recomended.styled'
 
 //Loader Component
 import Loading from '../Loading'
@@ -25,7 +26,45 @@ import MovieIcon from '../../assets/icon-category-movie.svg'
 import { BsDot } from 'react-icons/bs'
 
 function RecomendedCard() {
-  return <RecomendedContainer>Hello</RecomendedContainer>
+  const { movies } = useStateContext()
+
+  return (
+    <RecomendedContainer>
+      {movies
+        .filter((movie) => movie.isTrending !== true)
+        .map((filteredMovie, id) => (
+          <RecomendedCard key={id}>
+            <CardTop>
+              <IconContainer>
+                <IconDiv>
+                  <BookmarkIcon />
+                </IconDiv>
+              </IconContainer>
+            </CardTop>
+
+            <CardBottom>
+              <TextDiv>
+                <Div>
+                  <p></p>
+                  <BsDot />
+                </Div>
+                <Div>
+                  <p> </p>
+                  <BsDot />
+                </Div>
+                <Div>
+                  <p>PG</p>
+                </Div>
+              </TextDiv>
+
+              <TitleDiv>
+                <h2>{filteredMovie.title}</h2>
+              </TitleDiv>
+            </CardBottom>
+          </RecomendedCard>
+        ))}
+    </RecomendedContainer>
+  )
 }
 
 export default RecomendedCard
