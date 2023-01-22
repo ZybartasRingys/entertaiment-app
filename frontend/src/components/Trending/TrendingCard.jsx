@@ -41,8 +41,6 @@ function TrendingCard() {
             </IconDiv>
           </IconContainer>
 
-          {console.log(`.${trendingMovie.thumbnail.trending.large}`)}
-
           <TextContainer>
             <TextDiv>
               <Div>

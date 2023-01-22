@@ -1,13 +1,13 @@
-import React from 'react'
-import { RecomendedSection } from '../styles/Recomended.styled'
-import RecomendedCard from './RecomendedCard'
+import React from "react";
+import { RecomendedSection } from "../styles/Recomended.styled";
+import Card from "./Card";
 function Recomended() {
   return (
     <RecomendedSection>
-      <div>Hello from recommended</div>
-      <RecomendedCard />
+      <h1>Recommended for you</h1>
+      <Card />
     </RecomendedSection>
-  )
+  );
 }
 
-export default Recomended
+export default Recomended;
