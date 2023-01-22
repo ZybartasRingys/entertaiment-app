@@ -1,15 +1,25 @@
 import "./App.css";
-import Recomended from "./components/Recomended/Recomended";
-import Search from "./components/Search";
-import Trending from "./components/Trending/Trending";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+
+import Home from "./components/Pages/Home";
+import Movies from "./components/Pages/Movies";
+import TvSeries from "./components/Pages/TvSeries";
+import Bookmarked from "./components/Pages/Bookmarked";
 
 function App() {
   return (
-    <section className="App">
-      <Search />
-      <Trending />
-      <Recomended />
-    </section>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/Movies" element={<Movies />} />
+          <Route path="/TvSeries" element={<TvSeries />} />
+          <Route path="/Bookmarked" element={<Bookmarked />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 

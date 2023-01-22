@@ -12,7 +12,6 @@ import {
 import {
   IconDiv,
   TitleDiv,
-  TextDiv,
   Div,
   IconContainer,
 } from "../styles/Trending.styled";
@@ -23,20 +22,24 @@ import Loading from "../Loading";
 // Context
 import { useStateContext } from "../../Context/StateContext";
 /* Icons*/
+import { ReactComponent as BookEmpty } from "../../assets/icon-bookmark-empty.svg";
+import { ReactComponent as BookFull } from "../../assets/icon-bookmark-full.svg";
 import { ReactComponent as TvIcon } from "../../assets/icon-category-tv.svg";
 import { ReactComponent as MovieIcon } from "../../assets/icon-category-movie.svg";
 import { BsDot } from "react-icons/bs";
 
 function Card() {
-  const { recomended } = useStateContext();
+  const { recomended, bookmark } = useStateContext();
 
   return (
     <RecomendedContainer>
-      {recomended.map((movie, id) => (
-        <RecomendedCard key={id}>
+      {recomended.map((movie) => (
+        <RecomendedCard key={movie.id}>
           <CardTop>
             <IconContainer>
-              <IconDiv></IconDiv>
+              <IconDiv type="button" onClick={bookmark}>
+                <BookEmpty />
+              </IconDiv>
             </IconContainer>
           </CardTop>
 

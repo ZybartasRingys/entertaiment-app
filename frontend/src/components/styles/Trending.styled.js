@@ -62,6 +62,7 @@ export const IconDiv = styled.button`
   background-color: #10141e;
   opacity: 0.5;
   cursor: pointer;
+  border: 1px solid white;
 
   &:hover {
     background-color: #ffffff;

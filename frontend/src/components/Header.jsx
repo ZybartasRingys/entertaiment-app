@@ -17,13 +17,13 @@ function Header() {
         <Link to="/">
           <HomeIcon />
         </Link>
-        <Link to="/">
+        <Link to="/Movies">
           <MovieIcon />
         </Link>
-        <Link to="/">
+        <Link to="/TvSeries">
           <TvSeriesIcon />
         </Link>
-        <Link to="/">
+        <Link to="/Bookmarked">
           <BookmarkedIcon />
         </Link>
       </IconsDiv>

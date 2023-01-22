@@ -1,5 +1,7 @@
 import Header from "./Header";
 
+import { Outlet } from "react-router-dom";
+
 export default function Layout({ children }) {
   return (
     <>
@@ -7,7 +9,7 @@ export default function Layout({ children }) {
         <Header />
       </header>
 
-      <main>{children}</main>
+      <Outlet />
     </>
   );
 }

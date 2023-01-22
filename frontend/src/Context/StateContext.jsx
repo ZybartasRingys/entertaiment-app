@@ -8,6 +8,7 @@ export const StateContext = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [trending, setTrending] = useState([]);
   const [recomended, setRecomended] = useState([]);
+  const [bookmarked, setBookmarked] = useState([]);
 
   console.log(recomended);
 
@@ -62,9 +63,13 @@ export const StateContext = ({ children }) => {
     setRecomendedMovies();
   }, [movies]);
 
+  const bookmark = (recomended) => {
+    console.log("hello");
+  };
+
   return (
     <Context.Provider
-      value={{ movies, loading, setLoading, trending, recomended }}
+      value={{ movies, loading, setLoading, trending, recomended, bookmark }}
     >
       {children}
     </Context.Provider>
