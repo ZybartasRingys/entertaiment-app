@@ -9,8 +9,9 @@ export const StateContext = ({ children }) => {
   const [trending, setTrending] = useState([]);
   const [recomended, setRecomended] = useState([]);
   const [bookmarked, setBookmarked] = useState([]);
+  const [isBookmarked, setIsBookmarked] = useState(false);
 
-  console.log(recomended);
+  console.log(bookmarked);
 
   // function to get Movies from database
   useEffect(() => {
@@ -63,13 +64,26 @@ export const StateContext = ({ children }) => {
     setRecomendedMovies();
   }, [movies]);
 
-  const bookmark = (recomended) => {
-    console.log("hello");
-  };
+  useEffect(() => {
+    const setbookmarkedMovies = () => {
+      const bookmarkedMovies = movies.filter((movie) => movie.isBookmarked);
+      setBookmarked(bookmarkedMovies);
+    };
+    setbookmarkedMovies();
+  }, [movies]);
 
   return (
     <Context.Provider
-      value={{ movies, loading, setLoading, trending, recomended, bookmark }}
+      value={{
+        movies,
+        loading,
+        setLoading,
+        trending,
+        recomended,
+        bookmarked,
+        isBookmarked,
+        setIsBookmarked,
+      }}
     >
       {children}
     </Context.Provider>

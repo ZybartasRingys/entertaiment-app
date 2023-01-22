@@ -1,7 +1,16 @@
 import React from "react";
 
-function Home() {
-  return <div>Home</div>;
-}
+import Search from "../Search";
+import Trending from "../Trending/Trending";
+import Recomended from "../Recomended/Recomended";
 
+function Home() {
+  return (
+    <>
+      <Search />
+      <Trending />
+      <Recomended />
+    </>
+  );
+}
 export default Home;

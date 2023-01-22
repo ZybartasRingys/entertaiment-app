@@ -16,9 +16,6 @@ import {
   IconContainer,
 } from "../styles/Trending.styled";
 
-//Loader Component
-import Loading from "../Loading";
-
 // Context
 import { useStateContext } from "../../Context/StateContext";
 /* Icons*/
@@ -29,17 +26,24 @@ import { ReactComponent as MovieIcon } from "../../assets/icon-category-movie.sv
 import { BsDot } from "react-icons/bs";
 
 function Card() {
-  const { recomended, bookmark } = useStateContext();
+  const { recomended, bookmark, isBookmarked, setIsBookmarked } =
+    useStateContext();
 
   return (
     <RecomendedContainer>
       {recomended.map((movie) => (
-        <RecomendedCard key={movie.id}>
+        <RecomendedCard key={movie._id}>
           <CardTop>
             <IconContainer>
-              <IconDiv type="button" onClick={bookmark}>
-                <BookEmpty />
-              </IconDiv>
+              {isBookmarked ? (
+                <IconDiv type="button" onClick={setIsBookmarked(true)}>
+                  <BookEmpty />
+                </IconDiv>
+              ) : (
+                <IconDiv type="button" onClick={setIsBookmarked(false)}>
+                  <BookFull />
+                </IconDiv>
+              )}
             </IconContainer>
           </CardTop>
 
