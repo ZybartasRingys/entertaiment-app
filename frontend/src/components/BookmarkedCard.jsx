@@ -25,11 +25,14 @@ import { ReactComponent as BookFull } from "../assets/icon-bookmark-full.svg";
 import { ReactComponent as TvIcon } from "../assets/icon-category-tv.svg";
 import { ReactComponent as MovieIcon } from "../assets/icon-category-movie.svg";
 import { BsDot } from "react-icons/bs";
-
-import { useState } from "react";
+import axios from "axios";
 
 function BookmarkedCard({ movie }) {
   const { title, isBookmarked, year, category, rating, _id } = movie;
+
+  const { areBookmarked, setAreBookmarked } = useStateContext();
+
+  console.log(areBookmarked);
 
   return (
     <div>
