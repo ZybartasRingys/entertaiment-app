@@ -9,11 +9,9 @@ export const StateContext = ({ children }) => {
   const [trending, setTrending] = useState([]);
   const [recomended, setRecomended] = useState([]);
   const [bookmarked, setBookmarked] = useState([]);
-  const [isBookmarked, setIsBookmarked] = useState(false);
+  const [areBookmarked, setAreBookmarked] = useState();
 
-  console.log(bookmarked);
-
-  // function to get Movies from database
+  /* Function to get all movies from mongodb*/
   useEffect(() => {
     /**
      * GetMovies() is an async function that uses axios to make a GET request to the /movies endpoint of
@@ -34,7 +32,7 @@ export const StateContext = ({ children }) => {
     getMovies();
   }, []);
 
-  // function to set trending movies
+  /* Function to set Trending movies*/
 
   useEffect(() => {
     /**
@@ -64,11 +62,14 @@ export const StateContext = ({ children }) => {
     setRecomendedMovies();
   }, [movies]);
 
+  /* Function to set Bookmarked movies*/
+
   useEffect(() => {
     const setbookmarkedMovies = () => {
       const bookmarkedMovies = movies.filter((movie) => movie.isBookmarked);
       setBookmarked(bookmarkedMovies);
     };
+
     setbookmarkedMovies();
   }, [movies]);
 
@@ -81,8 +82,6 @@ export const StateContext = ({ children }) => {
         trending,
         recomended,
         bookmarked,
-        isBookmarked,
-        setIsBookmarked,
       }}
     >
       {children}

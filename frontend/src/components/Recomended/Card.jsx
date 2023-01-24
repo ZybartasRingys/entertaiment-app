@@ -36,11 +36,11 @@ function Card() {
           <CardTop>
             <IconContainer>
               {isBookmarked ? (
-                <IconDiv type="button" onClick={setIsBookmarked(true)}>
+                <IconDiv type="button">
                   <BookEmpty />
                 </IconDiv>
               ) : (
-                <IconDiv type="button" onClick={setIsBookmarked(false)}>
+                <IconDiv type="button">
                   <BookFull />
                 </IconDiv>
               )}

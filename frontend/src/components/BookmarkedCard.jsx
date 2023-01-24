@@ -15,10 +15,10 @@ import {
   IconContainer,
 } from "./styles/Trending.styled";
 
-// Context
+/* Context*/
 import { useStateContext } from "../Context/StateContext";
 
-// icons
+/* Icons*/
 
 import { ReactComponent as BookEmpty } from "../assets/icon-bookmark-empty.svg";
 import { ReactComponent as BookFull } from "../assets/icon-bookmark-full.svg";
@@ -26,21 +26,23 @@ import { ReactComponent as TvIcon } from "../assets/icon-category-tv.svg";
 import { ReactComponent as MovieIcon } from "../assets/icon-category-movie.svg";
 import { BsDot } from "react-icons/bs";
 
+import { useState } from "react";
+
 function BookmarkedCard({ movie }) {
-  const { title } = movie;
-  const { isBookmarked, setIsBookmarked } = useStateContext();
+  const { title, isBookmarked, year, category, rating, _id } = movie;
+
   return (
     <div>
-      <RecomendedCard key={movie._id}>
+      <RecomendedCard key={_id}>
         <CardTop>
           <IconContainer>
             {isBookmarked ? (
-              <IconDiv type="button" onClick={setIsBookmarked(true)}>
-                <BookEmpty />
+              <IconDiv type="button">
+                <BookFull />
               </IconDiv>
             ) : (
-              <IconDiv type="button" onClick={setIsBookmarked(false)}>
-                <BookFull />
+              <IconDiv type="button">
+                <BookEmpty />
               </IconDiv>
             )}
           </IconContainer>
@@ -49,21 +51,21 @@ function BookmarkedCard({ movie }) {
         <CardBottom>
           <CardDiv>
             <Div>
-              <p>{movie.year}</p>
+              <p>{year}</p>
               <BsDot size={12} />
             </Div>
             <Div>
-              {movie.category === "Movie" ? <MovieIcon /> : <TvIcon />}
-              <p>{movie.category}</p>
+              {category === "Movie" ? <MovieIcon /> : <TvIcon />}
+              <p>{category}</p>
             </Div>
             <Div>
               <BsDot size={11} />
-              <p>{movie.rating}</p>
+              <p>{rating}</p>
             </Div>
           </CardDiv>
 
           <TitleDiv>
-            <h2>{movie.title}</h2>
+            <h2>{title}</h2>
           </TitleDiv>
         </CardBottom>
       </RecomendedCard>
