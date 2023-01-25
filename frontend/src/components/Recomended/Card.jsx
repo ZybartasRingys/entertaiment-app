@@ -6,7 +6,7 @@ import {
   CardBottom,
   CardDiv,
   RecomendedCard,
-} from "../styles/Recomended.styled";
+} from '../styles/Recomended.styled'
 
 /* Styled Componenets imports*/
 import {
@@ -14,63 +14,56 @@ import {
   TitleDiv,
   Div,
   IconContainer,
-} from "../styles/Trending.styled";
+} from '../styles/Trending.styled'
 
-// Context
-import { useStateContext } from "../../Context/StateContext";
 /* Icons*/
-import { ReactComponent as BookEmpty } from "../../assets/icon-bookmark-empty.svg";
-import { ReactComponent as BookFull } from "../../assets/icon-bookmark-full.svg";
-import { ReactComponent as TvIcon } from "../../assets/icon-category-tv.svg";
-import { ReactComponent as MovieIcon } from "../../assets/icon-category-movie.svg";
-import { BsDot } from "react-icons/bs";
+import { ReactComponent as BookEmpty } from '../../assets/icon-bookmark-empty.svg'
+import { ReactComponent as BookFull } from '../../assets/icon-bookmark-full.svg'
+import { ReactComponent as TvIcon } from '../../assets/icon-category-tv.svg'
+import { ReactComponent as MovieIcon } from '../../assets/icon-category-movie.svg'
+import { BsDot } from 'react-icons/bs'
 
-function Card() {
-  const { recomended, bookmark, isBookmarked, setIsBookmarked } =
-    useStateContext();
+function Card({ movie }) {
+  const { title, _id, isBookmarked, year, category, rating } = movie
 
   return (
-    <RecomendedContainer>
-      {recomended.map((movie) => (
-        <RecomendedCard key={movie._id}>
-          <CardTop>
-            <IconContainer>
-              {isBookmarked ? (
-                <IconDiv type="button">
-                  <BookEmpty />
-                </IconDiv>
-              ) : (
-                <IconDiv type="button">
-                  <BookFull />
-                </IconDiv>
-              )}
-            </IconContainer>
-          </CardTop>
+    <RecomendedCard key={_id}>
+      <CardTop>
+        <IconContainer>
+          {isBookmarked ? (
+            <IconDiv type='button'>
+              <BookFull />
+            </IconDiv>
+          ) : (
+            <IconDiv type='button'>
+              <BookEmpty />
+            </IconDiv>
+          )}
+        </IconContainer>
+      </CardTop>
 
-          <CardBottom>
-            <CardDiv>
-              <Div>
-                <p>{movie.year}</p>
-                <BsDot size={12} />
-              </Div>
-              <Div>
-                {movie.category === "Movie" ? <MovieIcon /> : <TvIcon />}
-                <p>{movie.category}</p>
-              </Div>
-              <Div>
-                <BsDot size={11} />
-                <p>{movie.rating}</p>
-              </Div>
-            </CardDiv>
+      <CardBottom>
+        <CardDiv>
+          <Div>
+            <p>{year}</p>
+            <BsDot size={12} />
+          </Div>
+          <Div>
+            {category === 'Movie' ? <MovieIcon /> : <TvIcon />}
+            <p>{category}</p>
+          </Div>
+          <Div>
+            <BsDot size={11} />
+            <p>{rating}</p>
+          </Div>
+        </CardDiv>
 
-            <TitleDiv>
-              <h2>{movie.title}</h2>
-            </TitleDiv>
-          </CardBottom>
-        </RecomendedCard>
-      ))}
-    </RecomendedContainer>
-  );
+        <TitleDiv>
+          <h2>{title}</h2>
+        </TitleDiv>
+      </CardBottom>
+    </RecomendedCard>
+  )
 }
 
-export default Card;
+export default Card
