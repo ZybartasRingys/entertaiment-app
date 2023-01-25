@@ -26,7 +26,7 @@ export const updateMovie = async (req, res) => {
       },
       { new: true }
     );
-    res.status(200).json(updatedMovie);
+    res.status(200).json(req.params.id);
   } catch (error) {
     console.log(error.message);
   }

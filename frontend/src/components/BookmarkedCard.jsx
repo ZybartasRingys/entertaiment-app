@@ -4,42 +4,53 @@ import {
   CardBottom,
   CardDiv,
   RecomendedCard,
-} from './styles/Recomended.styled'
+} from "./styles/Recomended.styled";
 
 /* Styled Componenets imports*/
 
-import { IconDiv, TitleDiv, Div, IconContainer } from './styles/Trending.styled'
+import {
+  IconDiv,
+  TitleDiv,
+  Div,
+  IconContainer,
+} from "./styles/Trending.styled";
 
 /* Context*/
-import { useStateContext } from '../Context/StateContext'
+import { useStateContext } from "../Context/StateContext";
 
 /* Icons*/
 
-import { ReactComponent as BookEmpty } from '../assets/icon-bookmark-empty.svg'
-import { ReactComponent as BookFull } from '../assets/icon-bookmark-full.svg'
-import { ReactComponent as TvIcon } from '../assets/icon-category-tv.svg'
-import { ReactComponent as MovieIcon } from '../assets/icon-category-movie.svg'
-import { BsDot } from 'react-icons/bs'
-import axios from 'axios'
+import { ReactComponent as BookEmpty } from "../assets/icon-bookmark-empty.svg";
+import { ReactComponent as BookFull } from "../assets/icon-bookmark-full.svg";
+import { ReactComponent as TvIcon } from "../assets/icon-category-tv.svg";
+import { ReactComponent as MovieIcon } from "../assets/icon-category-movie.svg";
+import { BsDot } from "react-icons/bs";
+import axios from "axios";
 
 function BookmarkedCard({ movie }) {
-  const { title, isBookmarked, year, category, rating, _id } = movie
+  const { title, isBookmarked, year, category, rating, _id } = movie;
 
-  const { areBookmarked, setAreBookmarked } = useStateContext()
+  const { areBookmarked, setAreBookmarked } = useStateContext();
 
-  console.log(areBookmarked)
+  const setBookmark = () => {
+    axios.put(
+      `'http://localhost:5000/movies/${_id}'`,
+      { $set: isBookmarked },
+      { new: true }
+    );
+  };
 
   return (
-    <>
+    <div>
       <RecomendedCard key={_id}>
         <CardTop>
           <IconContainer>
             {isBookmarked ? (
-              <IconDiv type='button'>
+              <IconDiv type="button" onClick={setBookmark}>
                 <BookFull />
               </IconDiv>
             ) : (
-              <IconDiv type='button'>
+              <IconDiv type="button">
                 <BookEmpty />
               </IconDiv>
             )}
@@ -53,7 +64,7 @@ function BookmarkedCard({ movie }) {
               <BsDot size={12} />
             </Div>
             <Div>
-              {category === 'Movie' ? <MovieIcon /> : <TvIcon />}
+              {category === "Movie" ? <MovieIcon /> : <TvIcon />}
               <p>{category}</p>
             </Div>
             <Div>
@@ -67,8 +78,8 @@ function BookmarkedCard({ movie }) {
           </TitleDiv>
         </CardBottom>
       </RecomendedCard>
-    </>
-  )
+    </div>
+  );
 }
 
-export default BookmarkedCard
+export default BookmarkedCard;
