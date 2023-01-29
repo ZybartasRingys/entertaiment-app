@@ -32,12 +32,19 @@ function BookmarkedCard({ movie }) {
 
   const { areBookmarked, setAreBookmarked } = useStateContext();
 
-  const setBookmark = () => {
-    axios.put(
-      `'http://localhost:5000/movies/${_id}'`,
-      { $set: isBookmarked },
-      { new: true }
-    );
+  const removeBookmark = async () => {
+    try {
+      const response = await axios({
+        method: "PUT",
+        url: `http://localhost:5000/movies/${_id}`,
+        data: {
+          isBookmarked: false,
+        },
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -46,7 +53,7 @@ function BookmarkedCard({ movie }) {
         <CardTop>
           <IconContainer>
             {isBookmarked ? (
-              <IconDiv type="button" onClick={setBookmark}>
+              <IconDiv type="button" onClick={removeBookmark}>
                 <BookFull />
               </IconDiv>
             ) : (

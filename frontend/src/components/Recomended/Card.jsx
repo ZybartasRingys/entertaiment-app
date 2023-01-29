@@ -22,22 +22,39 @@ import { ReactComponent as BookFull } from "../../assets/icon-bookmark-full.svg"
 import { ReactComponent as TvIcon } from "../../assets/icon-category-tv.svg";
 import { ReactComponent as MovieIcon } from "../../assets/icon-category-movie.svg";
 import { BsDot } from "react-icons/bs";
-import Axios from "axios";
+import axios from "axios";
 
 function Card({ movie }) {
   const { title, _id, isBookmarked, year, category, rating } = movie;
 
-  const setBookmark = () => {
-    Axios({
-      method: "put",
-      url: `http://localhost:5000/movies/${_id},  { $set: isBookmarked: true },
-      { new: true }`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((res) => {
-      console.log(res.data.message);
-    });
+  const setBookmark = async () => {
+    try {
+      const response = await axios({
+        method: "PUT",
+        url: `http://localhost:5000/movies/${_id}`,
+        data: {
+          isBookmarked: true,
+        },
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const removeBookmark = async () => {
+    try {
+      const response = await axios({
+        method: "PUT",
+        url: `http://localhost:5000/movies/${_id}`,
+        data: {
+          isBookmarked: false,
+        },
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -45,7 +62,7 @@ function Card({ movie }) {
       <CardTop>
         <IconContainer>
           {isBookmarked ? (
-            <IconDiv type="button" onClick={setBookmark}>
+            <IconDiv type="button" onClick={removeBookmark}>
               <BookFull />
             </IconDiv>
           ) : (
