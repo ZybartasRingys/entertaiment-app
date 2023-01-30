@@ -23,9 +23,9 @@ function App() {
           <Route path="/Movies" element={<Movies />} />
           <Route path="/TvSeries" element={<TvSeries />} />
           <Route path="/Bookmarked" element={<Bookmarked />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/Register" element={<Register />} />
         </Route>
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Register" element={<Register />} />
       </Routes>
     </Router>
   );
