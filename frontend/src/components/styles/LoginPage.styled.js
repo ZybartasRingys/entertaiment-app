@@ -1,16 +1,14 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-export const LoginPage = styled.div`
-  width: 100%;
-  height: 100vh;
-  border: 1px solid white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
+import { RegisterContainer, RegisterFormContainer } from "./Register.styled";
 
-export const LoginContainer = styled.div`
-  width: 400px;
-  height: 373px;
-  border: 1px solid white;
-`
+export const LoginContainer = styled(RegisterContainer)``;
+
+export const LoginFormContainer = styled(RegisterFormContainer)`
+  max-height: 365px;
+  padding-top: 24px;
+
+  h1 {
+    margin-bottom: 35px;
+  }
+`;
