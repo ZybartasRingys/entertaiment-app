@@ -9,7 +9,6 @@ export const StateContext = ({ children }) => {
   const [trending, setTrending] = useState([]);
   const [recomended, setRecomended] = useState([]);
   const [bookmarked, setBookmarked] = useState([]);
-  const [areBookmarked, setAreBookmarked] = useState();
 
   /* Function to get all movies from mongodb*/
   useEffect(() => {
@@ -68,10 +67,6 @@ export const StateContext = ({ children }) => {
     const setbookmarkedMovies = () => {
       const bookmarkedMovies = movies.filter((movie) => movie.isBookmarked);
       setBookmarked(bookmarkedMovies);
-
-      bookmarkedMovies.map((bookmarkedMovie) =>
-        setAreBookmarked(bookmarkedMovie.isBookmarked)
-      );
     };
 
     setbookmarkedMovies();
@@ -86,8 +81,6 @@ export const StateContext = ({ children }) => {
         trending,
         recomended,
         bookmarked,
-        areBookmarked,
-        setAreBookmarked,
       }}
     >
       {children}

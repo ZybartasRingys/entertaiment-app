@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 /* Styled Componenets imports*/
 import {
   CardTop,
@@ -30,7 +31,7 @@ import axios from "axios";
 function BookmarkedCard({ movie }) {
   const { title, isBookmarked, year, category, rating, _id } = movie;
 
-  const { areBookmarked, setAreBookmarked } = useStateContext();
+  const { bookmarked, setBookmarked } = useStateContext();
 
   const removeBookmark = async () => {
     try {

@@ -7,7 +7,6 @@ import Recomended from "../Recomended/Recomended";
 function Home() {
   return (
     <>
-      <Search />
       <Trending />
       <Recomended />
     </>

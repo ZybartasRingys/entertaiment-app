@@ -1,6 +1,7 @@
 import Header from "./Header";
 
 import { Outlet } from "react-router-dom";
+import Search from "./Search";
 
 export default function Layout({ children }) {
   return (
@@ -8,7 +9,9 @@ export default function Layout({ children }) {
       <header>
         <Header />
       </header>
-
+      <nav>
+        <Search />
+      </nav>
       <Outlet />
     </>
   );
