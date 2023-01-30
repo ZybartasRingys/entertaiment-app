@@ -13,7 +13,6 @@ function Movies() {
   const { movies } = useStateContext();
 
   const filteredMovies = movies.filter((movie) => movie.category === "Movie");
-  console.log(filteredMovies);
 
   const movieCard = filteredMovies.map((movie) => {
     return <MovieCard key={movie._id} movie={movie} />;

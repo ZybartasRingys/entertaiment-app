@@ -1,12 +1,18 @@
 import "./App.css";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
+/* Router  imports */
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+/* Layout */
+import Layout from "./components/Layout";
+/* Pages */
 import Home from "./components/Pages/Home";
 import Movies from "./components/Pages/Movies";
 import TvSeries from "./components/Pages/TvSeries";
 import Bookmarked from "./components/Pages/Bookmarked";
+import Login from "./components/Pages/Login";
+import Register from "./components/Pages/Register";
 
 function App() {
   return (
@@ -17,6 +23,8 @@ function App() {
           <Route path="/Movies" element={<Movies />} />
           <Route path="/TvSeries" element={<TvSeries />} />
           <Route path="/Bookmarked" element={<Bookmarked />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/Register" element={<Register />} />
         </Route>
       </Routes>
     </Router>
