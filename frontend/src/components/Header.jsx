@@ -11,7 +11,9 @@ function Header() {
   return (
     <NavContainer>
       <Div>
-        <Logo height={20} width={25} />
+        <Link to="/">
+          <Logo height={20} width={25} />
+        </Link>
       </Div>
       <IconsDiv>
         <Link to="/">

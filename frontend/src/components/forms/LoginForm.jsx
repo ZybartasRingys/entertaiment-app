@@ -19,7 +19,7 @@ function LoginForm() {
         <Input placeholder="Password"></Input>
         <SubmitButton>Login to your account</SubmitButton>
         <FormText>
-          Don't have an account? <LoginLink> Sign Up</LoginLink>
+          Don't have an account? <LoginLink to="/Register"> Sign Up</LoginLink>
         </FormText>
       </Form>
     </LoginFormContainer>
