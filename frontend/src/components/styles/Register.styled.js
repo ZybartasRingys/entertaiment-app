@@ -48,10 +48,19 @@ export const Form = styled.form`
   }
 `;
 
+export const InputContainer = styled.div`
+  border-bottom: 1px solid grey;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 37px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+  }
+`;
 export const Input = styled.input`
   background-color: #161d2f;
   border: none;
-  border-bottom: 1px solid grey;
   padding-left: 16px;
   color: #ffffff;
 
@@ -59,9 +68,8 @@ export const Input = styled.input`
     outline: none !important;
   }
   @media (max-width: 768px) {
-    width: 100%;
-    height: 37px;
-    margin-bottom: 24px;
+    width: 70%;
+    height: 100%;
   }
 `;
 
@@ -98,4 +106,19 @@ export const LoginLink = styled(Link)`
   color: #fc4747;
   font-size: 15px;
   font-weight: 300;
+`;
+
+/* Register form styling */
+
+export const ErrorMsg = styled.p`
+  font-size: 11px;
+  color: #fc4747;
+
+  @media (max-width: 768px) {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
