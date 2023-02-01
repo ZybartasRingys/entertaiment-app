@@ -63,7 +63,7 @@ export const Input = styled.input`
   border: none;
   padding-left: 16px;
   color: #ffffff;
-
+  caret-color: #fc4747;
   &:focus {
     outline: none !important;
   }

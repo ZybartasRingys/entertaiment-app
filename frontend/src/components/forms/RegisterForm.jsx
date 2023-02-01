@@ -1,5 +1,6 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+
+/* Styled components */
 
 import {
   RegisterFormContainer,
@@ -11,6 +12,10 @@ import {
   LoginLink,
   ErrorMsg,
 } from "../styles/Register.styled";
+
+/* React hook form */
+
+import { useForm } from "react-hook-form";
 
 function RegisterForm() {
   const {
