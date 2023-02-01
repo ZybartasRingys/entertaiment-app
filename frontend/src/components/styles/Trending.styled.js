@@ -25,7 +25,6 @@ export const TrendingSection = styled.section`
 export const CardContainer = styled.div`
   border-radius: 8px;
   display: flex;
-  border: 1px solid white;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -62,7 +61,6 @@ export const IconDiv = styled.button`
   background-color: #10141e;
   opacity: 0.5;
   cursor: pointer;
-  border: 1px solid white;
 
   &:hover {
     background-color: #ffffff;
@@ -95,7 +93,6 @@ export const TextContainer = styled.div`
 /* Trending card  text div*/
 export const TextDiv = styled.div`
   display: flex;
-  border: 1px solid white;
 
   @media (max-width: 768px) {
     width: 60%;

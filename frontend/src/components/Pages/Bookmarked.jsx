@@ -1,7 +1,7 @@
 import React from "react";
 
 /* Styled components import*/
-import { CardsContainer } from "../styles/Cards.styled";
+import { CardsContainer, CardsSection } from "../styles/Cards.styled";
 
 /* Context*/
 import { useStateContext } from "../../Context/StateContext";
@@ -16,7 +16,11 @@ function Bookmarked() {
     <BookmarkedCard key={movie._id} movie={movie} />
   ));
 
-  return <CardsContainer>{bookmarkedCard}</CardsContainer>;
+  return (
+    <CardsSection>
+      <CardsContainer>{bookmarkedCard}</CardsContainer>
+    </CardsSection>
+  );
 }
 
 export default Bookmarked;

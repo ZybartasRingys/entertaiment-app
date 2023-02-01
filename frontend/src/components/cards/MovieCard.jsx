@@ -24,10 +24,16 @@ import { ReactComponent as MovieIcon } from "../../assets/icon-category-movie.sv
 import { BsDot } from "react-icons/bs";
 
 function MovieCard({ movie }) {
-  const { title, year, category, rating, _id } = movie;
+  const { title, year, category, rating, _id, thumbnail } = movie;
   return (
     <RecomendedCard key={_id}>
-      <CardTop>
+      <CardTop
+        style={{
+          backgroundImage: `url(/public/${thumbnail.regular.small})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
         <IconContainer></IconContainer>
       </CardTop>
 

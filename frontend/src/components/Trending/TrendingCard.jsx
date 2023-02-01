@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import {
   CardContainer,
   IconDiv,
@@ -22,7 +21,7 @@ import { Carousel } from "react-responsive-carousel";
 import { useStateContext } from "../../Context/StateContext";
 
 function TrendingCard() {
-  const { loading, setLoading, trending } = useStateContext();
+  const { trending } = useStateContext();
 
   return (
     <Carousel
@@ -34,7 +33,14 @@ function TrendingCard() {
       showStatus={false}
     >
       {trending.map((trendingMovie, id) => (
-        <CardContainer key={id}>
+        <CardContainer
+          key={id}
+          style={{
+            backgroundImage: `url(/public/${trendingMovie.thumbnail.trending.small})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+          }}
+        >
           <IconContainer>
             <IconDiv>
               <BookmarkIcon />

@@ -29,7 +29,7 @@ import { BsDot } from "react-icons/bs";
 import axios from "axios";
 
 function BookmarkedCard({ movie }) {
-  const { title, isBookmarked, year, category, rating, _id } = movie;
+  const { title, isBookmarked, year, category, rating, _id, thumbnail } = movie;
 
   const { bookmarked, setBookmarked } = useStateContext();
 
@@ -51,7 +51,13 @@ function BookmarkedCard({ movie }) {
   return (
     <div>
       <RecomendedCard key={_id}>
-        <CardTop>
+        <CardTop
+          style={{
+            backgroundImage: `url(/public/${thumbnail.regular.small})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+          }}
+        >
           <IconContainer>
             {isBookmarked ? (
               <IconDiv type="button" onClick={removeBookmark}>

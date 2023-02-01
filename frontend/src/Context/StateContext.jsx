@@ -81,6 +81,7 @@ export const StateContext = ({ children }) => {
         trending,
         recomended,
         bookmarked,
+        setBookmarked,
       }}
     >
       {children}

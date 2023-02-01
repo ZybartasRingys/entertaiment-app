@@ -23,8 +23,12 @@ import { ReactComponent as MovieIcon } from "../../assets/icon-category-movie.sv
 import { BsDot } from "react-icons/bs";
 import axios from "axios";
 
+/* Context*/
+import { useStateContext } from "../../Context/StateContext";
+
 function Card({ movie }) {
-  const { title, _id, isBookmarked, year, category, rating } = movie;
+  const { title, _id, isBookmarked, year, category, rating, thumbnail } = movie;
+  const { bookmarked, setBookmarked } = useStateContext();
 
   const setBookmark = async () => {
     try {
@@ -58,7 +62,13 @@ function Card({ movie }) {
 
   return (
     <RecomendedCard key={_id}>
-      <CardTop>
+      <CardTop
+        style={{
+          backgroundImage: `url(/public/${thumbnail.regular.small})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
         <IconContainer>
           {isBookmarked ? (
             <IconDiv type="button" onClick={removeBookmark}>

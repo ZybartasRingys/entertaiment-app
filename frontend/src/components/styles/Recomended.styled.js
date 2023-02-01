@@ -44,7 +44,7 @@ export const RecomendedCard = styled.div`
 
 export const CardTop = styled.div`
   border-radius: 8px;
-  border: 1px solid white;
+
   @media (max-width: 768px) {
     width: 100%;
     max-width: 164px;
