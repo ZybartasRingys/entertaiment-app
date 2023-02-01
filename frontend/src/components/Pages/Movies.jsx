@@ -1,7 +1,7 @@
 import React from "react";
 
 /* Styled component*/
-import { CardsContainer } from "../styles/Cards.styled";
+import { CardsSection, CardsContainer } from "../styles/Cards.styled";
 
 /* Context*/
 import { useStateContext } from "../../Context/StateContext";
@@ -17,7 +17,11 @@ function Movies() {
   const movieCard = filteredMovies.map((movie) => {
     return <MovieCard key={movie._id} movie={movie} />;
   });
-  return <CardsContainer>{movieCard}</CardsContainer>;
+  return (
+    <CardsSection>
+      <CardsContainer>{movieCard}</CardsContainer>
+    </CardsSection>
+  );
 }
 
 export default Movies;

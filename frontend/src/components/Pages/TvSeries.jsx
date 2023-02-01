@@ -1,7 +1,7 @@
 import React from "react";
 
 /* Styled component*/
-import { CardsContainer } from "../styles/Cards.styled";
+import { CardsSection, CardsContainer } from "../styles/Cards.styled";
 
 /* Context*/
 import { useStateContext } from "../../Context/StateContext";
@@ -19,7 +19,11 @@ function TvSeries() {
     return <TvSeriesCard key={movie._id} movie={movie} />;
   });
 
-  return <CardsContainer>{tvSeriesCard}</CardsContainer>;
+  return (
+    <CardsSection>
+      <CardsContainer>{tvSeriesCard}</CardsContainer>
+    </CardsSection>
+  );
 }
 
 export default TvSeries;

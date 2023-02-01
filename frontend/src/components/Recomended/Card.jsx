@@ -1,7 +1,6 @@
 /* Styled Componenets imports*/
 
 import {
-  RecomendedContainer,
   CardTop,
   CardBottom,
   CardDiv,

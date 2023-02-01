@@ -1,13 +1,14 @@
 import styled, { createGlobalStyle } from "styled-components";
 
-export const CardsContainer = styled.div`
-  width: 100%;
-  height: 100%;
+import {
+  RecomendedSection,
+  RecomendedContainer,
+  RecomendedCard,
+} from "./Recomended.styled";
 
-  @media (max-width: 768px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-top: 30px;
-  }
-`;
+/* Recomended Section and Container */
+export const CardsSection = styled(RecomendedSection)``;
+
+export const CardsContainer = styled(RecomendedContainer)``;
+
+/* Cards styling */
