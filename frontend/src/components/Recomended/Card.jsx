@@ -1,4 +1,4 @@
-/* Styled Componenets imports*/
+/* Styled Components imports*/
 
 import {
   CardTop,
@@ -7,7 +7,7 @@ import {
   RecomendedCard,
 } from "../styles/Recomended.styled";
 
-/* Styled Componenets imports*/
+/* Styled Components imports*/
 import {
   IconDiv,
   TitleDiv,

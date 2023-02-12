@@ -1,4 +1,6 @@
 import React from "react";
+
+/* Styled components inputs*/
 import {
   RecomendedSection,
   RecomendedContainer,
@@ -9,10 +11,17 @@ import Card from "./Card";
 import { useStateContext } from "../../Context/StateContext";
 
 function Recomended() {
-  const { recomended, searchResults } = useStateContext();
+  const { searchResults } = useStateContext();
 
-  const recomendedCard = searchResults.map((movie) => (
-    <Card key={movie._id} movie={movie} />
+  /* Filtering through the searchResults array and returning a new array with only the movies that have
+  isTrending set to false. */
+  const filteredRecomendedMovies = searchResults.filter(
+    (movie) => movie.isTrending === false
+  );
+
+  /* Mapping through the filteredRecomendedMovies array and returning a Card component for each movie. */
+  const recomendedCard = filteredRecomendedMovies.map((movie) => (
+    <Card movie={movie} key={movie._id} />
   ));
 
   return (

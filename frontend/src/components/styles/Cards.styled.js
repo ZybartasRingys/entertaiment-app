@@ -1,10 +1,6 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
-import {
-  RecomendedSection,
-  RecomendedContainer,
-  RecomendedCard,
-} from "./Recomended.styled";
+import { RecomendedSection, RecomendedContainer } from "./Recomended.styled";
 
 /* Recomended Section and Container */
 export const CardsSection = styled(RecomendedSection)``;

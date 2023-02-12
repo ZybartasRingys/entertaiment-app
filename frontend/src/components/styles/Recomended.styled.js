@@ -37,6 +37,7 @@ export const RecomendedCard = styled.div`
     max-width: 164px;
     height: 100%;
     max-height: 154px;
+    margin-bottom: 20px;
   }
 `;
 

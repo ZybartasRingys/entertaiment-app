@@ -10,8 +10,7 @@ export const StateContext = ({ children }) => {
   const [recomended, setRecomended] = useState([]);
   const [bookmarked, setBookmarked] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
-
-  const inputRef = useRef("");
+  const [showAuth, setShowAuth] = useState(false);
 
   /* Function to get all movies from mongodb*/
   useEffect(() => {
@@ -25,6 +24,7 @@ export const StateContext = ({ children }) => {
         const response = await axios.get(`http://localhost:5000/movies`);
 
         setMovies(response.data);
+        setSearchResults(response.data);
 
         setLoading(false);
       } catch (error) {
@@ -54,23 +54,6 @@ export const StateContext = ({ children }) => {
     setTrendingMovies();
   }, [movies]);
 
-  /* Function to set Recommended movies*/
-
-  useEffect(() => {
-    const setRecomendedMovies = () => {
-      const recomendedMovies = movies.filter(
-        (movie) => movie.isTrending !== true
-      );
-
-      setRecomended(recomendedMovies);
-      setSearchResults(recomendedMovies);
-    };
-
-    setRecomendedMovies();
-  }, [movies]);
-
-  /* Function to set Bookmarked movies*/
-
   useEffect(() => {
     const setbookmarkedMovies = () => {
       const bookmarkedMovies = movies.filter((movie) => movie.isBookmarked);
@@ -90,7 +73,7 @@ export const StateContext = ({ children }) => {
         recomended,
         bookmarked,
         setBookmarked,
-        inputRef,
+
         searchResults,
         setSearchResults,
       }}

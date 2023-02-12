@@ -1,3 +1,5 @@
+/* Styled components inputs*/
+
 import { SearchInput, SearchContainer } from "./styles/Search.styled";
 import { ReactComponent as SearchIcon } from "../assets/icon-search.svg";
 
@@ -5,8 +7,7 @@ import { ReactComponent as SearchIcon } from "../assets/icon-search.svg";
 import { useStateContext } from "../Context/StateContext";
 
 function Search() {
-  const { inputRef, recomended, searchResults, setSearchResults } =
-    useStateContext();
+  const { movies, searchResults, setSearchResults } = useStateContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,14 +20,10 @@ function Search() {
    * @returns The searchResults array is being returned.
    */
   const handleSearchChange = (e) => {
-    const inputValue = e.target.value;
-    console.log(inputValue);
-    if (!e.target.value) {
-      setSearchResults(recomended);
-    }
+    if (!e.target.value) return setSearchResults(movies);
 
-    const resultsArray = recomended.filter((movie) =>
-      movie.title.trim().includes(e.target.value)
+    const resultsArray = movies.filter((movie) =>
+      movie.title.trim().toLowerCase().includes(e.target.value)
     );
 
     setSearchResults(resultsArray);
@@ -36,7 +33,6 @@ function Search() {
     <SearchContainer onSubmit={handleSubmit}>
       <SearchIcon />
       <SearchInput
-        ref={inputRef}
         placeholder="Search for movies or TV series"
         onChange={handleSearchChange}
       ></SearchInput>
