@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 /* Search input Container */
 
-export const SearchContainer = styled.div`
+export const SearchContainer = styled.form`
   width: 100%;
   height: 100%;
   @media (max-width: 768px) {
@@ -23,6 +23,7 @@ export const SearchInput = styled.input`
   line-height: 20px;
   width: 100%;
   padding-left: 15px;
+  caret-color: #fc4747;
 
   &:focus {
     text-decoration: underline;

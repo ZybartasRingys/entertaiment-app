@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, useRef } from "react";
 import axios from "axios";
 
 const Context = createContext();
@@ -9,6 +9,9 @@ export const StateContext = ({ children }) => {
   const [trending, setTrending] = useState([]);
   const [recomended, setRecomended] = useState([]);
   const [bookmarked, setBookmarked] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+
+  const inputRef = useRef("");
 
   /* Function to get all movies from mongodb*/
   useEffect(() => {
@@ -22,6 +25,7 @@ export const StateContext = ({ children }) => {
         const response = await axios.get(`http://localhost:5000/movies`);
 
         setMovies(response.data);
+
         setLoading(false);
       } catch (error) {
         console.log(error.message);
@@ -38,6 +42,7 @@ export const StateContext = ({ children }) => {
      * The setTrendingMovies function filters through the movies array and returns the movies that have
      * a property of isTrending set to true.
      */
+
     const setTrendingMovies = () => {
       const trendingMovies = movies.filter(
         (trendingMovie) => trendingMovie.isTrending === true
@@ -49,6 +54,8 @@ export const StateContext = ({ children }) => {
     setTrendingMovies();
   }, [movies]);
 
+  /* Function to set Recommended movies*/
+
   useEffect(() => {
     const setRecomendedMovies = () => {
       const recomendedMovies = movies.filter(
@@ -56,6 +63,7 @@ export const StateContext = ({ children }) => {
       );
 
       setRecomended(recomendedMovies);
+      setSearchResults(recomendedMovies);
     };
 
     setRecomendedMovies();
@@ -82,6 +90,9 @@ export const StateContext = ({ children }) => {
         recomended,
         bookmarked,
         setBookmarked,
+        inputRef,
+        searchResults,
+        setSearchResults,
       }}
     >
       {children}
