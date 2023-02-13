@@ -7,7 +7,6 @@ export const StateContext = ({ children }) => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [trending, setTrending] = useState([]);
-  const [recomended, setRecomended] = useState([]);
   const [bookmarked, setBookmarked] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [showAuth, setShowAuth] = useState(false);
@@ -70,10 +69,8 @@ export const StateContext = ({ children }) => {
         loading,
         setLoading,
         trending,
-        recomended,
         bookmarked,
         setBookmarked,
-
         searchResults,
         setSearchResults,
       }}

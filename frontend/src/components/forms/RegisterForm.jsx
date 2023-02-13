@@ -17,6 +17,8 @@ import {
 
 import { useForm } from "react-hook-form";
 
+import axios from "axios";
+
 function RegisterForm() {
   const {
     register,
@@ -25,14 +27,19 @@ function RegisterForm() {
     getValues,
     formState: { errors },
   } = useForm();
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post("http://localhost:5000/user", data);
+      console.log(response.data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   return (
     <RegisterFormContainer>
       <h1>Sign Up</h1>
-      <Form
-        onSubmit={handleSubmit((data) => {
-          console.log(data);
-        })}
-      >
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <InputContainer>
           <Input
             {...register("email", {
@@ -49,7 +56,7 @@ function RegisterForm() {
         </InputContainer>
         <InputContainer>
           <Input
-            {...register("pass", {
+            {...register("password", {
               required: "Can't be empty",
               minLength: {
                 value: 8,
@@ -59,11 +66,11 @@ function RegisterForm() {
             placeholder="Password"
             type="password"
           ></Input>
-          <ErrorMsg>{errors.pass?.message}</ErrorMsg>
+          <ErrorMsg>{errors.password?.message}</ErrorMsg>
         </InputContainer>
         <InputContainer>
           <Input
-            {...register("comfirmedPass", {
+            {...register("comfirmedPassword", {
               required: "Can't be empty",
               minLength: {
                 value: 8,
@@ -77,7 +84,7 @@ function RegisterForm() {
           {watch("pass") !== watch("comfirmedPass") && getValues("pass") ? (
             <ErrorMsg>Wrong pass</ErrorMsg>
           ) : (
-            <ErrorMsg>{errors.comfirmedPass?.message}</ErrorMsg>
+            <ErrorMsg>{errors.comfirmedPassword?.message}</ErrorMsg>
           )}
         </InputContainer>
 
