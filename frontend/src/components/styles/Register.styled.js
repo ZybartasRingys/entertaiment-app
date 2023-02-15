@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+import { ToastContainer } from "react-toastify";
+
 export const RegisterContainer = styled.section`
   width: 100%;
   height: 100vh;
@@ -120,5 +122,14 @@ export const ErrorMsg = styled.p`
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+`;
+
+export const StyledToast = styled(ToastContainer)`
+  .Toastify__toast-body {
+    color: #fc4747;
+  }
+  .Toastify__progress-bar {
+    background-color: #fc4747;
   }
 `;

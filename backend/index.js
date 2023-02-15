@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
+import cookieParser from "cookie-parser";
 
 import getMovies from "./routes/moviesRoutes.js";
 import register from "./routes/userRoutes.js";
@@ -15,6 +16,7 @@ connectDB();
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
+app.use(cookieParser());
 
 app.use("/movies", getMovies);
 app.use("/user", register);

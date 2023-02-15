@@ -11,15 +11,22 @@ import {
   FormText,
   LoginLink,
   ErrorMsg,
+  StyledToast,
 } from "../styles/Register.styled";
 
 /* React hook form */
 
 import { useForm } from "react-hook-form";
-
+/* Axios */
 import axios from "axios";
+/* React toast */
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import { useNavigate } from "react-router-dom";
 
 function RegisterForm() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -28,6 +35,11 @@ function RegisterForm() {
     formState: { errors },
   } = useForm();
 
+  /**
+   * OnSubmit is an async function that takes in data, and then tries to post that data to the server.
+   * If it succeeds, it logs the response data to the console. If it fails, it logs the error message
+   * to the console.
+   */
   const onSubmit = async (data) => {
     try {
       const response = await axios.post("http://localhost:5000/user", data);
@@ -35,7 +47,22 @@ function RegisterForm() {
     } catch (error) {
       console.log(error.message);
     }
+
+    /* Redirecting the user to the login page after 3 seconds. */
+    setTimeout(() => navigate("/Login"), 3500);
   };
+
+  const notify = () =>
+    toast.success("Account register successful!", {
+      position: "bottom-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   return (
     <RegisterFormContainer>
       <h1>Sign Up</h1>
@@ -88,10 +115,14 @@ function RegisterForm() {
           )}
         </InputContainer>
 
-        <SubmitButton type="submit">Create an account</SubmitButton>
+        <SubmitButton onClick={notify} type="submit">
+          Create an account
+        </SubmitButton>
         <FormText>
           Already have an account? <LoginLink to="/Login">Login</LoginLink>
         </FormText>
+
+        <StyledToast />
       </Form>
     </RegisterFormContainer>
   );
