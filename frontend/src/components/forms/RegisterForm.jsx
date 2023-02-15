@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 /* Styled components */
 
@@ -20,12 +20,13 @@ import { useForm } from "react-hook-form";
 /* Axios */
 import axios from "axios";
 /* React toast */
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { useNavigate } from "react-router-dom";
 
 function RegisterForm() {
+  const [errorMsg, setErrorMsg] = useState("");
   const navigate = useNavigate();
   const {
     register,
@@ -42,7 +43,10 @@ function RegisterForm() {
    */
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post("http://localhost:5000/user", data);
+      const response = await axios.post(
+        "http://localhost:5000/user/register",
+        data
+      );
       console.log(response.data);
     } catch (error) {
       console.log(error.message);
@@ -53,7 +57,7 @@ function RegisterForm() {
   };
 
   const notify = () =>
-    toast.success("Account register successful!", {
+    toast.success(`${errorMsg ? errorMsg : null}`, {
       position: "bottom-center",
       autoClose: 3000,
       hideProgressBar: false,

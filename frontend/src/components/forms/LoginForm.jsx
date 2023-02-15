@@ -16,6 +16,8 @@ import {
 /* React hook form */
 
 import { useForm } from "react-hook-form";
+/* Axios */
+import axios from "axios";
 
 function LoginForm() {
   const {
@@ -23,14 +25,23 @@ function LoginForm() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/user/login",
+        data
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   return (
     <LoginFormContainer>
       <h1>Login</h1>
-      <Form
-        onSubmit={handleSubmit((data) => {
-          console.log(data);
-        })}
-      >
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <InputContainer>
           <Input
             {...register("email", {
@@ -47,13 +58,15 @@ function LoginForm() {
         </InputContainer>
         <InputContainer>
           <Input
+            {...register("password", { required: "Can't be empty" })}
             placeholder="Password"
             type="password"
             autoComplete="off"
           ></Input>
+          <ErrorMsg>{errors.password?.message}</ErrorMsg>
         </InputContainer>
 
-        <SubmitButton>Login to your account</SubmitButton>
+        <SubmitButton type="submit">Login to your account</SubmitButton>
         <FormText>
           Don't have an account? <LoginLink to="/Register"> Sign Up</LoginLink>
         </FormText>
