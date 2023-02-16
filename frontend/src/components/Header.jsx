@@ -7,7 +7,13 @@ import { ReactComponent as TvSeriesIcon } from "../assets/icon-nav-tv-series.svg
 import { ReactComponent as BookmarkedIcon } from "../assets/icon-nav-bookmark.svg";
 import { ReactComponent as Logo } from "../assets/logo.svg";
 
+import { useLogout } from "../hooks/useLogout";
+
 function Header() {
+  const { logout } = useLogout();
+  const handleClick = () => {
+    logout();
+  };
   return (
     <NavContainer>
       <Div>
@@ -29,6 +35,10 @@ function Header() {
           <BookmarkedIcon />
         </Link>
       </IconsDiv>
+
+      <Div>
+        <button onClick={handleClick}>Log out</button>
+      </Div>
 
       <UserDiv></UserDiv>
     </NavContainer>
