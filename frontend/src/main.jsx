@@ -5,12 +5,15 @@ import "./index.css";
 
 import { GlobalStyles } from "../src/components/styles/Global.styled";
 import { StateContext } from "../src/Context/StateContext";
+import { AuthContextProvider } from "./Context/authContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <StateContext>
-      <GlobalStyles />
-      <App />
-    </StateContext>
+    <AuthContextProvider>
+      <StateContext>
+        <GlobalStyles />
+        <App />
+      </StateContext>
+    </AuthContextProvider>
   </React.StrictMode>
 );
