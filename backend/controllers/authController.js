@@ -25,7 +25,7 @@ export const register = async (req, res) => {
 
     /* Saving the new user to the database. */
     await newUser.save();
-    res.status(201).json("User has been created");
+    res.status(201).json("User have been created");
   } catch (error) {
     console.log(error);
   }

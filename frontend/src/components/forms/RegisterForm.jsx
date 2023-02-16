@@ -23,11 +23,11 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { useNavigate } from "react-router-dom";
+import { useRegisterForm } from "../../hooks/useRegisterForm";
 
 function RegisterForm() {
-  const [errorMsg, setErrorMsg] = useState("");
-  const navigate = useNavigate();
+  const { signup } = useRegisterForm();
+
   const {
     register,
     handleSubmit,
@@ -42,22 +42,14 @@ function RegisterForm() {
    * to the console.
    */
   const onSubmit = async (data) => {
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/user/register",
-        data
-      );
-      console.log(response.data);
-    } catch (error) {
-      console.log(error.message);
-    }
+    await signup(data);
 
     /* Redirecting the user to the login page after 3 seconds. */
-    setTimeout(() => navigate("/Login"), 3500);
+    // setTimeout(() => navigate("/Login"), 3500);
   };
 
   const notify = () =>
-    toast.success(`${errorMsg ? errorMsg : null}`, {
+    toast.success(`User have been created `, {
       position: "bottom-center",
       autoClose: 3000,
       hideProgressBar: false,
