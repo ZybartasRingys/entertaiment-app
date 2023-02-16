@@ -17,27 +17,38 @@ import {
 
 import { useForm } from "react-hook-form";
 /* Axios */
-import axios from "axios";
+
+/* React toast */
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import { useLogin } from "../../hooks/useLogin";
 
 function LoginForm() {
+  const { login } = useLogin();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  /* onSubmit function */
+
   const onSubmit = async (data) => {
-    console.log(data);
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/user/login",
-        data
-      );
-      console.log(response);
-    } catch (error) {
-      console.log(error.message);
-    }
+    await login(data);
   };
+  /* React toast function */
+  const notify = () =>
+    toast.success(`Login successful `, {
+      position: "bottom-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   return (
     <LoginFormContainer>
       <h1>Login</h1>
@@ -66,7 +77,9 @@ function LoginForm() {
           <ErrorMsg>{errors.password?.message}</ErrorMsg>
         </InputContainer>
 
-        <SubmitButton type="submit">Login to your account</SubmitButton>
+        <SubmitButton onClick={notify} type="submit">
+          Login to your account
+        </SubmitButton>
         <FormText>
           Don't have an account? <LoginLink to="/Register"> Sign Up</LoginLink>
         </FormText>

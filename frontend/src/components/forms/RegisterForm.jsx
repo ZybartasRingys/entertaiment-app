@@ -43,9 +43,6 @@ function RegisterForm() {
    */
   const onSubmit = async (data) => {
     await signup(data);
-
-    /* Redirecting the user to the login page after 3 seconds. */
-    // setTimeout(() => navigate("/Login"), 3500);
   };
 
   const notify = () =>
@@ -104,7 +101,8 @@ function RegisterForm() {
             type="password"
           ></Input>
 
-          {watch("pass") !== watch("comfirmedPass") && getValues("pass") ? (
+          {watch("password") !== watch("comfirmedPassword") &&
+          getValues("password") ? (
             <ErrorMsg>Wrong pass</ErrorMsg>
           ) : (
             <ErrorMsg>{errors.comfirmedPassword?.message}</ErrorMsg>
