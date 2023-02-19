@@ -31,3 +31,15 @@ export const updateMovie = async (req, res) => {
     console.log(error.message);
   }
 };
+
+// @desc    Bookmarked movies
+// @route   GET  /movies/:id
+// @access  Public
+
+export const getBookmarkedMovies = async (req, res) => {
+  try {
+    
+  } catch (error) {
+    
+  }
+}

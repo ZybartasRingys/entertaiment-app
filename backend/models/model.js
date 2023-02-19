@@ -8,6 +8,10 @@ const moviesSchema = mongoose.Schema({
   rating: String,
   isBookmarked: Boolean,
   isTrending: Boolean,
+  user_id: {
+    type: String,
+    required: true,
+  },
 });
 
 const movies = mongoose.model("movies", moviesSchema);

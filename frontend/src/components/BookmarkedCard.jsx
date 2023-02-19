@@ -26,6 +26,8 @@ import { ReactComponent as BookFull } from "../assets/icon-bookmark-full.svg";
 import { ReactComponent as TvIcon } from "../assets/icon-category-tv.svg";
 import { ReactComponent as MovieIcon } from "../assets/icon-category-movie.svg";
 import { BsDot } from "react-icons/bs";
+
+/* Icons*/
 import axios from "axios";
 
 function BookmarkedCard({ movie }) {

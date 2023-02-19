@@ -8,9 +8,12 @@ import { ReactComponent as BookmarkedIcon } from "../assets/icon-nav-bookmark.sv
 import { ReactComponent as Logo } from "../assets/logo.svg";
 
 import { useLogout } from "../hooks/useLogout";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 function Header() {
   const { logout } = useLogout();
+
+  const { user } = useAuthContext();
   const handleClick = () => {
     logout();
   };
@@ -31,14 +34,25 @@ function Header() {
         <Link to="/TvSeries">
           <TvSeriesIcon />
         </Link>
-        <Link to="/Bookmarked">
-          <BookmarkedIcon />
-        </Link>
+
+        {user ? (
+          <Link to="/Bookmarked">
+            <BookmarkedIcon />
+          </Link>
+        ) : null}
       </IconsDiv>
 
-      <Div>
-        <button onClick={handleClick}>Log out</button>
-      </Div>
+      {user ? (
+        <Div>
+          {user.email}
+          <button onClick={handleClick}>Log out</button>
+        </Div>
+      ) : (
+        <Div>
+          <Link to="/Register">Register</Link>
+          <Link to="/Login">Login</Link>
+        </Div>
+      )}
 
       <UserDiv></UserDiv>
     </NavContainer>
