@@ -1,4 +1,4 @@
-import movies from "../models/model.js";
+import model from "../models/model.js";
 
 // @desc    Get all movies
 // @route   GET /movies
@@ -6,7 +6,7 @@ import movies from "../models/model.js";
 
 export const getMovies = async (req, res) => {
   try {
-    const allMovies = await movies.find();
+    const allMovies = await model.find();
     res.status(200).json(allMovies);
   } catch (error) {
     console.log(error.message);
@@ -19,10 +19,14 @@ export const getMovies = async (req, res) => {
 
 export const updateMovie = async (req, res) => {
   try {
-    const updatedMovie = await movies.findByIdAndUpdate(
+    const user_id = req.user._id;
+    console.log(user_id);
+    const updatedMovie = await model.findByIdAndUpdate(
       req.params.id,
+
       {
         $set: req.body,
+        user_id,
       },
       { new: true }
     );
@@ -38,8 +42,5 @@ export const updateMovie = async (req, res) => {
 
 export const getBookmarkedMovies = async (req, res) => {
   try {
-    
-  } catch (error) {
-    
-  }
-}
+  } catch (error) {}
+};

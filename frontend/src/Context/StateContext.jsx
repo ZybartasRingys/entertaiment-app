@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, useRef } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 
 const Context = createContext();
@@ -9,7 +9,6 @@ export const StateContext = ({ children }) => {
   const [trending, setTrending] = useState([]);
   const [bookmarked, setBookmarked] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
-  const [showAuth, setShowAuth] = useState(false);
 
   /* Function to get all movies from mongodb*/
   useEffect(() => {
@@ -20,7 +19,7 @@ export const StateContext = ({ children }) => {
     const getMovies = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`http://localhost:5000/movies`);
+        const response = await axios.get("http://localhost:5000/movies", {});
 
         setMovies(response.data);
         setSearchResults(response.data);

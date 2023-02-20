@@ -1,5 +1,7 @@
 import jwt from "jsonwebtoken";
 import userModel from "../models/userModel.js";
+
+//
 export const requireAuth = async (req, res, next) => {
   // verify auth
   const { authorization } = req.headers;
@@ -14,10 +16,11 @@ export const requireAuth = async (req, res, next) => {
 
   try {
     /* Taking the _id from the token and assigning it to the _id variable. */
-    const { _id } = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    const { id } = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
     /* Assigning the user to the request object. */
-    req.user = await userModel.findOne({ _id }).select("_id");
+    req.user = await userModel.findOne({ _id: id });
+
     next();
   } catch (error) {
     console.log(error.message);

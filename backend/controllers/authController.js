@@ -40,6 +40,7 @@ export const login = async (req, res) => {
   try {
     /* Finding the user in the database. */
     const user = await userModel.findOne({ email });
+
     if (!user) console.log("no user found");
     /* Comparing the password that the user entered with the password that is stored in the database. */
     const isPwdCorrect = await bcrypt.compare(req.body.password, user.password);

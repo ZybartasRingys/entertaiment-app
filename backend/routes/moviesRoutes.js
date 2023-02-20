@@ -6,6 +6,6 @@ import { getMovies, updateMovie } from "../controllers/moviesController.js";
 import { requireAuth } from "../middleware/requireAuth.js";
 
 router.get("/", getMovies);
-router.put("/:id", updateMovie);
+router.put("/:id", requireAuth, updateMovie);
 
 export default router;

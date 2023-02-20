@@ -22,19 +22,20 @@ import { ReactComponent as TvIcon } from "../../assets/icon-category-tv.svg";
 import { ReactComponent as MovieIcon } from "../../assets/icon-category-movie.svg";
 import { BsDot } from "react-icons/bs";
 import axios from "axios";
-
-/* Context*/
-import { useStateContext } from "../../Context/StateContext";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 function Card({ movie }) {
   const { title, _id, isBookmarked, year, category, rating, thumbnail } = movie;
-  const { bookmarked, setBookmarked } = useStateContext();
+  const { user } = useAuthContext();
 
   const setBookmark = async () => {
     try {
       const response = await axios({
         method: "PUT",
         url: `http://localhost:5000/movies/${_id}`,
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
         data: {
           isBookmarked: true,
         },
@@ -46,10 +47,16 @@ function Card({ movie }) {
   };
 
   const removeBookmark = async () => {
+    if (!user) {
+      return;
+    }
     try {
       const response = await axios({
         method: "PUT",
         url: `http://localhost:5000/movies/${_id}`,
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
         data: {
           isBookmarked: false,
         },

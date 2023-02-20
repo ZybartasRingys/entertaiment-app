@@ -14,6 +14,7 @@ function Header() {
   const { logout } = useLogout();
 
   const { user } = useAuthContext();
+
   const handleClick = () => {
     logout();
   };
@@ -35,11 +36,9 @@ function Header() {
           <TvSeriesIcon />
         </Link>
 
-        {user ? (
-          <Link to="/Bookmarked">
-            <BookmarkedIcon />
-          </Link>
-        ) : null}
+        <Link to="/Bookmarked">
+          <BookmarkedIcon />
+        </Link>
       </IconsDiv>
 
       {user ? (

@@ -16,9 +16,6 @@ import {
   IconContainer,
 } from "./styles/Trending.styled";
 
-/* Context*/
-import { useStateContext } from "../Context/StateContext";
-
 /* Icons*/
 
 import { ReactComponent as BookEmpty } from "../assets/icon-bookmark-empty.svg";
@@ -30,16 +27,20 @@ import { BsDot } from "react-icons/bs";
 /* Icons*/
 import axios from "axios";
 
+import { useAuthContext } from "../hooks/useAuthContext";
+
 function BookmarkedCard({ movie }) {
   const { title, isBookmarked, year, category, rating, _id, thumbnail } = movie;
-
-  const { bookmarked, setBookmarked } = useStateContext();
+  const { user } = useAuthContext();
 
   const removeBookmark = async () => {
     try {
       const response = await axios({
         method: "PUT",
         url: `http://localhost:5000/movies/${_id}`,
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
         data: {
           isBookmarked: false,
         },
