@@ -19,8 +19,9 @@ export const IconsDiv = styled.div`
   justify-content: space-between;
 `;
 
-export const UserDiv = styled.div`
+export const UserDiv = styled.button`
   border: 1px solid white;
+  background-color: transparent;
   width: 24px;
   height: 24px;
   border-radius: 50%;

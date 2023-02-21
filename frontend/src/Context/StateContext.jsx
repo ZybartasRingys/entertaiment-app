@@ -13,47 +13,55 @@ export const StateContext = ({ children }) => {
   const [searchResults, setSearchResults] = useState([]);
   const { user } = useAuthContext();
 
-  /* Function to get all movies from mongodb*/
-  useEffect(() => {
-    /**
-     * GetMovies() is an async function that uses axios to make a GET request to the /movies endpoint of
-     * the server, and then sets the state of the movies array to the response data.
-     */
-    const getMovies = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.get("http://localhost:5000/movies");
-
-        setMovies(response.data);
-        setSearchResults(response.data);
-
-        setLoading(false);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-
-    getMovies();
-  }, []);
-
-  /* Function to set Trending movies*/
+  /* useEffects*/
 
   useEffect(() => {
-    /**
-     * The setTrendingMovies function filters through the movies array and returns the movies that have
-     * a property of isTrending set to true.
-     */
+    getBookmarkedMovies();
+  }, [user]);
 
-    const setTrendingMovies = () => {
-      const trendingMovies = movies.filter(
-        (trendingMovie) => trendingMovie.isTrending === true
-      );
-
-      setTrending(trendingMovies);
-    };
-
+  useEffect(() => {
     setTrendingMovies();
   }, [movies]);
+
+  useEffect(() => {
+    getMovies();
+  }, []);
+  /**
+   * "getMovies" is an async function that sets the loading state to true, then it makes an axios request
+   * to the server, then it sets the movies state to the response data, then it sets the search results
+   * state to the response data, then it sets the loading state to false.
+   */
+
+  const getMovies = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get("http://localhost:5000/movies");
+
+      setMovies(response.data);
+      setSearchResults(response.data);
+
+      setLoading(false);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  /**
+   * The setTrendingMovies function filters through the movies array and returns the movies that have
+   * a property of isTrending set to true.
+   */
+
+  const setTrendingMovies = () => {
+    const trendingMovies = movies.filter(
+      (trendingMovie) => trendingMovie.isTrending === true
+    );
+
+    setTrending(trendingMovies);
+  };
+  /**
+   * GetBookmarkedMovies() is an async function that uses axios to make a GET request to the server, and
+   * then sets the response data to the bookmarked state.
+   */
 
   const getBookmarkedMovies = async () => {
     try {
@@ -72,10 +80,6 @@ export const StateContext = ({ children }) => {
       console.log(error.message);
     }
   };
-
-  useEffect(() => {
-    getBookmarkedMovies();
-  }, [user]);
 
   return (
     <Context.Provider

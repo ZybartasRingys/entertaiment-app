@@ -1,5 +1,6 @@
 import { NavContainer, Div, IconsDiv, UserDiv } from "./styles/Header.styled";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 // Icons
 import { ReactComponent as HomeIcon } from "../assets/icon-nav-home.svg";
 import { ReactComponent as MovieIcon } from "../assets/icon-nav-movies.svg";
@@ -10,7 +11,10 @@ import { ReactComponent as Logo } from "../assets/logo.svg";
 import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
 
+import { StyledModal } from "./styles/Modal.styled";
+
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
   const { logout } = useLogout();
 
   const { user } = useAuthContext();
@@ -18,6 +22,10 @@ function Header() {
   const handleClick = () => {
     logout();
   };
+
+  function toggleModal(e) {
+    setIsOpen(!isOpen);
+  }
   return (
     <NavContainer>
       <Div>
@@ -55,7 +63,17 @@ function Header() {
         </Div>
       )}
 
-      <UserDiv></UserDiv>
+      <UserDiv onClick={toggleModal}>
+        <StyledModal
+          isOpen={isOpen}
+          onBackgroundClick={toggleModal}
+          onEscapeKeydown={toggleModal}
+        >
+          <Link to="/Register">Register</Link>
+          <Link to="/Login">Login</Link>
+          <button onClick={toggleModal}>Close me</button>
+        </StyledModal>
+      </UserDiv>
     </NavContainer>
   );
 }
