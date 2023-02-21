@@ -20,7 +20,7 @@ export const getMovies = async (req, res) => {
 export const updateMovie = async (req, res) => {
   try {
     const user_id = req.user._id;
-    console.log(user_id);
+
     const updatedMovie = await model.findByIdAndUpdate(
       req.params.id,
 
@@ -37,10 +37,16 @@ export const updateMovie = async (req, res) => {
 };
 
 // @desc    Bookmarked movies
-// @route   GET  /movies/:id
+// @route   GET  /movies
 // @access  Public
 
 export const getBookmarkedMovies = async (req, res) => {
   try {
-  } catch (error) {}
+    const user_id = req.user._id;
+    console.log(user_id);
+    const bookmarkedMovie = await model.find({ isBookmarked: true, user_id });
+    res.status(200).json(bookmarkedMovie);
+  } catch (error) {
+    console.log(error.message);
+  }
 };

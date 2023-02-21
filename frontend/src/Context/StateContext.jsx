@@ -3,12 +3,15 @@ import axios from "axios";
 
 const Context = createContext();
 
+import { useAuthContext } from "../hooks/useAuthContext";
+
 export const StateContext = ({ children }) => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [trending, setTrending] = useState([]);
   const [bookmarked, setBookmarked] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
+  const { user } = useAuthContext();
 
   /* Function to get all movies from mongodb*/
   useEffect(() => {
@@ -19,7 +22,7 @@ export const StateContext = ({ children }) => {
     const getMovies = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:5000/movies", {});
+        const response = await axios.get("http://localhost:5000/movies");
 
         setMovies(response.data);
         setSearchResults(response.data);
@@ -52,14 +55,27 @@ export const StateContext = ({ children }) => {
     setTrendingMovies();
   }, [movies]);
 
-  useEffect(() => {
-    const setbookmarkedMovies = () => {
-      const bookmarkedMovies = movies.filter((movie) => movie.isBookmarked);
-      setBookmarked(bookmarkedMovies);
-    };
+  const getBookmarkedMovies = async () => {
+    try {
+      setLoading(true);
+      const response = await axios({
+        method: "GET",
+        url: `http://localhost:5000/movies/bookmarked`,
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
 
-    setbookmarkedMovies();
-  }, [movies]);
+      setBookmarked(response.data);
+      setLoading(false);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getBookmarkedMovies();
+  }, [user]);
 
   return (
     <Context.Provider

@@ -47,9 +47,6 @@ function Card({ movie }) {
   };
 
   const removeBookmark = async () => {
-    if (!user) {
-      return;
-    }
     try {
       const response = await axios({
         method: "PUT",

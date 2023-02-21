@@ -36,9 +36,11 @@ function Header() {
           <TvSeriesIcon />
         </Link>
 
-        <Link to="/Bookmarked">
-          <BookmarkedIcon />
-        </Link>
+        {user ? (
+          <Link to="/Bookmarked">
+            <BookmarkedIcon />
+          </Link>
+        ) : null}
       </IconsDiv>
 
       {user ? (
