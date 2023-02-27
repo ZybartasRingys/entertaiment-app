@@ -16,8 +16,6 @@ function Bookmarked() {
   const { bookmarked, setBookmarked } = useStateContext();
   const { user } = useAuthContext();
 
-  console.log(bookmarked);
-
   const bookmarkedCard = bookmarked.map((movie) => {
     const { _id } = movie;
     const removeBookmark = async () => {

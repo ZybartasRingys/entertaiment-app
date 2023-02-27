@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 /* Styled Componenets imports*/
 import {
   CardTop,
@@ -26,8 +25,6 @@ import { BsDot } from "react-icons/bs";
 
 function BookmarkedCard({ movie, removeBookmark }) {
   const { title, isBookmarked, year, category, rating, _id, thumbnail } = movie;
-
-  console.log(isBookmarked);
 
   return (
     <div>

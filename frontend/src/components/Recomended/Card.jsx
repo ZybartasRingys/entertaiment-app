@@ -1,5 +1,3 @@
-import { useCallback } from "react";
-
 /* Styled Components imports*/
 
 import {
@@ -24,8 +22,13 @@ import { ReactComponent as TvIcon } from "../../assets/icon-category-tv.svg";
 import { ReactComponent as MovieIcon } from "../../assets/icon-category-movie.svg";
 import { BsDot } from "react-icons/bs";
 
+/* Context*/
+import { useAuthContext } from "../../hooks/useAuthContext";
+import { useStateContext } from "../../Context/StateContext";
+
 function Card({ movie, removeBookmark, setBookmark }) {
   const { title, _id, isBookmarked, year, category, rating, thumbnail } = movie;
+  const { user } = useAuthContext();
 
   return (
     <RecomendedCard key={_id}>
@@ -36,17 +39,19 @@ function Card({ movie, removeBookmark, setBookmark }) {
           backgroundSize: "cover",
         }}
       >
-        <IconContainer>
-          {isBookmarked ? (
-            <IconDiv type="button" onClick={removeBookmark}>
-              <BookFull />
-            </IconDiv>
-          ) : (
-            <IconDiv type="button" onClick={setBookmark}>
-              <BookEmpty />
-            </IconDiv>
-          )}
-        </IconContainer>
+        {user ? (
+          <IconContainer>
+            {isBookmarked ? (
+              <IconDiv type="button" onClick={removeBookmark}>
+                <BookFull />
+              </IconDiv>
+            ) : (
+              <IconDiv type="button" onClick={setBookmark}>
+                <BookEmpty />
+              </IconDiv>
+            )}
+          </IconContainer>
+        ) : null}
       </CardTop>
 
       <CardBottom>

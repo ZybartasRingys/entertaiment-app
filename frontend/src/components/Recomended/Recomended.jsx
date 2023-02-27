@@ -13,20 +13,13 @@ import axios from "axios";
 import { useStateContext } from "../../Context/StateContext";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
-function Recomended() {
+function Recomended({ addBookmark }) {
   const { user } = useAuthContext();
-  const { searchResults, bookmarked, setBookmarked } = useStateContext();
-
-  const { setBookmark, removeBookmark } = useStateContext();
-
-  /* Filtering through the searchResults array and returning a new array with only the movies that have
-  isTrending set to false. */
-  const filteredRecomendedMovies = searchResults.filter(
-    (movie) => movie.isTrending === false
-  );
+  const { bookmarked, setBookmarked, recomended, setRecomended } =
+    useStateContext();
 
   /* Mapping through the filteredRecomendedMovies array and returning a Card component for each movie. */
-  const recomendedCard = filteredRecomendedMovies.map((movie) => {
+  const recomendedCard = recomended.map((movie) => {
     const { _id } = movie;
 
     const setBookmark = async () => {
@@ -42,6 +35,7 @@ function Recomended() {
           },
         });
         setBookmarked([...bookmarked, response.data]);
+
         console.log(response.data);
       } catch (error) {
         console.log(error.message);
@@ -59,7 +53,9 @@ function Recomended() {
             isBookmarked: false,
           },
         });
-        setBookmarked([...bookmarked]);
+        setBookmarked(
+          bookmarked.filter((movie) => movie._id !== response.data._id)
+        );
         console.log(response.data);
       } catch (error) {
         console.log(error.message);
@@ -71,6 +67,7 @@ function Recomended() {
         key={movie._id}
         setBookmark={setBookmark}
         removeBookmark={removeBookmark}
+        addBookmark={addBookmark}
       />
     );
   });

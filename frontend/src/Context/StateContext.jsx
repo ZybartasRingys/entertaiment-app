@@ -10,6 +10,7 @@ export const StateContext = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [trending, setTrending] = useState([]);
   const [bookmarked, setBookmarked] = useState([]);
+  const [recomended, setRecomended] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const { user } = useAuthContext();
 
@@ -25,7 +26,12 @@ export const StateContext = ({ children }) => {
 
   useEffect(() => {
     getMovies();
-  }, []);
+  }, [bookmarked]);
+
+  useEffect(() => {
+    setRecomendedMovies();
+  }, [movies]);
+
   /**
    * "getMovies" is an async function that sets the loading state to true, then it makes an axios request
    * to the server, then it sets the movies state to the response data, then it sets the search results
@@ -58,6 +64,17 @@ export const StateContext = ({ children }) => {
 
     setTrending(trendingMovies);
   };
+
+  /* Filtering through the searchResults array and returning a new array with only the movies that have
+  isTrending set to false. */
+  const setRecomendedMovies = () => {
+    const filteredRecomendedMovies = searchResults.filter(
+      (movie) => movie.isTrending === false
+    );
+
+    setRecomended(filteredRecomendedMovies);
+  };
+
   /**
    * GetBookmarkedMovies() is an async function that uses axios to make a GET request to the server, and
    * then sets the response data to the bookmarked state.
@@ -81,6 +98,25 @@ export const StateContext = ({ children }) => {
     }
   };
 
+  const addBookmark = async () => {
+    try {
+      const response = await axios({
+        method: "PUT",
+        url: `http://localhost:5000/movies/${_id}`,
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+        data: {
+          isBookmarked: true,
+        },
+      });
+
+      console.log(response.data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <Context.Provider
       value={{
@@ -92,6 +128,9 @@ export const StateContext = ({ children }) => {
         setBookmarked,
         searchResults,
         setSearchResults,
+        addBookmark,
+        recomended,
+        setRecomended,
       }}
     >
       {children}
