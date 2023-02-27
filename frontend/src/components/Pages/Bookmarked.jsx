@@ -12,8 +12,6 @@ import BookmarkedCard from "../BookmarkedCard";
 
 import axios from "axios";
 
-import { useBookmark } from "../../hooks/useBookmark";
-
 function Bookmarked() {
   const { bookmarked, setBookmarked } = useStateContext();
   const { user } = useAuthContext();
