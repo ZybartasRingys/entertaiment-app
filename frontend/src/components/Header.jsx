@@ -11,7 +11,7 @@ import { ReactComponent as Logo } from "../assets/logo.svg";
 import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
 
-import { StyledModal } from "./styles/Modal.styled";
+import { StyledModal, StyledModalLink } from "./styles/Modal.styled";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,26 +51,23 @@ function Header() {
         ) : null}
       </IconsDiv>
 
-      {user ? (
-        <Div>
-          {user.email}
-          <button onClick={handleClick}>Log out</button>
-        </Div>
-      ) : (
-        <Div>
-          <Link to="/Register">Register</Link>
-          <Link to="/Login">Login</Link>
-        </Div>
-      )}
-
       <UserDiv onClick={toggleModal}>
         <StyledModal
           isOpen={isOpen}
           onBackgroundClick={toggleModal}
           onEscapeKeydown={toggleModal}
         >
-          <Link to="/Register">Register</Link>
-          <Link to="/Login">Login</Link>
+          {user ? (
+            <Div>
+              {user.email}
+              <button onClick={handleClick}>Log out</button>
+            </Div>
+          ) : (
+            <>
+              <StyledModalLink to="/Register">Register</StyledModalLink>
+              <StyledModalLink to="/Login">Login</StyledModalLink>
+            </>
+          )}
           <button onClick={toggleModal}>Close me</button>
         </StyledModal>
       </UserDiv>

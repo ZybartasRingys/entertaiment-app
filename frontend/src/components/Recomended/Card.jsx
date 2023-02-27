@@ -1,3 +1,5 @@
+import { useCallback } from "react";
+
 /* Styled Components imports*/
 
 import {
@@ -21,48 +23,9 @@ import { ReactComponent as BookFull } from "../../assets/icon-bookmark-full.svg"
 import { ReactComponent as TvIcon } from "../../assets/icon-category-tv.svg";
 import { ReactComponent as MovieIcon } from "../../assets/icon-category-movie.svg";
 import { BsDot } from "react-icons/bs";
-import axios from "axios";
-import { useAuthContext } from "../../hooks/useAuthContext";
 
-function Card({ movie }) {
+function Card({ movie, removeBookmark, setBookmark }) {
   const { title, _id, isBookmarked, year, category, rating, thumbnail } = movie;
-  const { user } = useAuthContext();
-
-  const setBookmark = async () => {
-    try {
-      const response = await axios({
-        method: "PUT",
-        url: `http://localhost:5000/movies/${_id}`,
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-        data: {
-          isBookmarked: true,
-        },
-      });
-      console.log(response.data);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
-  const removeBookmark = async () => {
-    try {
-      const response = await axios({
-        method: "PUT",
-        url: `http://localhost:5000/movies/${_id}`,
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-        data: {
-          isBookmarked: false,
-        },
-      });
-      console.log(response.data);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
 
   return (
     <RecomendedCard key={_id}>
