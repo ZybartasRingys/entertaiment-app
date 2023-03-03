@@ -15,8 +15,7 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 
 function Recomended({ addBookmark }) {
   const { user } = useAuthContext();
-  const { bookmarked, setBookmarked, recomended, setRecomended } =
-    useStateContext();
+  const { bookmarked, setBookmarked, recomended } = useStateContext();
 
   /* Mapping through the filteredRecomendedMovies array and returning a Card component for each movie. */
   const recomendedCard = recomended.map((movie) => {

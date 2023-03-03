@@ -26,9 +26,11 @@ import { BsDot } from "react-icons/bs";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useStateContext } from "../../Context/StateContext";
 
-function Card({ movie, removeBookmark, setBookmark }) {
+function Card({ movie }) {
   const { title, _id, isBookmarked, year, category, rating, thumbnail } = movie;
   const { user } = useAuthContext();
+
+  const { addBookmark, remBookmark } = useStateContext();
 
   return (
     <RecomendedCard key={_id}>
@@ -42,11 +44,11 @@ function Card({ movie, removeBookmark, setBookmark }) {
         {user ? (
           <IconContainer>
             {isBookmarked ? (
-              <IconDiv type="button" onClick={removeBookmark}>
+              <IconDiv type="button" onClick={(e) => remBookmark(_id)}>
                 <BookFull />
               </IconDiv>
             ) : (
-              <IconDiv type="button" onClick={setBookmark}>
+              <IconDiv type="button" onClick={(e) => addBookmark(_id)}>
                 <BookEmpty />
               </IconDiv>
             )}

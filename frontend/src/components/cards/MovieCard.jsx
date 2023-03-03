@@ -10,12 +10,7 @@ import {
 } from "../styles/Recomended.styled";
 
 /* Styled Componenets imports*/
-import {
-  IconDiv,
-  TitleDiv,
-  Div,
-  IconContainer,
-} from "../styles/Trending.styled";
+import { TitleDiv, Div, IconContainer } from "../styles/Trending.styled";
 
 import { ReactComponent as BookEmpty } from "../../assets/icon-bookmark-empty.svg";
 import { ReactComponent as BookFull } from "../../assets/icon-bookmark-full.svg";

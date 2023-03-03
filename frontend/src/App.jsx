@@ -14,6 +14,8 @@ import Bookmarked from "./components/Pages/Bookmarked";
 import Login from "./components/Pages/Login";
 import Register from "./components/Pages/Register";
 
+import { useStateContext } from "./Context/StateContext";
+
 function App() {
   return (
     <Router>

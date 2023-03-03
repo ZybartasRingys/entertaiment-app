@@ -26,11 +26,11 @@ export const StateContext = ({ children }) => {
 
   useEffect(() => {
     getMovies();
-  }, [bookmarked]);
+  }, []);
 
   useEffect(() => {
     setRecomendedMovies();
-  }, [movies]);
+  }, [bookmarked]);
 
   /**
    * "getMovies" is an async function that sets the loading state to true, then it makes an axios request
@@ -98,7 +98,8 @@ export const StateContext = ({ children }) => {
     }
   };
 
-  const addBookmark = async () => {
+  const addBookmark = async (_id) => {
+    console.log(_id);
     try {
       const response = await axios({
         method: "PUT",
@@ -110,7 +111,29 @@ export const StateContext = ({ children }) => {
           isBookmarked: true,
         },
       });
+      setBookmarked([...bookmarked, response.data]);
 
+      console.log(response.data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const remBookmark = async (_id) => {
+    try {
+      const response = await axios({
+        method: "PUT",
+        url: `http://localhost:5000/movies/${_id}`,
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+        data: {
+          isBookmarked: false,
+        },
+      });
+      setBookmarked(
+        bookmarked.filter((movie) => movie._id !== response.data._id)
+      );
       console.log(response.data);
     } catch (error) {
       console.log(error.message);
@@ -129,6 +152,7 @@ export const StateContext = ({ children }) => {
         searchResults,
         setSearchResults,
         addBookmark,
+        remBookmark,
         recomended,
         setRecomended,
       }}

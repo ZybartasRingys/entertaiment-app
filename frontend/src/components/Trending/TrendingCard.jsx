@@ -26,11 +26,6 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 function TrendingCard() {
   const { trending, addBookmark } = useStateContext();
   const { user } = useAuthContext();
-  const trendingMovie = trending.map((movie) => {
-    return movie;
-  });
-
-  const { isBookmarked } = trendingMovie;
 
   return (
     <Carousel
@@ -41,7 +36,7 @@ function TrendingCard() {
       showIndicators={false}
       showStatus={false}
     >
-      {trending.map((trendingMovie, id) => (
+      {trending.map((trendingMovie, id, isBookmarked, _id) => (
         <CardContainer
           key={id}
           style={{
@@ -57,7 +52,7 @@ function TrendingCard() {
                   <BookFull />
                 </IconDiv>
               ) : (
-                <IconDiv type="button" onClick={addBookmark}>
+                <IconDiv type="button" onClick={addBookmark(_id)}>
                   <BookEmpty />
                 </IconDiv>
               )}
