@@ -16,74 +16,61 @@ import { ReactComponent as BookFull } from "../../assets/icon-bookmark-full.svg"
 import { ReactComponent as MovieIcon } from "../../assets/icon-category-movie.svg";
 import { BsDot } from "react-icons/bs";
 
-/* react carousel*/
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
 /* Context*/
 import { useStateContext } from "../../Context/StateContext";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
-function TrendingCard() {
-  const { trending, addBookmark } = useStateContext();
+function TrendingCard({ movie }) {
+  const { title, _id, isBookmarked, year, category, rating, thumbnail } = movie;
+  const { addBookmark, remBookmark } = useStateContext();
   const { user } = useAuthContext();
 
   return (
-    <Carousel
-      className="carousel"
-      showArrows={true}
-      showThumbs={false}
-      centerMode={true}
-      showIndicators={false}
-      showStatus={false}
+    <CardContainer
+      key={_id}
+      style={{
+        backgroundImage: `url(/public/${thumbnail.trending.small})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
     >
-      {trending.map((trendingMovie, id, isBookmarked, _id) => (
-        <CardContainer
-          key={id}
-          style={{
-            backgroundImage: `url(/public/${trendingMovie.thumbnail.trending.small})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-          }}
-        >
-          {user ? (
-            <IconContainer>
-              {isBookmarked ? (
-                <IconDiv type="button">
-                  <BookFull />
-                </IconDiv>
-              ) : (
-                <IconDiv type="button" onClick={addBookmark(_id)}>
-                  <BookEmpty />
-                </IconDiv>
-              )}
-            </IconContainer>
+      {user ? (
+        <IconContainer>
+          {isBookmarked ? (
+            <IconDiv type="button" onClick={(e) => remBookmark(_id)}>
+              <BookFull />
+            </IconDiv>
           ) : (
-            <IconContainer />
+            <IconDiv type="button" onClick={(e) => addBookmark(_id)}>
+              <BookEmpty />
+            </IconDiv>
           )}
+        </IconContainer>
+      ) : (
+        <IconContainer />
+      )}
 
-          <TextContainer>
-            <TextDiv>
-              <Div>
-                <p>{trendingMovie.year}</p>
-                <BsDot />
-              </Div>
-              <Div>
-                <MovieIcon />
-                <p>{trendingMovie.category}</p>
-                <BsDot />
-              </Div>
-              <Div>
-                <p>{trendingMovie.rating}</p>
-              </Div>
-            </TextDiv>
+      <TextContainer>
+        <TextDiv>
+          <Div>
+            <p>{year}</p>
+            <BsDot />
+          </Div>
+          <Div>
+            <MovieIcon />
+            <p>{category}</p>
+            <BsDot />
+          </Div>
+          <Div>
+            <p>{rating}</p>
+          </Div>
+        </TextDiv>
 
-            <TitleDiv>
-              <h5>{trendingMovie.title}</h5>
-            </TitleDiv>
-          </TextContainer>
-        </CardContainer>
-      ))}
-    </Carousel>
+        <TitleDiv>
+          <h5>{title}</h5>
+        </TitleDiv>
+      </TextContainer>
+    </CardContainer>
   );
 }
 
