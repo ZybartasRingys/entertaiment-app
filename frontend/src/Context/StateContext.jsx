@@ -1,9 +1,9 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 
-const Context = createContext();
-
 import { useAuthContext } from "../hooks/useAuthContext";
+
+const Context = createContext();
 
 export const StateContext = ({ children }) => {
   const [movies, setMovies] = useState([]);
@@ -14,7 +14,7 @@ export const StateContext = ({ children }) => {
   const [searchResults, setSearchResults] = useState([]);
   const { user } = useAuthContext();
 
-  /* useEffects*/
+  /* useEffects */
 
   useEffect(() => {
     getBookmarkedMovies();
@@ -58,10 +58,10 @@ export const StateContext = ({ children }) => {
    */
 
   const setTrendingMovies = () => {
-    const trendingMovies = movies.filter(
+    const trendingMovies = searchResults.filter(
       (trendingMovie) => trendingMovie.isTrending === true
     );
-
+    console.log(trendingMovies);
     setTrending(trendingMovies);
   };
 
@@ -98,6 +98,18 @@ export const StateContext = ({ children }) => {
     }
   };
 
+  /**
+   * It takes the _id of the movie that the user wants to bookmark, and then it sends a PUT request to
+   * the server with the _id of the movie and the user's token.
+   *
+   * The server then finds the movie with the _id that was sent, and updates the movie's isBookmarked
+   * property to true.
+   *
+   * The server then sends back the updated movie, and the updated movie is added to the bookmarked
+   * array.
+   *
+   * The bookmarked array is then used to render the bookmarked movies.
+   */
   const addBookmark = async (_id) => {
     console.log(_id);
     try {
@@ -119,6 +131,10 @@ export const StateContext = ({ children }) => {
     }
   };
 
+  /**
+   * It takes the _id of a movie and sends a PUT request to the server to update the movie's
+   * isBookmarked property to false.
+   */
   const remBookmark = async (_id) => {
     try {
       const response = await axios({

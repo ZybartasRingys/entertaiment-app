@@ -1,20 +1,19 @@
+/* eslint-disable no-unused-vars */
 // Components
 import TrendingCard from "./TrendingCard";
 
-//Loader Component
+// Loader Component
 import Loading from "../Loading";
-/* Styled Componenets imports*/
+/* Styled Componenets imports */
 import { TrendingSection } from "../../components/styles/Trending.styled";
-/* Context*/
+/* Context */
 import { useStateContext } from "../../Context/StateContext";
 
-/* react carousel*/
+/* react carousel */
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 
-function Trending() {
-  const { trending } = useStateContext();
-
+function Trending({ trending }) {
   const trendCard = trending.map((movie) => {
     return <TrendingCard movie={movie} key={movie._id} />;
   });

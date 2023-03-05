@@ -1,4 +1,6 @@
-/* Styled Componenets imports*/
+/* eslint-disable no-unused-vars */
+/* Styled Componenets imports */
+
 import {
   CardContainer,
   IconDiv,
@@ -9,14 +11,14 @@ import {
   IconContainer,
 } from "../../components/styles/Trending.styled";
 
-/* Icons*/
+/* Icons */
 
 import { ReactComponent as BookEmpty } from "../../assets/icon-bookmark-empty.svg";
 import { ReactComponent as BookFull } from "../../assets/icon-bookmark-full.svg";
 import { ReactComponent as MovieIcon } from "../../assets/icon-category-movie.svg";
 import { BsDot } from "react-icons/bs";
 
-/* Context*/
+/* Context */
 import { useStateContext } from "../../Context/StateContext";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
