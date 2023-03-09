@@ -4,8 +4,8 @@ import {
   CardTop,
   CardBottom,
   CardDiv,
-  RecomendedCard,
-} from "../styles/Recomended.styled";
+  RecommendedCard as RecommendedCard,
+} from "../styles/Recommended";
 
 /* Styled Components imports*/
 import {
@@ -33,7 +33,7 @@ function Card({ movie }) {
   const { addBookmark, remBookmark } = useStateContext();
 
   return (
-    <RecomendedCard key={_id}>
+    <RecommendedCard key={_id}>
       <CardTop
         style={{
           backgroundImage: `url(/public/${thumbnail.regular.small})`,
@@ -76,7 +76,7 @@ function Card({ movie }) {
           <h2>{title}</h2>
         </TitleDiv>
       </CardBottom>
-    </RecomendedCard>
+    </RecommendedCard>
   );
 }
 

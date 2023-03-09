@@ -4,16 +4,16 @@ import TrendingCard from "./TrendingCard";
 
 // Loader Component
 import Loading from "../Loading";
-/* Styled Componenets imports */
+/* Styled Components imports */
 import { TrendingSection } from "../../components/styles/Trending.styled";
 /* Context */
-import { useStateContext } from "../../Context/StateContext";
 
 /* react carousel */
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-
-function Trending({ trending }) {
+import { useStateContext } from "../../Context/StateContext";
+function Trending({}) {
+  const { trending } = useStateContext();
   const trendCard = trending.map((movie) => {
     return <TrendingCard movie={movie} key={movie._id} />;
   });

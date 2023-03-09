@@ -1,12 +1,12 @@
-/* Styled Componenets imports*/
+/* Styled Components imports*/
 import {
   CardTop,
   CardBottom,
   CardDiv,
-  RecomendedCard,
-} from "./styles/Recomended.styled";
+  RecommendedCard,
+} from "./styles/Recommended";
 
-/* Styled Componenets imports*/
+/* Styled Components imports*/
 
 import {
   IconDiv,
@@ -23,12 +23,14 @@ import { ReactComponent as TvIcon } from "../assets/icon-category-tv.svg";
 import { ReactComponent as MovieIcon } from "../assets/icon-category-movie.svg";
 import { BsDot } from "react-icons/bs";
 
-function BookmarkedCard({ movie, removeBookmark }) {
-  const { title, isBookmarked, year, category, rating, _id, thumbnail } = movie;
+import { useStateContext } from "../Context/StateContext";
 
+function BookmarkedCard({ movie }) {
+  const { title, isBookmarked, year, category, rating, _id, thumbnail } = movie;
+  const { remBookmark } = useStateContext();
   return (
     <div>
-      <RecomendedCard key={_id}>
+      <RecommendedCard key={_id}>
         <CardTop
           style={{
             backgroundImage: `url(/public/${thumbnail.regular.small})`,
@@ -38,7 +40,7 @@ function BookmarkedCard({ movie, removeBookmark }) {
         >
           <IconContainer>
             {isBookmarked ? (
-              <IconDiv type="button" onClick={removeBookmark}>
+              <IconDiv type="button" onClick={(e) => remBookmark(_id)}>
                 <BookFull />
               </IconDiv>
             ) : (
@@ -69,7 +71,7 @@ function BookmarkedCard({ movie, removeBookmark }) {
             <h2>{title}</h2>
           </TitleDiv>
         </CardBottom>
-      </RecomendedCard>
+      </RecommendedCard>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-/* Styled Componenets imports */
-
+/* Styled Components imports */
+import { useEffect } from "react";
 import {
   CardContainer,
   IconDiv,

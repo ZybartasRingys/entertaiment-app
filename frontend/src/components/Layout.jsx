@@ -1,4 +1,5 @@
 import Header from "./Header";
+import Trending from "./Trending/Trending";
 
 import { Outlet } from "react-router-dom";
 import Search from "./Search";
@@ -12,6 +13,7 @@ export default function Layout({ children }) {
       <nav>
         <Search />
       </nav>
+
       <Outlet />
     </>
   );

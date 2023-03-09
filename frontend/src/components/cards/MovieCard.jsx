@@ -1,16 +1,21 @@
 import React from "react";
 
-/* Styled Componenets imports*/
+/* Styled Components imports*/
 
 import {
   CardTop,
   CardBottom,
   CardDiv,
-  RecomendedCard,
-} from "../styles/Recomended.styled";
+  RecommendedCard,
+} from "../styles/Recommended";
 
-/* Styled Componenets imports*/
-import { TitleDiv, Div, IconContainer } from "../styles/Trending.styled";
+/* Styled Components imports*/
+import {
+  IconDiv,
+  TitleDiv,
+  Div,
+  IconContainer,
+} from "../styles/Trending.styled";
 
 import { ReactComponent as BookEmpty } from "../../assets/icon-bookmark-empty.svg";
 import { ReactComponent as BookFull } from "../../assets/icon-bookmark-full.svg";
@@ -18,10 +23,15 @@ import { ReactComponent as TvIcon } from "../../assets/icon-category-tv.svg";
 import { ReactComponent as MovieIcon } from "../../assets/icon-category-movie.svg";
 import { BsDot } from "react-icons/bs";
 
+/* Context*/
+import { useAuthContext } from "../../hooks/useAuthContext";
+
 function MovieCard({ movie }) {
-  const { title, year, category, rating, _id, thumbnail } = movie;
+  const { title, year, category, rating, _id, thumbnail, isBookmarked } = movie;
+  const { user } = useAuthContext();
+
   return (
-    <RecomendedCard key={_id}>
+    <RecommendedCard key={_id}>
       <CardTop
         style={{
           backgroundImage: `url(/public/${thumbnail.regular.small})`,
@@ -29,7 +39,21 @@ function MovieCard({ movie }) {
           backgroundSize: "cover",
         }}
       >
-        <IconContainer></IconContainer>
+        <IconContainer>
+          {user ? (
+            <IconContainer>
+              {isBookmarked ? (
+                <IconDiv type="button">
+                  <BookFull />
+                </IconDiv>
+              ) : (
+                <IconDiv type="button">
+                  <BookEmpty />
+                </IconDiv>
+              )}
+            </IconContainer>
+          ) : null}
+        </IconContainer>
       </CardTop>
 
       <CardBottom>
@@ -52,7 +76,7 @@ function MovieCard({ movie }) {
           <h2>{title}</h2>
         </TitleDiv>
       </CardBottom>
-    </RecomendedCard>
+    </RecommendedCard>
   );
 }
 

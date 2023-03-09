@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-/* Recomended Section */
-export const RecomendedSection = styled.section`
+/* Recommended Section */
+export const RecommendedSection = styled.section`
   width: 100%;
   height: 100%;
 
@@ -18,7 +18,7 @@ export const RecomendedSection = styled.section`
   }
 `;
 
-export const RecomendedContainer = styled.div`
+export const RecommendedContainer = styled.div`
   width: 100%;
   height: 100%;
 
@@ -30,8 +30,8 @@ export const RecomendedContainer = styled.div`
   }
 `;
 
-/* Recomended Card Container*/
-export const RecomendedCard = styled.div`
+/* Recommended Card Container*/
+export const RecommendedCard = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     max-width: 164px;
@@ -41,7 +41,7 @@ export const RecomendedCard = styled.div`
   }
 `;
 
-/* Recomended card top section */
+/* Recommended card top section */
 
 export const CardTop = styled.div`
   border-radius: 8px;
@@ -53,7 +53,7 @@ export const CardTop = styled.div`
   }
 `;
 
-/* Recomended card bottom section */
+/* Recommended card bottom section */
 
 export const CardBottom = styled.div`
   @media (max-width: 768px) {
@@ -77,7 +77,7 @@ export const CardBottom = styled.div`
   }
 `;
 
-/* Recomended card div */
+/* Recommended card div */
 
 export const CardDiv = styled.div`
   display: grid;

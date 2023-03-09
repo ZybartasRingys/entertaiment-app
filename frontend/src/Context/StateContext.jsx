@@ -10,15 +10,15 @@ export const StateContext = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [trending, setTrending] = useState([]);
   const [bookmarked, setBookmarked] = useState([]);
-  const [recomended, setRecomended] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const { user } = useAuthContext();
+  const [recommended, setRecommended] = useState([]);
 
   /* useEffects */
 
   useEffect(() => {
     getBookmarkedMovies();
-  }, [user]);
+  }, []);
 
   useEffect(() => {
     setTrendingMovies();
@@ -26,11 +26,11 @@ export const StateContext = ({ children }) => {
 
   useEffect(() => {
     getMovies();
-  }, []);
+  }, [bookmarked]);
 
   useEffect(() => {
-    setRecomendedMovies();
-  }, [bookmarked]);
+    setRecommendedMovies();
+  }, [movies]);
 
   /**
    * "getMovies" is an async function that sets the loading state to true, then it makes an axios request
@@ -61,18 +61,16 @@ export const StateContext = ({ children }) => {
     const trendingMovies = searchResults.filter(
       (trendingMovie) => trendingMovie.isTrending === true
     );
-    console.log(trendingMovies);
+
     setTrending(trendingMovies);
   };
 
-  /* Filtering through the searchResults array and returning a new array with only the movies that have
-  isTrending set to false. */
-  const setRecomendedMovies = () => {
-    const filteredRecomendedMovies = searchResults.filter(
+  const setRecommendedMovies = () => {
+    const recommendedMovies = movies.filter(
       (movie) => movie.isTrending === false
     );
 
-    setRecomended(filteredRecomendedMovies);
+    setRecommended(recommendedMovies);
   };
 
   /**
@@ -124,8 +122,7 @@ export const StateContext = ({ children }) => {
         },
       });
       setBookmarked([...bookmarked, response.data]);
-
-      console.log(response.data);
+      setRecommended([...recommended]);
     } catch (error) {
       console.log(error.message);
     }
@@ -169,8 +166,8 @@ export const StateContext = ({ children }) => {
         setSearchResults,
         addBookmark,
         remBookmark,
-        recomended,
-        setRecomended,
+        recommended,
+        setRecommended,
       }}
     >
       {children}

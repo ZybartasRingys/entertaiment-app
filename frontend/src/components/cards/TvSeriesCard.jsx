@@ -1,15 +1,15 @@
 import React from "react";
 
-/* Styled Componenets imports*/
+/* Styled Components imports*/
 
 import {
   CardTop,
   CardBottom,
   CardDiv,
-  RecomendedCard,
-} from "../styles/Recomended.styled";
+  RecommendedCard,
+} from "../styles/Recommended";
 
-/* Styled Componenets imports*/
+/* Styled Components imports*/
 import {
   IconDiv,
   TitleDiv,
@@ -23,10 +23,15 @@ import { ReactComponent as TvIcon } from "../../assets/icon-category-tv.svg";
 import { ReactComponent as MovieIcon } from "../../assets/icon-category-movie.svg";
 import { BsDot } from "react-icons/bs";
 
+import { useAuthContext } from "../../hooks/useAuthContext";
+import { useStateContext } from "../../Context/StateContext";
+
 function TvSeriesCard({ movie }) {
-  const { title, year, category, rating, _id, thumbnail } = movie;
+  const { title, year, category, rating, _id, thumbnail, isBookmarked } = movie;
+  const { user } = useAuthContext();
+  const { addBookmark, remBookmark } = useStateContext();
   return (
-    <RecomendedCard key={_id}>
+    <RecommendedCard key={_id}>
       <CardTop
         style={{
           backgroundImage: `url(/public/${thumbnail.regular.small})`,
@@ -34,7 +39,21 @@ function TvSeriesCard({ movie }) {
           backgroundSize: "cover",
         }}
       >
-        <IconContainer></IconContainer>
+        <IconContainer>
+          {user ? (
+            <IconContainer>
+              {isBookmarked ? (
+                <IconDiv type="button" onClick={(e) => remBookmark(_id)}>
+                  <BookFull />
+                </IconDiv>
+              ) : (
+                <IconDiv type="button" onClick={(e) => addBookmark(_id)}>
+                  <BookEmpty />
+                </IconDiv>
+              )}
+            </IconContainer>
+          ) : null}
+        </IconContainer>
       </CardTop>
 
       <CardBottom>
@@ -57,7 +76,7 @@ function TvSeriesCard({ movie }) {
           <h2>{title}</h2>
         </TitleDiv>
       </CardBottom>
-    </RecomendedCard>
+    </RecommendedCard>
   );
 }
 
