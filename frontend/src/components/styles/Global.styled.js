@@ -3,6 +3,16 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap");
 
+
+:root {
+  --color-red: #FC4747;
+  --color-dark-blue: #10141E;
+  --color-greyish-blue: #5A698F;
+  --color-semi-dark-blue: #161D2F;
+  --color-white: #FFFFFF;
+}
+  
+
 * {
   box-sizing: border-box;
   padding: 0;
