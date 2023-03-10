@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* Styled Components imports */
-import { useEffect } from "react";
+
 import {
   CardContainer,
   IconDiv,
@@ -9,42 +9,43 @@ import {
   TextDiv,
   Div,
   IconContainer,
-} from "../../components/styles/Trending.styled";
+  EmptyIcon,
+} from '../../components/styles/Trending.styled'
 
 /* Icons */
 
-import { ReactComponent as BookEmpty } from "../../assets/icon-bookmark-empty.svg";
-import { ReactComponent as BookFull } from "../../assets/icon-bookmark-full.svg";
-import { ReactComponent as MovieIcon } from "../../assets/icon-category-movie.svg";
-import { BsDot } from "react-icons/bs";
+import { ReactComponent as BookEmpty } from '../../assets/icon-bookmark-empty.svg'
+import { ReactComponent as BookFull } from '../../assets/icon-bookmark-full.svg'
+import { ReactComponent as MovieIcon } from '../../assets/icon-category-movie.svg'
+import { BsDot } from 'react-icons/bs'
 
 /* Context */
-import { useStateContext } from "../../Context/StateContext";
-import { useAuthContext } from "../../hooks/useAuthContext";
+import { useStateContext } from '../../Context/StateContext'
+import { useAuthContext } from '../../hooks/useAuthContext'
 
 function TrendingCard({ movie }) {
-  const { title, _id, isBookmarked, year, category, rating, thumbnail } = movie;
-  const { addBookmark, remBookmark } = useStateContext();
-  const { user } = useAuthContext();
+  const { title, _id, isBookmarked, year, category, rating, thumbnail } = movie
+  const { addBookmark, remBookmark } = useStateContext()
+  const { user } = useAuthContext()
 
   return (
     <CardContainer
       key={_id}
       style={{
         backgroundImage: `url(/public/${thumbnail.trending.small})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
       }}
     >
       {user ? (
         <IconContainer>
           {isBookmarked ? (
-            <IconDiv type="button" onClick={(e) => remBookmark(_id)}>
+            <IconDiv type='button' onClick={(e) => remBookmark(_id)}>
               <BookFull />
             </IconDiv>
           ) : (
-            <IconDiv type="button" onClick={(e) => addBookmark(_id)}>
-              <BookEmpty />
+            <IconDiv type='button' onClick={(e) => addBookmark(_id)}>
+              <EmptyIcon />
             </IconDiv>
           )}
         </IconContainer>
@@ -73,7 +74,7 @@ function TrendingCard({ movie }) {
         </TitleDiv>
       </TextContainer>
     </CardContainer>
-  );
+  )
 }
 
-export default TrendingCard;
+export default TrendingCard

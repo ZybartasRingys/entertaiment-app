@@ -6,7 +6,7 @@ import { CardsSection, CardsContainer } from '../styles/Cards.styled'
 /* Context*/
 import { useStateContext } from '../../Context/StateContext'
 
-/* Movie card*/
+/* Card import*/
 import MovieCard from '../cards/MovieCard'
 
 function Movies() {
