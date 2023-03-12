@@ -25,7 +25,7 @@ body {
   overflow-x: hidden;
   background-color: #10141e;
   color: white;
-  font-family: "Outfit", sans-serif;
+  font-family: "Outfit-medium", sans-serif;
   font-weight: 300;
 }
 
@@ -35,7 +35,6 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 15px;
- 
 }
 
 .slide {

@@ -7,6 +7,11 @@ import { ReactComponent as MovieIcon } from "../assets/icon-nav-movies.svg";
 import { ReactComponent as TvSeriesIcon } from "../assets/icon-nav-tv-series.svg";
 import { ReactComponent as BookmarkedIcon } from "../assets/icon-nav-bookmark.svg";
 import { ReactComponent as Logo } from "../assets/logo.svg";
+import {
+  AiOutlineCloseCircle,
+  AiOutlineLogin,
+  AiOutlineUser,
+} from "react-icons/ai";
 
 import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
@@ -52,6 +57,7 @@ function Header() {
       </IconsDiv>
 
       <UserDiv onClick={toggleModal}>
+        {user ? <AiOutlineLogin /> : <AiOutlineUser />}
         <StyledModal
           isOpen={isOpen}
           onBackgroundClick={toggleModal}
@@ -68,7 +74,9 @@ function Header() {
               <StyledModalLink to="/Login">Login</StyledModalLink>
             </>
           )}
-          <button onClick={toggleModal}>Close me</button>
+          <button onClick={toggleModal}>
+            <AiOutlineCloseCircle />
+          </button>
         </StyledModal>
       </UserDiv>
     </NavContainer>

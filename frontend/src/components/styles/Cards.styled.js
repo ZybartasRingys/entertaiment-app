@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-import { RecommendedSection, RecommendedContainer } from "./Recommended";
+import {
+  RecommendedSection,
+  RecommendedContainer,
+  CardDiv,
+} from "./Recommended";
 
 /* Recommended Section and Container */
 export const CardsSection = styled(RecommendedSection)``;

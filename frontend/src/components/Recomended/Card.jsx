@@ -3,23 +3,23 @@
 import {
   CardTop,
   CardBottom,
-  CardDiv,
   RecommendedCard as RecommendedCard,
+  PlayDiv,
+  CardDiv,
+  BottomCardDiv,
+  CardP,
+  PlayIcon,
 } from "../styles/Recommended";
 
 /* Styled Components imports*/
-import {
-  IconDiv,
-  TitleDiv,
-  Div,
-  IconContainer,
-} from "../styles/Trending.styled";
+import { IconDiv, TitleDiv, IconContainer } from "../styles/Trending.styled";
 
 /* Icons*/
 import { ReactComponent as BookEmpty } from "../../assets/icon-bookmark-empty.svg";
 import { ReactComponent as BookFull } from "../../assets/icon-bookmark-full.svg";
 import { ReactComponent as TvIcon } from "../../assets/icon-category-tv.svg";
 import { ReactComponent as MovieIcon } from "../../assets/icon-category-movie.svg";
+
 import { BsDot } from "react-icons/bs";
 
 /* Context*/
@@ -41,6 +41,11 @@ function Card({ movie }) {
           backgroundSize: "cover",
         }}
       >
+        <PlayDiv>
+          <PlayIcon />
+          Play
+        </PlayDiv>
+
         {user ? (
           <IconContainer>
             {isBookmarked ? (
@@ -57,20 +62,20 @@ function Card({ movie }) {
       </CardTop>
 
       <CardBottom>
-        <CardDiv>
-          <Div>
-            <p>{year}</p>
-            <BsDot size={12} />
-          </Div>
-          <Div>
+        <BottomCardDiv>
+          <CardDiv>
+            <CardP>{year}</CardP>
+          </CardDiv>
+          <BsDot size={12} />
+          <CardDiv>
             {category === "Movie" ? <MovieIcon /> : <TvIcon />}
-            <p>{category}</p>
-          </Div>
-          <Div>
-            <BsDot size={11} />
-            <p>{rating}</p>
-          </Div>
-        </CardDiv>
+            <CardP>{category}</CardP>
+          </CardDiv>
+          <BsDot size={12} />
+          <CardDiv>
+            <CardP>{rating}</CardP>
+          </CardDiv>
+        </BottomCardDiv>
 
         <TitleDiv>
           <h2>{title}</h2>

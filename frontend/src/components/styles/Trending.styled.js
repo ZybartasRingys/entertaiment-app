@@ -8,7 +8,7 @@ export const TrendingSection = styled.section`
   height: 100%;
   display: flex;
   padding-left: 15px;
-
+  /* Mobile */
   @media (max-width: 768px) {
     flex-direction: column;
     margin-top: 15px;
@@ -19,19 +19,31 @@ export const TrendingSection = styled.section`
       font-weight: 300;
     }
   }
+  /* tablet */
+  @media (min-width: 768px) and (max-width: 1440px) {
+    flex-direction: column;
+  }
 `;
 
 /* Trending Card Container */
 export const CardContainer = styled.div`
+  border: 1px solid red;
   border-radius: 8px;
   display: flex;
 
+  width: 100%;
+  /* Mobile */
   @media (max-width: 768px) {
-    width: 100%;
     max-width: 240px;
     height: 140px;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  /* tablet */
+  @media (min-width: 768px) and (max-width: 1440px) {
+    max-width: 470px;
+    height: 230px;
   }
 
   h2 {
@@ -42,12 +54,11 @@ export const CardContainer = styled.div`
 
 /* Trending IconContainer */
 export const IconContainer = styled.div`
+  display: flex;
+  justify-content: end;
+  align-items: center;
   @media (max-width: 768px) {
-    width: 96%;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    margin-top: 8px;
+    width: 100%;
   }
 `;
 /* Trending card bookmark Icon div*/
@@ -62,6 +73,7 @@ export const IconDiv = styled.button`
   opacity: 0.5;
   cursor: pointer;
   border: none;
+  border: 1px solid red;
 
   &:hover {
     background-color: #ffffff;
@@ -70,6 +82,17 @@ export const IconDiv = styled.button`
 
   & svg:hover path {
     stroke: black;
+  }
+  /* Mobile */
+  @media (max-width: 768px) {
+    margin-top: 8px;
+    margin-right: 10px;
+  }
+
+  /* tablet */
+  @media (min-width: 768px) and (max-width: 1440px) {
+    margin-top: 16px;
+    margin-right: 20px;
   }
 `;
 
