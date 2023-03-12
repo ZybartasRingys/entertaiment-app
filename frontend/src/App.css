@@ -3,3 +3,15 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+/* tablet */
+@media (min-width: 768px) and (max-width: 1440px) {
+  header {
+    margin-top: 23px;
+  }
+}
