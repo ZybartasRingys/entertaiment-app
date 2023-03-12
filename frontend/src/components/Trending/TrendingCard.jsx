@@ -61,18 +61,12 @@ function TrendingCard({ movie }) {
 
       <TextContainer>
         <TextDiv>
-          <Div>
-            <p>{year}</p>
-            <BsDot />
-          </Div>
-          <Div>
-            <MovieIcon />
-            <p>{category}</p>
-            <BsDot />
-          </Div>
-          <Div>
-            <p>{rating}</p>
-          </Div>
+          <p>{year}</p>
+          <BsDot />
+          <MovieIcon />
+          <p>{category}</p>
+          <BsDot />
+          <p>{rating}</p>
         </TextDiv>
 
         <TitleDiv>

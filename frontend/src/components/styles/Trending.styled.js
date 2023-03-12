@@ -22,12 +22,13 @@ export const TrendingSection = styled.section`
 
     h1 {
       font-size: 20px;
+      margin-bottom: 8px;
     }
   }
   /* tablet */
   @media (min-width: 768px) and (max-width: 1440px) {
     flex-direction: column;
-
+    padding-left: 23px;
     h1 {
       font-size: 32px;
       font-style: light;
@@ -41,6 +42,8 @@ export const CardContainer = styled.div`
   width: 100%;
   border-radius: 8px;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &:hover {
     filter: brightness(80%);
@@ -57,8 +60,6 @@ export const CardContainer = styled.div`
   @media (max-width: 768px) {
     max-width: 240px;
     height: 140px;
-    flex-direction: column;
-    justify-content: space-between;
   }
 
   /* tablet */
@@ -134,11 +135,12 @@ export const IconDiv = styled.button`
 export const TextContainer = styled.div`
   width: 100%;
 
+  /* Mobile */
   @media (max-width: 768px) {
     padding-left: 16px;
     margin-bottom: 16px;
 
-    h2 {
+    h5 {
       font-size: 15px;
       line-height: 19px;
     }
@@ -150,15 +152,38 @@ export const TextContainer = styled.div`
       font-weight: 300;
     }
   }
+
+  /* tablet */
+  @media (min-width: 768px) and (max-width: 1440px) {
+    padding-left: 24px;
+    margin-bottom: 24px;
+
+    h5 {
+      font-size: 24px;
+      line-height: 30px;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 15px;
+      text-transform: capitalize;
+      font-weight: 300;
+    }
+  }
 `;
 
 /* Trending card  text div*/
 export const TextDiv = styled.div`
   display: flex;
+  opacity: 0.75;
 
   @media (max-width: 768px) {
     width: 60%;
     margin-bottom: 5px;
+  }
+  /* tablet */
+  @media (min-width: 768px) and (max-width: 1440px) {
+    width: 35%;
     justify-content: space-between;
   }
 `;
@@ -173,10 +198,10 @@ export const TitleDiv = styled.div`
 
 export const Div = styled.div`
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @media (max-width: 768px) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 `;
