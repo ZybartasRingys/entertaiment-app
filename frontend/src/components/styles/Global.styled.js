@@ -25,7 +25,7 @@ body {
   overflow-x: hidden;
   background-color: #10141e;
   color: white;
-  font-family: "Outfit-medium", sans-serif;
+  font-family: "Outfit-medium";
   font-weight: 300;
 }
 
@@ -34,13 +34,28 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 15px;
+
+  .slide {
+ 
+    min-width: 70% !important;
+ 
+   /* tablet */
+   @media (min-width: 768px) and (max-width: 1440px) {
+    min-width: 68% !important;
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 768px) {
+    
+  }
+  /* tablet */
+  @media (min-width: 768px) and (max-width: 1440px) {
+   
+  }
 }
 
-.slide {
-  min-width: 70% !important;
-  margin-left: 16px ;
-}
+
 
 .movie-icon {
   margin-right: 5px;

@@ -69,18 +69,19 @@ export const PlayDiv = styled.div`
 
   /* Mobile */
   @media (max-width: 768px) {
-    width: 96px;
-    height: 38px;
-    left: 25%;
-    top: 30%;
-    background-color: #ffff;
+    width: 65px;
+    height: 28px;
+    left: 30%;
+    top: 42%;
+    font-size: 12px;
     border-radius: 29px;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(0, 0, 0, 0.5);
     color: var(--color-white);
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
+    cursor: pointer;
   }
 `;
 
@@ -102,13 +103,13 @@ export const CardTop = styled.div`
     height: 140px;
   }
   &:hover {
-    filter: brightness(60%);
+    filter: brightness(80%);
     transition: all 0.4s;
     transform: scale(1.1);
 
     ${PlayDiv} {
+      filter: brightness(100%) !important;
       opacity: 1;
-      background-color: red;
     }
   }
 `;
@@ -174,5 +175,8 @@ export const PlayIcon = styled(Play)`
   background-position: center;
   /* Mobile */
   @media (max-width: 768px) {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
   }
 `;

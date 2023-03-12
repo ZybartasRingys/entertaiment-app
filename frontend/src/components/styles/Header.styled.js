@@ -14,7 +14,7 @@ export const NavContainer = styled.nav`
     height: 56px;
   }
 
-  /* tablet */
+  /* Tablet */
   @media (min-width: 768px) and (max-width: 1440px) {
     height: 72px;
     padding: 25px 25px;

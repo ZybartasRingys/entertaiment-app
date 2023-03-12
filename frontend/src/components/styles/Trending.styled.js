@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as BookEmpty } from "../../assets/icon-bookmark-empty.svg";
+import { PlayDiv } from "./Recommended";
+
 /* Trending Section */
 
 export const TrendingSection = styled.section`
@@ -8,30 +10,49 @@ export const TrendingSection = styled.section`
   height: 100%;
   display: flex;
   padding-left: 15px;
+
+  h1 {
+    font-family: "Outfit";
+    font-weight: 300;
+  }
   /* Mobile */
   @media (max-width: 768px) {
     flex-direction: column;
     margin-top: 15px;
 
     h1 {
-      font-family: "Outfit", sans-serif;
       font-size: 20px;
-      font-weight: 300;
     }
   }
   /* tablet */
   @media (min-width: 768px) and (max-width: 1440px) {
     flex-direction: column;
+
+    h1 {
+      font-size: 32px;
+      font-style: light;
+      margin-bottom: 32px;
+    }
   }
 `;
 
 /* Trending Card Container */
 export const CardContainer = styled.div`
-  border: 1px solid red;
+  width: 100%;
   border-radius: 8px;
   display: flex;
 
-  width: 100%;
+  &:hover {
+    filter: brightness(80%);
+    transition: all 0.4s;
+    transform: scale(1.1);
+
+    ${PlayDiv} {
+      filter: brightness(100%) !important;
+      opacity: 1;
+    }
+  }
+
   /* Mobile */
   @media (max-width: 768px) {
     max-width: 240px;
@@ -49,6 +70,15 @@ export const CardContainer = styled.div`
   h2 {
     font-size: 15px;
     color: #ffffff;
+  }
+`;
+
+/* Full icon */
+
+export const EmptyIcon = styled(BookEmpty)`
+  &:hover {
+    color: #000000;
+    fill: #000000;
   }
 `;
 
@@ -73,16 +103,20 @@ export const IconDiv = styled.button`
   opacity: 0.5;
   cursor: pointer;
   border: none;
-  border: 1px solid red;
 
   &:hover {
     background-color: #ffffff;
     opacity: 1;
+
+    &:hover ${EmptyIcon} {
+      stroke: black;
+    }
+
+    svg:hover path {
+      stroke: black;
+    }
   }
 
-  & svg:hover path {
-    stroke: black;
-  }
   /* Mobile */
   @media (max-width: 768px) {
     margin-top: 8px;
@@ -144,14 +178,5 @@ export const Div = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-`;
-
-/* Full icon */
-
-export const EmptyIcon = styled(BookEmpty)`
-  &:hover {
-    color: #000000;
-    fill: #000000;
   }
 `;

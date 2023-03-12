@@ -5,31 +5,47 @@ import styled from "styled-components";
 export const SearchContainer = styled.form`
   width: 100%;
   height: 100%;
+  display: flex;
+  /* Mobile */
   @media (max-width: 768px) {
-    display: flex;
     padding-left: 15px;
     margin-top: 25px;
+  }
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1440px) {
+    width: 90%;
+    margin-left: 24px;
+    margin-top: 37px;
+    margin-bottom: 45px;
   }
 `;
 
 /* Search input  */
 
 export const SearchInput = styled.input`
+  width: 100%;
   outline: none;
   background-color: #10141e;
   border: none !important;
   color: #ffffff;
-  font-size: 16px;
-  line-height: 20px;
-  width: 100%;
-  padding-left: 15px;
-  caret-color: #fc4747;
+  caret-color: var(--color-red);
+  font-family: "Outfit";
+  font-weight: 300;
 
   &:focus {
     text-decoration: underline;
   }
-
+  /* Mobile */
   @media (max-width: 768px) {
+    font-size: 16px;
+    line-height: 20px;
+    padding-left: 15px;
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1440px) {
+    font-size: 24px;
+    margin-left: 23px;
   }
 `;
 
