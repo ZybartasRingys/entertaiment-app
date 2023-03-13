@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap");
@@ -25,7 +25,7 @@ body {
   overflow-x: hidden;
   background-color: #10141e;
   color: white;
-  font-family: "Outfit-medium";
+  font-family: "Outfit";
   font-weight: 300;
 }
 
@@ -65,4 +65,4 @@ body {
 .control-arrow {
   background-color: transparent !important;
 }
-`;
+`
