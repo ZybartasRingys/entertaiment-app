@@ -16,9 +16,21 @@ function Bookmarked() {
     return <BookmarkedCard key={movie._id} movie={movie} />;
   });
 
+  const filteredTvSeries = bookmarkedCard.filter(
+    (series) => series.category === "TV Series"
+  );
+
+  console.log(filteredTvSeries);
+
   return (
     <CardsSection>
-      <CardsContainer>{bookmarkedCard}</CardsContainer>
+      <CardsContainer>
+        <h1>Bookmarked Movies</h1>
+        {bookmarkedCard}
+      </CardsContainer>
+      <CardsContainer>
+        <h1>Bookmarked Tv Series</h1>
+      </CardsContainer>
     </CardsSection>
   );
 }

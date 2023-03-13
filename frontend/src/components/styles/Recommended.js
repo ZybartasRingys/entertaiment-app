@@ -4,6 +4,7 @@ import { ReactComponent as Play } from "../../assets/icon-play.svg";
 export const RecommendedSection = styled.section`
   width: 100%;
   height: 100%;
+  border: 1px solid red;
 
   h1 {
     font-family: "Outfit";
@@ -21,7 +22,7 @@ export const RecommendedSection = styled.section`
 
   /* Tablet */
 
-  @media (min-width: 768px) and (max-width: 1440px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     margin-top: 30px;
     margin-left: 24px;
 
@@ -65,7 +66,7 @@ export const RecommendedCard = styled.div`
     margin-bottom: 30px;
   }
   /* Tablet */
-  @media (min-width: 768px) and (max-width: 1440px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     height: 192px;
     margin-bottom: 23px;
   }
@@ -92,7 +93,7 @@ export const PlayDiv = styled.div`
   }
 
   /* Tablet */
-  @media (min-width: 768px) and (max-width: 1440px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     width: 95px;
     height: 38px;
     left: 30%;
@@ -114,7 +115,7 @@ export const CardTop = styled.div`
   }
 
   /* tablet */
-  @media (min-width: 768px) and (max-width: 1440px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     max-width: 220px;
     height: 140px;
   }
@@ -155,7 +156,7 @@ export const CardBottom = styled.div`
   }
 
   /* tablet */
-  @media (min-width: 768px) and (max-width: 1440px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     max-height: 44px;
     margin-top: 10px;
   }
@@ -199,7 +200,7 @@ export const BottomCardDiv = styled.div`
   }
 
   /* tablet */
-  @media (min-width: 768px) and (max-width: 1440px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     width: 70%;
     align-items: center;
     margin-bottom: 5px;
@@ -212,7 +213,7 @@ export const CardP = styled.p`
   margin-top: 2px;
 
   /* tablet */
-  @media (min-width: 768px) and (max-width: 1440px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     font-style: normal;
     font-weight: 300;
     font-size: 13px;

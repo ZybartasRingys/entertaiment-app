@@ -26,7 +26,7 @@ export const TrendingSection = styled.section`
     }
   }
   /* tablet */
-  @media (min-width: 768px) and (max-width: 1440px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     flex-direction: column;
     padding-left: 23px;
     h1 {
@@ -63,7 +63,7 @@ export const CardContainer = styled.div`
   }
 
   /* tablet */
-  @media (min-width: 768px) and (max-width: 1440px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     max-width: 470px;
     height: 230px;
   }
@@ -125,7 +125,7 @@ export const IconDiv = styled.button`
   }
 
   /* tablet */
-  @media (min-width: 768px) and (max-width: 1440px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     margin-top: 16px;
     margin-right: 20px;
   }
@@ -154,7 +154,7 @@ export const TextContainer = styled.div`
   }
 
   /* tablet */
-  @media (min-width: 768px) and (max-width: 1440px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     padding-left: 24px;
     margin-bottom: 24px;
 
@@ -182,7 +182,7 @@ export const TextDiv = styled.div`
     margin-bottom: 5px;
   }
   /* tablet */
-  @media (min-width: 768px) and (max-width: 1440px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     width: 35%;
     justify-content: space-between;
   }

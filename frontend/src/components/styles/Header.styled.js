@@ -15,7 +15,7 @@ export const NavContainer = styled.nav`
   }
 
   /* Tablet */
-  @media (min-width: 768px) and (max-width: 1440px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     height: 72px;
     padding: 25px 25px;
     max-width: 719px;
@@ -35,7 +35,7 @@ export const IconsDiv = styled.div`
   }
 
   /* tablet */
-  @media (min-width: 768px) and (max-width: 1440px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     width: 26%;
   }
 `;

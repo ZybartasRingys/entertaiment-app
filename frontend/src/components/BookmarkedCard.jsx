@@ -4,6 +4,8 @@ import {
   CardBottom,
   CardDiv,
   RecommendedCard,
+  BottomCardDiv,
+  CardP,
 } from "./styles/Recommended";
 
 /* Styled Components imports*/
@@ -52,20 +54,14 @@ function BookmarkedCard({ movie }) {
         </CardTop>
 
         <CardBottom>
-          <CardDiv>
-            <Div>
-              <p>{year}</p>
-              <BsDot size={12} />
-            </Div>
-            <Div>
-              {category === "Movie" ? <MovieIcon /> : <TvIcon />}
-              <p>{category}</p>
-            </Div>
-            <Div>
-              <BsDot size={11} />
-              <p>{rating}</p>
-            </Div>
-          </CardDiv>
+          <BottomCardDiv>
+            <CardP>{year}</CardP>
+            <BsDot size={12} />
+            {category === "Movie" ? <MovieIcon /> : <TvIcon />}
+            <CardP>{category}</CardP>
+            <BsDot size={12} />
+            <CardP>{rating}</CardP>
+          </BottomCardDiv>
 
           <TitleDiv>
             <h2>{title}</h2>

@@ -12,7 +12,7 @@ export const SearchContainer = styled.form`
     margin-top: 25px;
   }
   /* Tablet */
-  @media (min-width: 768px) and (max-width: 1440px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     width: 90%;
     margin-left: 24px;
     margin-top: 37px;
@@ -43,7 +43,7 @@ export const SearchInput = styled.input`
   }
 
   /* Tablet */
-  @media (min-width: 768px) and (max-width: 1440px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     font-size: 24px;
     margin-left: 23px;
   }

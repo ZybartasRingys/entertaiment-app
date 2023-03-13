@@ -48,7 +48,7 @@ body {
     min-width: 70% !important;
  
    /* tablet */
-   @media (min-width: 768px) and (max-width: 1440px) {
+   @media (min-width: 768px) and (max-width: 1024px) {
     min-width: 68% !important;
     }
   }
@@ -58,7 +58,7 @@ body {
     
   }
   /* tablet */
-  @media (min-width: 768px) and (max-width: 1440px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
    
   }
 }
