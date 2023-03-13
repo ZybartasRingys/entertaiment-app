@@ -24,6 +24,7 @@ function TvSeries() {
 
   return (
     <CardsSection>
+      <h1>TV Series</h1>
       <CardsContainer>{tvSeriesCard}</CardsContainer>
     </CardsSection>
   );

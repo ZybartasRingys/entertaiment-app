@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap");
@@ -10,6 +10,14 @@ export const GlobalStyles = createGlobalStyle`
   --color-greyish-blue: #5A698F;
   --color-semi-dark-blue: #161D2F;
   --color-white: #FFFFFF;
+
+
+  --font-size-heading-l: 32px;
+  --font-size-heading-m: 24px;
+  --font-size-heading-s: 18px;
+ 
+  --font-size-body-m: 15px;
+  --font-size-body-s: 13px;
 }
   
 
@@ -65,4 +73,4 @@ body {
 .control-arrow {
   background-color: transparent !important;
 }
-`
+`;

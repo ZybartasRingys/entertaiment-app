@@ -1,16 +1,19 @@
-import styled from 'styled-components'
-import { ReactComponent as Play } from '../../assets/icon-play.svg'
+import styled from "styled-components";
+import { ReactComponent as Play } from "../../assets/icon-play.svg";
 /* Recommended Section */
 export const RecommendedSection = styled.section`
   width: 100%;
   height: 100%;
+
+  h1 {
+    font-family: "Outfit";
+  }
   /* Mobile */
   @media (max-width: 768px) {
     margin-top: 30px;
     margin-left: 15px;
 
     h1 {
-      font-family: 'Outfit';
       font-size: 20px;
       font-weight: 300;
     }
@@ -20,18 +23,18 @@ export const RecommendedSection = styled.section`
 
   @media (min-width: 768px) and (max-width: 1440px) {
     margin-top: 30px;
-    margin-left: 15px;
+    margin-left: 24px;
 
     h1 {
       font-style: normal;
       font-weight: 300;
-      font-size: 32px;
+      font-size: var(--font-size-heading-l);
       line-height: 40px;
       letter-spacing: -0.5px;
       margin-bottom: 20px;
     }
   }
-`
+`;
 
 export const RecommendedContainer = styled.div`
   width: 100%;
@@ -51,7 +54,7 @@ export const RecommendedContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr !important;
   }
-`
+`;
 
 /* Recommended Card Container*/
 export const RecommendedCard = styled.div`
@@ -64,11 +67,20 @@ export const RecommendedCard = styled.div`
   /* Tablet */
   @media (min-width: 768px) and (max-width: 1440px) {
     height: 192px;
+    margin-bottom: 23px;
   }
-`
+`;
 
 export const PlayDiv = styled.div`
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  cursor: pointer;
+  border-radius: 29px;
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--color-white);
 
   /* Mobile */
   @media (max-width: 768px) {
@@ -77,16 +89,17 @@ export const PlayDiv = styled.div`
     left: 30%;
     top: 42%;
     font-size: 12px;
-    border-radius: 29px;
-    background: rgba(0, 0, 0, 0.5);
-    color: var(--color-white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    cursor: pointer;
   }
-`
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1440px) {
+    width: 95px;
+    height: 38px;
+    left: 30%;
+    top: 42%;
+    font-size: 12px;
+  }
+`;
 
 /* Recommended card top section */
 
@@ -115,23 +128,23 @@ export const CardTop = styled.div`
       opacity: 1;
     }
   }
-`
+`;
 
 /* Recommended card bottom section */
 
 export const CardBottom = styled.div`
+  font-family: "Outfit";
+  font-style: medium;
   /* Mobile */
   @media (max-width: 768px) {
     width: 100%;
     height: 100%;
-    max-height: 52px;
+    max-height: 44px;
   }
 
   h2 {
     font-size: 14px;
     line-height: 18px;
-    font-family: 'Outfit', sans-serif;
-    font-style: medium;
   }
 
   p {
@@ -140,7 +153,23 @@ export const CardBottom = styled.div`
     text-transform: capitalize;
     font-weight: 300;
   }
-`
+
+  /* tablet */
+  @media (min-width: 768px) and (max-width: 1440px) {
+    max-height: 44px;
+    margin-top: 10px;
+  }
+  &:hover {
+    filter: brightness(80%);
+    transition: all 0.4s;
+    transform: scale(1.1);
+
+    ${PlayDiv} {
+      filter: brightness(100%) !important;
+      opacity: 1;
+    }
+  }
+`;
 
 /* Recommended card div */
 
@@ -149,10 +178,11 @@ export const CardDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const BottomCardDiv = styled.div`
   display: flex;
+  opacity: 0.75;
 
   /* Mobile */
   @media (max-width: 768px) {
@@ -172,14 +202,14 @@ export const BottomCardDiv = styled.div`
   @media (min-width: 768px) and (max-width: 1440px) {
     width: 70%;
     align-items: center;
+    margin-bottom: 5px;
   }
-`
+`;
 
 export const CardP = styled.p`
-  font-family: 'Outfit';
+  font-family: "Outfit";
   margin-left: 3px;
   margin-top: 2px;
-  opacity: 0.75;
 
   /* tablet */
   @media (min-width: 768px) and (max-width: 1440px) {
@@ -188,7 +218,7 @@ export const CardP = styled.p`
     font-size: 13px;
     line-height: 16px;
   }
-`
+`;
 
 export const PlayIcon = styled(Play)`
   fill: var(--color-white);
@@ -199,4 +229,4 @@ export const PlayIcon = styled(Play)`
     height: 15px;
     margin-right: 10px;
   }
-`
+`;
