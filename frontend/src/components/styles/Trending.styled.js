@@ -9,7 +9,7 @@ export const TrendingSection = styled.section`
   width: 100%;
   height: 100%;
   display: flex;
-  padding-left: 15px;
+  flex-direction: column;
 
   h1 {
     font-family: "Outfit";
@@ -17,8 +17,8 @@ export const TrendingSection = styled.section`
   }
   /* Mobile */
   @media (max-width: 768px) {
-    flex-direction: column;
     margin-top: 15px;
+    padding-left: 15px;
 
     h1 {
       font-size: 20px;
@@ -27,12 +27,22 @@ export const TrendingSection = styled.section`
   }
   /* tablet */
   @media (min-width: 768px) and (max-width: 1024px) {
-    flex-direction: column;
     padding-left: 23px;
     h1 {
       font-size: 32px;
       font-style: light;
       margin-bottom: 32px;
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+    margin-left: 164px;
+    margin-top: 34px;
+
+    h1 {
+      margin-bottom: 25px;
+      font-size: var(--font-size-heading-l);
     }
   }
 `;
@@ -55,6 +65,10 @@ export const CardContainer = styled.div`
       opacity: 1;
     }
   }
+  h2 {
+    font-size: 15px;
+    color: #ffffff;
+  }
 
   /* Mobile */
   @media (max-width: 768px) {
@@ -68,9 +82,10 @@ export const CardContainer = styled.div`
     height: 230px;
   }
 
-  h2 {
-    font-size: 15px;
-    color: #ffffff;
+  /* Desktop */
+  @media (min-width: 1440px) {
+    max-width: 470px;
+    height: 230px;
   }
 `;
 

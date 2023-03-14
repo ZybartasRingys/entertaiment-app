@@ -51,7 +51,17 @@ body {
    @media (min-width: 768px) and (max-width: 1024px) {
     min-width: 68% !important;
     }
+
+    /* Desktop */
+  @media (min-width: 1439px) {
+   
+   min-width: 36% !important;
   }
+
+
+  }
+
+  
   
   /* Mobile */
   @media (max-width: 768px) {
@@ -61,6 +71,8 @@ body {
   @media (min-width: 768px) and (max-width: 1024px) {
    
   }
+
+  
 }
 
 

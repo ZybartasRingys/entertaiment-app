@@ -4,7 +4,6 @@ import { ReactComponent as Play } from "../../assets/icon-play.svg";
 export const RecommendedSection = styled.section`
   width: 100%;
   height: 100%;
-  border: 1px solid red;
 
   h1 {
     font-family: "Outfit";
@@ -35,12 +34,25 @@ export const RecommendedSection = styled.section`
       margin-bottom: 20px;
     }
   }
+
+  /* Desktop */
+
+  @media (min-width: 1440px) {
+    max-width: 1240px;
+    margin-left: 164px;
+    margin-top: 40px;
+
+    h1 {
+      margin-bottom: 32px;
+    }
+  }
 `;
 
 export const RecommendedContainer = styled.div`
   width: 100%;
   height: 100%;
 
+  /* Mobile */
   @media (max-width: 768px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -55,6 +67,13 @@ export const RecommendedContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr !important;
   }
+
+  /* Desktop  */
+
+  @media (min-width: 1440px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr !important;
+  }
 `;
 
 /* Recommended Card Container*/
@@ -63,11 +82,20 @@ export const RecommendedCard = styled.div`
   /* Mobile */
   @media (max-width: 768px) {
     height: 154px;
+    max-width: 164px;
     margin-bottom: 30px;
   }
   /* Tablet */
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1439px) {
     height: 192px;
+    max-width: 220px;
+    margin-bottom: 23px;
+  }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+    height: 226px;
+    max-width: 280px;
     margin-bottom: 23px;
   }
 `;
@@ -110,15 +138,19 @@ export const CardTop = styled.div`
   width: 100%;
   /* Mobile */
   @media (max-width: 768px) {
-    max-width: 164px;
     height: 110px;
   }
 
   /* tablet */
-  @media (min-width: 768px) and (max-width: 1024px) {
-    max-width: 220px;
+  @media (min-width: 768px) and (max-width: 1439px) {
     height: 140px;
   }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+    height: 174px;
+  }
+
   &:hover {
     filter: brightness(80%);
     transition: all 0.4s;
@@ -136,12 +168,10 @@ export const CardTop = styled.div`
 export const CardBottom = styled.div`
   font-family: "Outfit";
   font-style: medium;
-  /* Mobile */
-  @media (max-width: 768px) {
-    width: 100%;
-    height: 100%;
-    max-height: 44px;
-  }
+  max-height: 44px;
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
 
   h2 {
     font-size: 14px;
@@ -154,12 +184,19 @@ export const CardBottom = styled.div`
     text-transform: capitalize;
     font-weight: 300;
   }
+  /* Mobile */
+  @media (max-width: 768px) {
+  }
 
   /* tablet */
   @media (min-width: 768px) and (max-width: 1024px) {
-    max-height: 44px;
-    margin-top: 10px;
   }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+    height: 174px;
+  }
+
   &:hover {
     filter: brightness(80%);
     transition: all 0.4s;

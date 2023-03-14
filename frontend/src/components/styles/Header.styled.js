@@ -21,6 +21,25 @@ export const NavContainer = styled.nav`
     max-width: 719px;
     border-radius: 10px;
   }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+    position: absolute;
+    width: 96px;
+    height: 960px;
+    border-radius: 20px;
+    top: 32px;
+    left: 32px;
+    flex-direction: column;
+    justify-content: start;
+  }
+`;
+
+export const LogoDiv = styled.div`
+  /* Desktop */
+  @media (min-width: 1439px) {
+    margin-top: 35px;
+  }
 `;
 
 export const Div = styled.div``;
@@ -38,6 +57,14 @@ export const IconsDiv = styled.div`
   @media (min-width: 768px) and (max-width: 1024px) {
     width: 26%;
   }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+    height: 200px;
+    flex-direction: column;
+
+    margin-top: 75px;
+  }
 `;
 
 export const UserDiv = styled.button`
@@ -48,6 +75,13 @@ export const UserDiv = styled.button`
   border-radius: 50%;
   display: flex;
   justify-content: space-between;
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+    margin-top: 555px;
+    width: 40px;
+    height: 40px;
+  }
 `;
 
 // navbar icons styles

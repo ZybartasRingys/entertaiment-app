@@ -18,6 +18,12 @@ export const SearchContainer = styled.form`
     margin-top: 37px;
     margin-bottom: 45px;
   }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+    margin-top: 36px;
+    margin-left: 164px;
+  }
 `;
 
 /* Search input  */
@@ -46,6 +52,12 @@ export const SearchInput = styled.input`
   @media (min-width: 768px) and (max-width: 1024px) {
     font-size: 24px;
     margin-left: 23px;
+  }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+    margin-left: 24px;
+    font-size: var(--font-size-heading-m);
   }
 `;
 
