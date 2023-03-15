@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import { ReactComponent as Logo } from '../../assets/logo.svg'
-import { Link } from 'react-router-dom'
+import styled from "styled-components";
+import { ReactComponent as Logo } from "../../assets/logo.svg";
+import { NavLink, Link } from "react-router-dom";
 export const NavContainer = styled.nav`
   width: 100%;
   color: var(--color-white);
@@ -34,7 +34,7 @@ export const NavContainer = styled.nav`
     flex-direction: column;
     justify-content: start;
   }
-`
+`;
 
 export const LogoDiv = styled.div`
   /* Mobile */
@@ -49,9 +49,9 @@ export const LogoDiv = styled.div`
   @media (min-width: 1439px) {
     margin-top: 35px;
   }
-`
+`;
 
-export const Div = styled.div``
+export const Div = styled.div``;
 
 export const IconsDiv = styled.div`
   display: flex;
@@ -74,7 +74,7 @@ export const IconsDiv = styled.div`
 
     margin-top: 75px;
   }
-`
+`;
 
 export const UserDiv = styled.button`
   border: 1px solid white;
@@ -91,7 +91,7 @@ export const UserDiv = styled.button`
     width: 40px;
     height: 40px;
   }
-`
+`;
 
 // navbar icons styles
 
@@ -104,6 +104,14 @@ export const LogoIcon = styled(Logo)`
   @media (max-width: 768px) {
     transform: scale(0.8);
   }
-`
+`;
 
-export const LogoLink = styled(Link)``
+export const LogoLink = styled(Link)``;
+
+/* Icons styling */
+
+export const BaseNavLink = styled(NavLink)`
+  &.active path {
+    fill: var(--color-white);
+  }
+`;

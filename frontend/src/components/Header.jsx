@@ -6,62 +6,82 @@ import {
   Div,
   LogoIcon,
   LogoLink,
-} from './styles/Header.styled'
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
+  BaseNavLink,
+} from "./styles/Header.styled";
+import { NavLink } from "react-router-dom";
+import { useState } from "react";
 /* Icons */
-import { ReactComponent as HomeIcon } from '../assets/icon-nav-home.svg'
-import { ReactComponent as MovieIcon } from '../assets/icon-nav-movies.svg'
-import { ReactComponent as TvSeriesIcon } from '../assets/icon-nav-tv-series.svg'
-import { ReactComponent as BookmarkedIcon } from '../assets/icon-nav-bookmark.svg'
+import { ReactComponent as HomeIcon } from "../assets/icon-nav-home.svg";
+import { ReactComponent as MovieIcon } from "../assets/icon-nav-movies.svg";
+import { ReactComponent as TvSeriesIcon } from "../assets/icon-nav-tv-series.svg";
+import { ReactComponent as BookmarkedIcon } from "../assets/icon-nav-bookmark.svg";
 
 import {
   AiOutlineCloseCircle,
   AiOutlineLogin,
   AiOutlineUser,
-} from 'react-icons/ai'
+} from "react-icons/ai";
 
 /* Context */
-import { useLogout } from '../hooks/useLogout'
-import { useAuthContext } from '../hooks/useAuthContext'
+import { useLogout } from "../hooks/useLogout";
+import { useAuthContext } from "../hooks/useAuthContext";
 /* Modal */
-import { StyledModal, StyledModalLink } from './styles/Modal.styled'
+import { StyledModal, StyledModalLink } from "./styles/Modal.styled";
 
 function Header() {
-  const [isOpen, setIsOpen] = useState(false)
-  const { logout } = useLogout()
-  const { user } = useAuthContext()
-  const [active, setActive] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const { logout } = useLogout();
+  const { user } = useAuthContext();
 
   const handleClick = () => {
-    logout()
-  }
+    logout();
+  };
 
   function toggleModal(e) {
-    setIsOpen(!isOpen)
+    setIsOpen(!isOpen);
   }
   return (
     <NavContainer>
       <LogoDiv>
-        <LogoLink to='/'>
+        <LogoLink to="/">
           <LogoIcon />
         </LogoLink>
       </LogoDiv>
       <IconsDiv>
-        <Link to='/'>
+        <BaseNavLink
+          to="/"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
           <HomeIcon />
-        </Link>
-        <Link to='/Movies'>
+        </BaseNavLink>
+        <BaseNavLink
+          to="/Movies"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
           <MovieIcon />
-        </Link>
-        <Link to='/TvSeries'>
+        </BaseNavLink>
+        <BaseNavLink
+          to="/TvSeries"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
           <TvSeriesIcon />
-        </Link>
+        </BaseNavLink>
 
         {user ? (
-          <Link to='/Bookmarked'>
+          <BaseNavLink
+            to="/Bookmarked"
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : ""
+            }
+          >
             <BookmarkedIcon />
-          </Link>
+          </BaseNavLink>
         ) : null}
       </IconsDiv>
 
@@ -79,8 +99,8 @@ function Header() {
             </Div>
           ) : (
             <>
-              <StyledModalLink to='/Register'>Register</StyledModalLink>
-              <StyledModalLink to='/Login'>Login</StyledModalLink>
+              <StyledModalLink to="/Register">Register</StyledModalLink>
+              <StyledModalLink to="/Login">Login</StyledModalLink>
             </>
           )}
           <button onClick={toggleModal}>
@@ -89,7 +109,7 @@ function Header() {
         </StyledModal>
       </UserDiv>
     </NavContainer>
-  )
+  );
 }
 
-export default Header
+export default Header;
