@@ -10,15 +10,15 @@ import {
   Div,
   IconContainer,
   EmptyIcon,
+  MovieIcon,
 } from "../../components/styles/Trending.styled";
 
 import { PlayDiv, PlayIcon } from "../../components/styles/Recommended";
 
 /* Icons */
 
-import { ReactComponent as BookEmpty } from "../../assets/icon-bookmark-empty.svg";
 import { ReactComponent as BookFull } from "../../assets/icon-bookmark-full.svg";
-import { ReactComponent as MovieIcon } from "../../assets/icon-category-movie.svg";
+
 import { BsDot } from "react-icons/bs";
 
 /* Context */

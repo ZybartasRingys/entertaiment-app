@@ -1,6 +1,8 @@
-import styled from 'styled-components'
-import { ReactComponent as BookEmpty } from '../../assets/icon-bookmark-empty.svg'
-import { PlayDiv } from './Recommended'
+import styled from "styled-components";
+import { ReactComponent as BookEmpty } from "../../assets/icon-bookmark-empty.svg";
+import { PlayDiv } from "./Recommended";
+import { ReactComponent as Movie } from "../../assets/icon-category-movie.svg";
+import { ReactComponent as Tv } from "../../assets/icon-category-tv.svg";
 
 /* Trending Section */
 
@@ -12,7 +14,7 @@ export const TrendingSection = styled.section`
   flex-direction: column;
 
   h1 {
-    font-family: 'Outfit';
+    font-family: "Outfit";
     font-weight: 300;
   }
   /* Mobile */
@@ -22,7 +24,7 @@ export const TrendingSection = styled.section`
 
     h1 {
       font-size: 20px;
-      margin-bottom: 8px;
+      margin-bottom: 20px;
     }
   }
   /* tablet */
@@ -45,7 +47,7 @@ export const TrendingSection = styled.section`
       font-size: var(--font-size-heading-l);
     }
   }
-`
+`;
 
 /* Trending Card Container */
 export const CardContainer = styled.div`
@@ -87,7 +89,7 @@ export const CardContainer = styled.div`
     max-width: 470px;
     height: 230px;
   }
-`
+`;
 
 /* Full icon */
 
@@ -96,7 +98,7 @@ export const EmptyIcon = styled(BookEmpty)`
     color: #000000;
     fill: #000000;
   }
-`
+`;
 
 /* Trending IconContainer */
 export const IconContainer = styled.div`
@@ -106,7 +108,7 @@ export const IconContainer = styled.div`
   @media (max-width: 768px) {
     width: 100%;
   }
-`
+`;
 /* Trending card bookmark Icon div*/
 export const IconDiv = styled.button`
   width: 32px;
@@ -144,7 +146,7 @@ export const IconDiv = styled.button`
     margin-top: 16px;
     margin-right: 20px;
   }
-`
+`;
 
 /* Trending card  text container*/
 export const TextContainer = styled.div`
@@ -185,11 +187,12 @@ export const TextContainer = styled.div`
       font-weight: 300;
     }
   }
-`
+`;
 
 /* Trending card  text div*/
 export const TextDiv = styled.div`
   display: flex;
+  align-items: center;
   opacity: 0.75;
 
   @media (max-width: 768px) {
@@ -201,13 +204,13 @@ export const TextDiv = styled.div`
     width: 35%;
     justify-content: space-between;
   }
-`
+`;
 
 /* Trending card title div*/
 export const TitleDiv = styled.div`
   width: 100%;
   text-align: start !important;
-`
+`;
 
 /* Search input Container */
 
@@ -219,4 +222,22 @@ export const Div = styled.div`
 
   @media (max-width: 768px) {
   }
-`
+`;
+
+/* Icons */
+
+export const MovieIcon = styled(Movie)`
+  transform: scale(0.8);
+  /* Mobile */
+  @media (max-width: 768px) {
+    margin-right: 4px;
+  }
+`;
+
+export const TvIcon = styled(Tv)`
+  transform: scale(0.9);
+  /* Mobile */
+  @media (max-width: 768px) {
+    margin-right: 4px;
+  }
+`;

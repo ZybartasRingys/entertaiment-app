@@ -81,13 +81,13 @@ export const IconsDiv = styled.div`
 `;
 
 export const UserDiv = styled.button`
-  border: 1px solid white;
   background-color: transparent;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
+  border: none;
+  color: var(--color-white);
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  font-size: 9px;
 
   /* Desktop */
   @media (min-width: 1439px) {

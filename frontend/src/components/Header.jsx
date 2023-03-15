@@ -12,7 +12,7 @@ import {
   Series,
   Bookmarked,
 } from "./styles/Header.styled";
-import { NavLink } from "react-router-dom";
+
 import { useState } from "react";
 /* Icons */
 
@@ -87,7 +87,11 @@ function Header() {
       </IconsDiv>
 
       <UserDiv onClick={toggleModal}>
-        {user ? <AiOutlineLogin /> : <AiOutlineUser />}
+        {user ? (
+          <AiOutlineUser fill="#ffff" size={25} />
+        ) : (
+          <AiOutlineLogin fill="#ffff" size={25} />
+        )}
         <StyledModal
           isOpen={isOpen}
           onBackgroundClick={toggleModal}
@@ -95,7 +99,8 @@ function Header() {
         >
           {user ? (
             <Div>
-              {user.email}
+              {user ? user.email : null}
+
               <button onClick={handleClick}>Log out</button>
             </Div>
           ) : (
@@ -108,6 +113,7 @@ function Header() {
             <AiOutlineCloseCircle />
           </button>
         </StyledModal>
+        {user ? user.email : null}
       </UserDiv>
     </NavContainer>
   );

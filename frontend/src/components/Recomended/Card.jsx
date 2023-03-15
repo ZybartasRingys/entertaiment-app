@@ -11,13 +11,18 @@ import {
 } from "../styles/Recommended";
 
 /* Styled Components imports*/
-import { IconDiv, TitleDiv, IconContainer } from "../styles/Trending.styled";
+import {
+  IconDiv,
+  TitleDiv,
+  IconContainer,
+  MovieIcon,
+  TvIcon,
+} from "../styles/Trending.styled";
 
 /* Icons*/
 import { ReactComponent as BookEmpty } from "../../assets/icon-bookmark-empty.svg";
 import { ReactComponent as BookFull } from "../../assets/icon-bookmark-full.svg";
-import { ReactComponent as TvIcon } from "../../assets/icon-category-tv.svg";
-import { ReactComponent as MovieIcon } from "../../assets/icon-category-movie.svg";
+
 import { BsDot } from "react-icons/bs";
 
 /* Context*/

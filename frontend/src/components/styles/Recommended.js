@@ -1,12 +1,12 @@
-import styled from 'styled-components'
-import { ReactComponent as Play } from '../../assets/icon-play.svg'
+import styled from "styled-components";
+import { ReactComponent as Play } from "../../assets/icon-play.svg";
 /* Recommended Section */
 export const RecommendedSection = styled.section`
   width: 100%;
   height: 100%;
 
   h1 {
-    font-family: 'Outfit';
+    font-family: "Outfit";
   }
   /* Mobile */
   @media (max-width: 768px) {
@@ -46,7 +46,7 @@ export const RecommendedSection = styled.section`
       margin-bottom: 32px;
     }
   }
-`
+`;
 
 export const RecommendedContainer = styled.div`
   width: 100%;
@@ -74,7 +74,7 @@ export const RecommendedContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr !important;
   }
-`
+`;
 
 /* Recommended Card Container*/
 export const RecommendedCard = styled.div`
@@ -83,7 +83,7 @@ export const RecommendedCard = styled.div`
   @media (max-width: 768px) {
     height: 154px;
     max-width: 164px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
   }
   /* Tablet */
   @media (min-width: 768px) and (max-width: 1439px) {
@@ -98,7 +98,7 @@ export const RecommendedCard = styled.div`
     max-width: 280px;
     margin-bottom: 23px;
   }
-`
+`;
 
 export const PlayDiv = styled.div`
   position: absolute;
@@ -128,7 +128,7 @@ export const PlayDiv = styled.div`
     top: 42%;
     font-size: 12px;
   }
-`
+`;
 
 /* Recommended card top section */
 
@@ -161,12 +161,12 @@ export const CardTop = styled.div`
       opacity: 1;
     }
   }
-`
+`;
 
 /* Recommended card bottom section */
 
 export const CardBottom = styled.div`
-  font-family: 'Outfit';
+  font-family: "Outfit";
   font-style: medium;
   max-height: 44px;
   width: 100%;
@@ -186,6 +186,7 @@ export const CardBottom = styled.div`
   }
   /* Mobile */
   @media (max-width: 768px) {
+    max-height: 32px;
   }
 
   /* tablet */
@@ -207,7 +208,7 @@ export const CardBottom = styled.div`
       opacity: 1;
     }
   }
-`
+`;
 
 /* Recommended card div */
 
@@ -216,19 +217,20 @@ export const CardDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const BottomCardDiv = styled.div`
   display: flex;
   opacity: 0.75;
+  align-items: center;
 
   /* Mobile */
   @media (max-width: 768px) {
     width: 82%;
     height: 100%;
-    max-height: 32px;
+    max-height: 14px;
     justify-content: start;
-    align-items: center;
+    margin-bottom: 3px;
 
     p {
       font-size: 11px;
@@ -239,15 +241,11 @@ export const BottomCardDiv = styled.div`
   /* tablet */
   @media (min-width: 768px) and (max-width: 1439px) {
     width: 70%;
-    align-items: center;
-    margin-bottom: 5px;
   }
-`
+`;
 
 export const CardP = styled.p`
-  font-family: 'Outfit';
-  margin-left: 3px;
-  margin-top: 2px;
+  font-family: "Outfit";
 
   /* tablet */
   @media (min-width: 768px) and (max-width: 1439px) {
@@ -256,7 +254,7 @@ export const CardP = styled.p`
     font-size: 13px;
     line-height: 16px;
   }
-`
+`;
 
 export const PlayIcon = styled(Play)`
   fill: var(--color-white);
@@ -267,4 +265,4 @@ export const PlayIcon = styled(Play)`
     height: 15px;
     margin-right: 10px;
   }
-`
+`;
