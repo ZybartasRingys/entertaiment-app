@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { ReactComponent as BookEmpty } from "../../assets/icon-bookmark-empty.svg";
-import { PlayDiv } from "./Recommended";
+import styled from 'styled-components'
+import { ReactComponent as BookEmpty } from '../../assets/icon-bookmark-empty.svg'
+import { PlayDiv } from './Recommended'
 
 /* Trending Section */
 
@@ -12,7 +12,7 @@ export const TrendingSection = styled.section`
   flex-direction: column;
 
   h1 {
-    font-family: "Outfit";
+    font-family: 'Outfit';
     font-weight: 300;
   }
   /* Mobile */
@@ -26,7 +26,7 @@ export const TrendingSection = styled.section`
     }
   }
   /* tablet */
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1439px) {
     padding-left: 23px;
     h1 {
       font-size: 32px;
@@ -45,7 +45,7 @@ export const TrendingSection = styled.section`
       font-size: var(--font-size-heading-l);
     }
   }
-`;
+`
 
 /* Trending Card Container */
 export const CardContainer = styled.div`
@@ -77,7 +77,7 @@ export const CardContainer = styled.div`
   }
 
   /* tablet */
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1439px) {
     max-width: 470px;
     height: 230px;
   }
@@ -87,7 +87,7 @@ export const CardContainer = styled.div`
     max-width: 470px;
     height: 230px;
   }
-`;
+`
 
 /* Full icon */
 
@@ -96,7 +96,7 @@ export const EmptyIcon = styled(BookEmpty)`
     color: #000000;
     fill: #000000;
   }
-`;
+`
 
 /* Trending IconContainer */
 export const IconContainer = styled.div`
@@ -106,7 +106,7 @@ export const IconContainer = styled.div`
   @media (max-width: 768px) {
     width: 100%;
   }
-`;
+`
 /* Trending card bookmark Icon div*/
 export const IconDiv = styled.button`
   width: 32px;
@@ -140,11 +140,11 @@ export const IconDiv = styled.button`
   }
 
   /* tablet */
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1439px) {
     margin-top: 16px;
     margin-right: 20px;
   }
-`;
+`
 
 /* Trending card  text container*/
 export const TextContainer = styled.div`
@@ -169,7 +169,7 @@ export const TextContainer = styled.div`
   }
 
   /* tablet */
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1439px) {
     padding-left: 24px;
     margin-bottom: 24px;
 
@@ -185,7 +185,7 @@ export const TextContainer = styled.div`
       font-weight: 300;
     }
   }
-`;
+`
 
 /* Trending card  text div*/
 export const TextDiv = styled.div`
@@ -197,17 +197,17 @@ export const TextDiv = styled.div`
     margin-bottom: 5px;
   }
   /* tablet */
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1439px) {
     width: 35%;
     justify-content: space-between;
   }
-`;
+`
 
 /* Trending card title div*/
 export const TitleDiv = styled.div`
   width: 100%;
   text-align: start !important;
-`;
+`
 
 /* Search input Container */
 
@@ -219,4 +219,4 @@ export const Div = styled.div`
 
   @media (max-width: 768px) {
   }
-`;
+`

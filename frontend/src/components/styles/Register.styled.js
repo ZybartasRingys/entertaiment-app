@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
-import { ToastContainer } from "react-toastify";
+import { ToastContainer } from 'react-toastify'
 
 export const RegisterContainer = styled.section`
   width: 100%;
@@ -9,13 +9,13 @@ export const RegisterContainer = styled.section`
   display: flex;
   justify-content: start;
   align-items: center;
-  font-family: "Outfit", sans-serif;
+  font-family: 'Outfit', sans-serif;
 
   @media (max-width: 768px) {
     flex-direction: column;
     padding-top: 48px;
   }
-`;
+`
 
 export const RegisterFormContainer = styled.div`
   background-color: #161d2f;
@@ -39,7 +39,7 @@ export const RegisterFormContainer = styled.div`
     font-weight: 300;
     margin-bottom: 24px;
   }
-`;
+`
 
 export const Form = styled.form`
   @media (max-width: 768px) {
@@ -48,7 +48,7 @@ export const Form = styled.form`
     max-width: 279px;
     max-height: 247px;
   }
-`;
+`
 
 export const InputContainer = styled.div`
   border-bottom: 1px solid grey;
@@ -59,7 +59,7 @@ export const InputContainer = styled.div`
     display: flex;
     align-items: center;
   }
-`;
+`
 export const Input = styled.input`
   background-color: #161d2f;
   border: none;
@@ -73,7 +73,7 @@ export const Input = styled.input`
     width: 70%;
     height: 100%;
   }
-`;
+`
 
 export const SubmitButton = styled.button`
   background-color: #fc4747;
@@ -91,7 +91,7 @@ export const SubmitButton = styled.button`
     height: 48px;
     margin-top: 18px;
   }
-`;
+`
 
 export const FormText = styled.p`
   text-align: center;
@@ -101,14 +101,14 @@ export const FormText = styled.p`
   @media (max-width: 768px) {
     margin-top: 33px;
   }
-`;
+`
 
 export const LoginLink = styled(Link)`
   text-decoration: none;
   color: #fc4747;
   font-size: 15px;
   font-weight: 300;
-`;
+`
 
 /* Register form styling */
 
@@ -123,7 +123,7 @@ export const ErrorMsg = styled.p`
     align-items: center;
     justify-content: center;
   }
-`;
+`
 
 export const StyledToast = styled(ToastContainer)`
   .Toastify__toast-body {
@@ -132,4 +132,4 @@ export const StyledToast = styled(ToastContainer)`
   .Toastify__progress-bar {
     background-color: #fc4747;
   }
-`;
+`

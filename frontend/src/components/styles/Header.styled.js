@@ -1,5 +1,6 @@
-import styled from "styled-components";
-
+import styled from 'styled-components'
+import { ReactComponent as Logo } from '../../assets/logo.svg'
+import { Link } from 'react-router-dom'
 export const NavContainer = styled.nav`
   width: 100%;
   color: var(--color-white);
@@ -15,7 +16,7 @@ export const NavContainer = styled.nav`
   }
 
   /* Tablet */
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1439px) {
     height: 72px;
     padding: 25px 25px;
     max-width: 719px;
@@ -33,16 +34,24 @@ export const NavContainer = styled.nav`
     flex-direction: column;
     justify-content: start;
   }
-`;
+`
 
 export const LogoDiv = styled.div`
+  /* Mobile */
+  @media (max-width: 768px) {
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
   /* Desktop */
   @media (min-width: 1439px) {
     margin-top: 35px;
   }
-`;
+`
 
-export const Div = styled.div``;
+export const Div = styled.div``
 
 export const IconsDiv = styled.div`
   display: flex;
@@ -54,7 +63,7 @@ export const IconsDiv = styled.div`
   }
 
   /* tablet */
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1439px) {
     width: 26%;
   }
 
@@ -65,7 +74,7 @@ export const IconsDiv = styled.div`
 
     margin-top: 75px;
   }
-`;
+`
 
 export const UserDiv = styled.button`
   border: 1px solid white;
@@ -82,8 +91,19 @@ export const UserDiv = styled.button`
     width: 40px;
     height: 40px;
   }
-`;
+`
 
 // navbar icons styles
 
-/* Movie icon styling */
+/* Logo icon styling */
+
+export const LogoIcon = styled(Logo)`
+  width: 100%;
+  height: 100%;
+  /* Mobile */
+  @media (max-width: 768px) {
+    transform: scale(0.8);
+  }
+`
+
+export const LogoLink = styled(Link)``
