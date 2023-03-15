@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { NavLink, Link } from "react-router-dom";
+import { ReactComponent as HomeIcon } from "../../assets/icon-nav-home.svg";
+import { ReactComponent as MovieIcon } from "../../assets/icon-nav-movies.svg";
+import { ReactComponent as TvSeriesIcon } from "../../assets/icon-nav-tv-series.svg";
+import { ReactComponent as BookmarkedIcon } from "../../assets/icon-nav-bookmark.svg";
 export const NavContainer = styled.nav`
   width: 100%;
   color: var(--color-white);
@@ -114,4 +118,20 @@ export const BaseNavLink = styled(NavLink)`
   &.active path {
     fill: var(--color-white);
   }
+`;
+
+export const Home = styled(HomeIcon)`
+  transform: scale(0.8);
+`;
+
+export const Movie = styled(MovieIcon)`
+  transform: scale(0.8);
+`;
+
+export const Series = styled(TvSeriesIcon)`
+  transform: scale(0.8);
+`;
+
+export const Bookmarked = styled(BookmarkedIcon)`
+  transform: scale(0.8);
 `;

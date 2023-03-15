@@ -7,14 +7,14 @@ import {
   LogoIcon,
   LogoLink,
   BaseNavLink,
+  Home,
+  Movie,
+  Series,
+  Bookmarked,
 } from "./styles/Header.styled";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 /* Icons */
-import { ReactComponent as HomeIcon } from "../assets/icon-nav-home.svg";
-import { ReactComponent as MovieIcon } from "../assets/icon-nav-movies.svg";
-import { ReactComponent as TvSeriesIcon } from "../assets/icon-nav-tv-series.svg";
-import { ReactComponent as BookmarkedIcon } from "../assets/icon-nav-bookmark.svg";
 
 import {
   AiOutlineCloseCircle,
@@ -54,7 +54,7 @@ function Header() {
             isPending ? "pending" : isActive ? "active" : ""
           }
         >
-          <HomeIcon />
+          <Home />
         </BaseNavLink>
         <BaseNavLink
           to="/Movies"
@@ -62,7 +62,8 @@ function Header() {
             isPending ? "pending" : isActive ? "active" : ""
           }
         >
-          <MovieIcon />
+          {" "}
+          <Movie />
         </BaseNavLink>
         <BaseNavLink
           to="/TvSeries"
@@ -70,7 +71,7 @@ function Header() {
             isPending ? "pending" : isActive ? "active" : ""
           }
         >
-          <TvSeriesIcon />
+          <Series />
         </BaseNavLink>
 
         {user ? (
@@ -80,7 +81,7 @@ function Header() {
               isPending ? "pending" : isActive ? "active" : ""
             }
           >
-            <BookmarkedIcon />
+            <Bookmarked />
           </BaseNavLink>
         ) : null}
       </IconsDiv>
