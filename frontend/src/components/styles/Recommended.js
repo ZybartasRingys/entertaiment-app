@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import { ReactComponent as Play } from "../../assets/icon-play.svg";
+import styled from 'styled-components'
+import { ReactComponent as Play } from '../../assets/icon-play.svg'
 /* Recommended Section */
 export const RecommendedSection = styled.section`
   width: 100%;
   height: 100%;
 
   h1 {
-    font-family: "Outfit";
+    font-family: 'Outfit';
   }
   /* Mobile */
   @media (max-width: 768px) {
@@ -46,7 +46,7 @@ export const RecommendedSection = styled.section`
       margin-bottom: 32px;
     }
   }
-`;
+`
 
 export const RecommendedContainer = styled.div`
   width: 100%;
@@ -74,7 +74,7 @@ export const RecommendedContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr !important;
   }
-`;
+`
 
 /* Recommended Card Container*/
 export const RecommendedCard = styled.div`
@@ -98,7 +98,7 @@ export const RecommendedCard = styled.div`
     max-width: 280px;
     margin-bottom: 23px;
   }
-`;
+`
 
 export const PlayDiv = styled.div`
   position: absolute;
@@ -110,25 +110,33 @@ export const PlayDiv = styled.div`
   border-radius: 29px;
   background: rgba(0, 0, 0, 0.5);
   color: var(--color-white);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
 
   /* Mobile */
   @media (max-width: 768px) {
     width: 65px;
     height: 28px;
-    left: 30%;
-    top: 42%;
     font-size: 12px;
   }
 
   /* Tablet */
   @media (min-width: 768px) and (max-width: 1439px) {
-    width: 95px;
-    height: 38px;
-    left: 30%;
-    top: 42%;
-    font-size: 12px;
+    width: 85px;
+    height: 32px;
+    font-size: 15px;
   }
-`;
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+    width: 117px;
+    height: 42px;
+    font-size: 23px;
+  }
+`
 
 /* Recommended card top section */
 
@@ -136,6 +144,9 @@ export const CardTop = styled.div`
   border-radius: 8px;
   position: relative;
   width: 100%;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+
   /* Mobile */
   @media (max-width: 768px) {
     height: 110px;
@@ -153,7 +164,6 @@ export const CardTop = styled.div`
 
   &:hover {
     filter: brightness(80%);
-    transition: all 0.4s;
     transform: scale(1.1);
 
     ${PlayDiv} {
@@ -161,12 +171,12 @@ export const CardTop = styled.div`
       opacity: 1;
     }
   }
-`;
+`
 
 /* Recommended card bottom section */
 
 export const CardBottom = styled.div`
-  font-family: "Outfit";
+  font-family: 'Outfit';
   font-style: medium;
   max-height: 44px;
   width: 100%;
@@ -197,18 +207,7 @@ export const CardBottom = styled.div`
   @media (min-width: 1439px) {
     height: 174px;
   }
-
-  &:hover {
-    filter: brightness(80%);
-    transition: all 0.4s;
-    transform: scale(1.1);
-
-    ${PlayDiv} {
-      filter: brightness(100%) !important;
-      opacity: 1;
-    }
-  }
-`;
+`
 
 /* Recommended card div */
 
@@ -217,7 +216,7 @@ export const CardDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`
 
 export const BottomCardDiv = styled.div`
   display: flex;
@@ -242,10 +241,10 @@ export const BottomCardDiv = styled.div`
   @media (min-width: 768px) and (max-width: 1439px) {
     width: 70%;
   }
-`;
+`
 
 export const CardP = styled.p`
-  font-family: "Outfit";
+  font-family: 'Outfit';
 
   /* tablet */
   @media (min-width: 768px) and (max-width: 1439px) {
@@ -254,7 +253,7 @@ export const CardP = styled.p`
     font-size: 13px;
     line-height: 16px;
   }
-`;
+`
 
 export const PlayIcon = styled(Play)`
   fill: var(--color-white);
@@ -265,4 +264,16 @@ export const PlayIcon = styled(Play)`
     height: 15px;
     margin-right: 10px;
   }
-`;
+
+  /* tablet */
+  @media (min-width: 768px) and (max-width: 1439px) {
+    transform: scale(0.7);
+    margin-right: 8px;
+  }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+    transform: scale(0.7);
+    margin-right: 8px;
+  }
+`

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -43,8 +43,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 
   .slide {
+    
  
     min-width: 70% !important;
  
@@ -86,4 +88,4 @@ body {
 .control-arrow {
   background-color: transparent !important;
 }
-`;
+`
