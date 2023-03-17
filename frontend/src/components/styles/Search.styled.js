@@ -8,7 +8,16 @@ export const SearchContainer = styled.form`
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  flex-direction: column;
+
+  .search-text {
+    display: none;
+    font-size: var(--font-size-heading-m);
+  }
+
+  &:focus-within .search-text {
+    display: block;
+  }
 
   /* Mobile */
   @media (max-width: 768px) {
@@ -29,6 +38,13 @@ export const SearchContainer = styled.form`
     margin-left: 164px;
   }
 `
+/* Input and text container Search   */
+
+export const Container = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+`
 
 /* Search input  */
 
@@ -45,7 +61,7 @@ export const SearchInput = styled.input`
 
   &:focus {
     text-decoration: underline;
-    text-underline-offset: 7px;
+    text-underline-offset: 10px;
     text-decoration-thickness: 2px;
     color: var(--color-white);
     text-decoration-color: var(--color-greyish-blue);

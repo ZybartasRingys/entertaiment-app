@@ -4,6 +4,7 @@ import {
   SearchInput,
   SearchContainer,
   SearchIcon,
+  Container,
 } from './styles/Search.styled'
 
 /* Context*/
@@ -12,6 +13,10 @@ import { useStateContext } from '../Context/StateContext'
 function Search() {
   const { movies, searchResults, setSearchResults } = useStateContext()
   const [found, setFound] = useState([])
+  const [inputValue, setInputValue] = useState('')
+  console.log(inputValue)
+
+  const title = found.map((movie) => movie.title)
   const handleSubmit = (e) => {
     e.preventDefault()
   }
@@ -26,19 +31,28 @@ function Search() {
     if (!e.target.value) return setSearchResults(movies)
 
     const resultsArray = movies.filter((movie) =>
-      movie.title.trim().toLowerCase().includes(e.target.value)
+      movie.title.trim().toLowerCase().includes(e.target.value.toLowerCase())
     )
 
     setSearchResults(resultsArray)
+    setFound(resultsArray)
+    setInputValue(e.target.value)
   }
 
   return (
     <SearchContainer onSubmit={handleSubmit}>
-      <SearchIcon />
-      <SearchInput
-        placeholder='Search for movies or TV series'
-        onChange={handleSearchChange}
-      ></SearchInput>
+      <Container>
+        <SearchIcon />
+        <SearchInput
+          placeholder='Search for movies or TV series'
+          onChange={handleSearchChange}
+        ></SearchInput>
+      </Container>
+      {found.length ? (
+        <p className='search-text'>
+          Found {title.length} results for '{inputValue}'
+        </p>
+      ) : null}
     </SearchContainer>
   )
 }
