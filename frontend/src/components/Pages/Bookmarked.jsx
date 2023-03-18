@@ -12,25 +12,24 @@ import BookmarkedCard from "../BookmarkedCard";
 function Bookmarked() {
   const { bookmarked } = useStateContext();
 
-  const bookmarkedCard = bookmarked.map((movie) => {
-    return <BookmarkedCard key={movie._id} movie={movie} />;
-  });
+  /* Filtering the bookmarked array and then mapping over the filtered array and returning a
+BookmarkedCard component. */
+  const bookmarkedMovieCard = bookmarked
+    .filter((filtered) => filtered.category === "Movie")
+    .map((movie) => <BookmarkedCard movie={movie} key={movie._id} />);
 
-  const filteredTvSeries = bookmarkedCard.filter(
-    (series) => series.category === "TV Series"
-  );
-
-  console.log(filteredTvSeries);
+  /* Filtering the bookmarked array and then mapping over the filtered array and returning a
+BookmarkedCard component. */
+  const bookmarkedSeriesCard = bookmarked
+    .filter((filtered) => filtered.category === "TV Series")
+    .map((movie) => <BookmarkedCard movie={movie} key={movie._id} />);
 
   return (
     <CardsSection>
-      <CardsContainer>
-        <h1>Bookmarked Movies</h1>
-        {bookmarkedCard}
-      </CardsContainer>
-      <CardsContainer>
-        <h1>Bookmarked Tv Series</h1>
-      </CardsContainer>
+      <h1>Bookmarked Movies</h1>
+      <CardsContainer>{bookmarkedMovieCard}</CardsContainer>
+      <h1>Bookmarked Tv Series</h1>
+      <CardsContainer>{bookmarkedSeriesCard}</CardsContainer>
     </CardsSection>
   );
 }
