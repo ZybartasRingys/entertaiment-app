@@ -133,7 +133,7 @@ export const StateContext = ({ children }) => {
       });
       setBookmarked([...bookmarked, response.data]);
       setRecommended([...recommended]);
-      localStorage.setItem("bookmarkedMovie", JSON.stringify(response.data));
+      localStorage.setItem("bookmarkedMovie", JSON.stringify([response.data]));
       setLoading(false);
     } catch (error) {
       console.log(error.message);
