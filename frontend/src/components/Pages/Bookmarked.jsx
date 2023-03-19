@@ -10,7 +10,7 @@ import { useStateContext } from "../../Context/StateContext";
 import BookmarkedCard from "../BookmarkedCard";
 
 function Bookmarked() {
-  const { bookmarked } = useStateContext();
+  const { bookmarked, setBookmarked } = useStateContext();
 
   /* Filtering the bookmarked array and then mapping over the filtered array and returning a
 BookmarkedCard component. */
