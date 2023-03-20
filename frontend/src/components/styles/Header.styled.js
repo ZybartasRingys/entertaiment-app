@@ -1,10 +1,14 @@
-import styled from "styled-components";
-import { ReactComponent as Logo } from "../../assets/logo.svg";
-import { NavLink, Link } from "react-router-dom";
-import { ReactComponent as HomeIcon } from "../../assets/icon-nav-home.svg";
-import { ReactComponent as MovieIcon } from "../../assets/icon-nav-movies.svg";
-import { ReactComponent as TvSeriesIcon } from "../../assets/icon-nav-tv-series.svg";
-import { ReactComponent as BookmarkedIcon } from "../../assets/icon-nav-bookmark.svg";
+import styled from 'styled-components'
+import { NavLink, Link } from 'react-router-dom'
+
+import { FaUserNinja } from 'react-icons/fa'
+
+/* Icons */
+import { ReactComponent as Logo } from '../../assets/logo.svg'
+import { ReactComponent as HomeIcon } from '../../assets/icon-nav-home.svg'
+import { ReactComponent as MovieIcon } from '../../assets/icon-nav-movies.svg'
+import { ReactComponent as TvSeriesIcon } from '../../assets/icon-nav-tv-series.svg'
+import { ReactComponent as BookmarkedIcon } from '../../assets/icon-nav-bookmark.svg'
 export const NavContainer = styled.nav`
   width: 100%;
   color: var(--color-white);
@@ -38,7 +42,7 @@ export const NavContainer = styled.nav`
     flex-direction: column;
     justify-content: start;
   }
-`;
+`
 
 export const LogoDiv = styled.div`
   /* Mobile */
@@ -53,9 +57,9 @@ export const LogoDiv = styled.div`
   @media (min-width: 1439px) {
     margin-top: 35px;
   }
-`;
+`
 
-export const Div = styled.div``;
+export const Div = styled.div``
 
 export const IconsDiv = styled.div`
   display: flex;
@@ -77,24 +81,40 @@ export const IconsDiv = styled.div`
     flex-direction: column;
     margin-top: 75px;
   }
-`;
+`
 
 export const UserDiv = styled.button`
   background-color: transparent;
-  border: none;
   color: var(--color-white);
   display: flex;
   align-items: center;
   flex-direction: column;
   font-size: 9px;
+  border: 1px solid var(--color-white);
+  border-radius: 50%;
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    padding: 2px;
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1439px) {
+    padding: 2px;
+    width: 40px;
+    height: 40px;
+  }
 
   /* Desktop */
   @media (min-width: 1439px) {
+    margin-top: 300px;
     width: 40px;
     height: 40px;
-    margin-top: 300px;
+    justify-content: center;
   }
-`;
+`
 
 // navbar icons styles
 
@@ -107,9 +127,9 @@ export const LogoIcon = styled(Logo)`
   @media (max-width: 768px) {
     transform: scale(0.8);
   }
-`;
+`
 
-export const LogoLink = styled(Link)``;
+export const LogoLink = styled(Link)``
 
 /* Icons styling */
 
@@ -117,32 +137,49 @@ export const BaseNavLink = styled(NavLink)`
   &.active path {
     fill: var(--color-white);
   }
-`;
+`
 
 export const Home = styled(HomeIcon)`
   /* Mobile */
   @media (max-width: 768px) {
     transform: scale(0.8);
   }
-`;
+`
 
 export const Movie = styled(MovieIcon)`
   /* Mobile */
   @media (max-width: 768px) {
     transform: scale(0.8);
   }
-`;
+`
 
 export const Series = styled(TvSeriesIcon)`
   /* Mobile */
   @media (max-width: 768px) {
     transform: scale(0.8);
   }
-`;
+`
 
 export const Bookmarked = styled(BookmarkedIcon)`
   /* Mobile */
   @media (max-width: 768px) {
     transform: scale(0.8);
   }
-`;
+`
+
+export const UserIcon = styled(FaUserNinja)`
+  /* Mobile */
+  @media (max-width: 768px) {
+    transform: scale(0.7);
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1439px) {
+    transform: scale(0.8);
+  }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+    transform: scale(0.8);
+  }
+`

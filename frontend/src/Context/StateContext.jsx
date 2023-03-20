@@ -30,7 +30,7 @@ export const StateContext = ({ children }) => {
 
   useEffect(() => {
     setRecommendedMovies()
-  }, [movies])
+  }, [movies, user])
 
   useEffect(() => {
     const bookmarkedItems = JSON.parse(localStorage.getItem('bookmarkedMovie'))
