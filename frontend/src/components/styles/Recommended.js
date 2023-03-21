@@ -250,8 +250,13 @@ export const CardP = styled.p`
   @media (min-width: 768px) and (max-width: 1439px) {
     font-style: normal;
     font-weight: 300;
-    font-size: 13px;
+    font-size: 13px !important;
     line-height: 16px;
+  }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+    font-size: 15px !important;
   }
 `
 

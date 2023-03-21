@@ -126,14 +126,10 @@ export const IconDiv = styled.button`
   &:hover {
     background-color: #ffffff;
     opacity: 1;
+  }
 
-    &:hover ${EmptyIcon} {
-      stroke: black;
-    }
-
-    svg:hover path {
-      stroke: black;
-    }
+  &:hover svg {
+    stroke: black;
   }
 
   /* Mobile */
@@ -263,6 +259,7 @@ export const Div = styled.div`
   justify-content: center;
   align-items: center;
 
+  /* Mobile */
   @media (max-width: 768px) {
   }
 `
@@ -275,6 +272,18 @@ export const MovieIcon = styled(Movie)`
   @media (max-width: 768px) {
     margin-right: 4px;
   }
+
+  /* tablet */
+  @media (min-width: 768px) and (max-width: 1439px) {
+    transform: scale(0.9);
+    margin-right: 4px;
+  }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+    margin-right: 4px;
+    transform: scale(1);
+  }
 `
 
 export const TvIcon = styled(Tv)`
@@ -282,5 +291,16 @@ export const TvIcon = styled(Tv)`
   /* Mobile */
   @media (max-width: 768px) {
     margin-right: 4px;
+  }
+
+  /* tablet */
+  @media (min-width: 768px) and (max-width: 1439px) {
+    transform: scale(0.9);
+    margin-right: 4px;
+  }
+  /* Desktop */
+  @media (min-width: 1439px) {
+    margin-right: 4px;
+    transform: scale(1);
   }
 `

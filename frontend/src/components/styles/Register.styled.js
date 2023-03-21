@@ -11,6 +11,7 @@ export const RegisterContainer = styled.section`
   align-items: center;
   font-family: 'Outfit', sans-serif;
 
+  /* Mobile */
   @media (max-width: 768px) {
     flex-direction: column;
     padding-top: 48px;
@@ -20,7 +21,7 @@ export const RegisterContainer = styled.section`
 export const RegisterFormContainer = styled.div`
   background-color: #161d2f;
   border-radius: 10px;
-
+  /* Mobile */
   @media (max-width: 768px) {
     width: 100%;
     height: 100%;
@@ -39,6 +40,14 @@ export const RegisterFormContainer = styled.div`
     font-weight: 300;
     margin-bottom: 24px;
   }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1439px) {
+  }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+  }
 `
 
 export const Form = styled.form`
@@ -53,6 +62,14 @@ export const Form = styled.form`
 export const InputContainer = styled.div`
   border-bottom: 1px solid grey;
   @media (max-width: 768px) {
+    width: 100%;
+    height: 37px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) and (max-width: 1349px) {
     width: 100%;
     height: 37px;
     margin-bottom: 24px;
