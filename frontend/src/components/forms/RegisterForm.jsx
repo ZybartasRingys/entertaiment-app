@@ -17,8 +17,7 @@ import {
 /* React hook form */
 
 import { useForm } from 'react-hook-form'
-/* Axios */
-import axios from 'axios'
+
 /* React toast */
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'

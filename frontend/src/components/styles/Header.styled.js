@@ -88,6 +88,7 @@ export const UserDiv = styled.button`
   color: var(--color-white);
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   font-size: 9px;
   border: 1px solid var(--color-white);

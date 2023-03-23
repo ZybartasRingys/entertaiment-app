@@ -16,23 +16,36 @@ export const RegisterContainer = styled.section`
     flex-direction: column;
     padding-top: 48px;
   }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1439px) {
+    flex-direction: column;
+    margin-top: 78px;
+  }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+    flex-direction: column;
+    margin-top: 78px;
+  }
 `
 
 export const RegisterFormContainer = styled.div`
-  background-color: #161d2f;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-semi-dark-blue);
   border-radius: 10px;
+  display: flex;
+
   /* Mobile */
   @media (max-width: 768px) {
-    width: 100%;
-    height: 100%;
     max-width: 327px;
     max-height: 420px;
     padding-left: 24px;
-    display: flex;
     flex-direction: column;
     align-items: start;
     padding-top: 8px;
-    margin-top: 74px;
+    margin-top: 58px;
   }
 
   h1 {
@@ -43,24 +56,56 @@ export const RegisterFormContainer = styled.div`
 
   /* Tablet */
   @media (min-width: 768px) and (max-width: 1439px) {
+    max-width: 400px;
+    max-height: 420px;
+    margin-top: 72px;
+    padding-left: 32px;
+    padding-top: 38px;
+    flex-direction: column;
+    align-items: start;
   }
 
   /* Desktop */
   @media (min-width: 1439px) {
+    max-width: 400px;
+    max-height: 420px;
+    margin-top: 88px;
+    padding-left: 32px;
+    padding-top: 38px;
+    flex-direction: column;
+    align-items: start;
   }
 `
 
 export const Form = styled.form`
+  width: 100%;
+  height: 100%;
+  /* Mobile */
   @media (max-width: 768px) {
-    width: 100%;
-    height: 100%;
     max-width: 279px;
     max-height: 247px;
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1439px) {
+    max-width: 336px;
+  }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+    max-width: 336px;
   }
 `
 
 export const InputContainer = styled.div`
   border-bottom: 1px solid grey;
+  border-color: var(--color-greyish-blue);
+
+  &:focus-within {
+    border-color: var(--color-white);
+  }
+
+  /* Mobile */
   @media (max-width: 768px) {
     width: 100%;
     height: 37px;
@@ -69,7 +114,18 @@ export const InputContainer = styled.div`
     align-items: center;
   }
 
-  @media (min-width: 768px) and (max-width: 1349px) {
+  /* Tablet */
+
+  @media (min-width: 768px) and (max-width: 1439px) {
+    width: 100%;
+    height: 37px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
     width: 100%;
     height: 37px;
     margin-bottom: 24px;
@@ -86,6 +142,8 @@ export const Input = styled.input`
   &:focus {
     outline: none !important;
   }
+
+  /* Mobile */
   @media (max-width: 768px) {
     width: 70%;
     height: 100%;
@@ -103,10 +161,26 @@ export const SubmitButton = styled.button`
     background-color: #ffffff;
     color: #161d2f;
   }
+
+  /* Mobile */
   @media (max-width: 768px) {
     width: 100%;
     height: 48px;
     margin-top: 18px;
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1439px) {
+    width: 100%;
+    height: 48px;
+    margin-bottom: 24px;
+  }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+    width: 100%;
+    height: 48px;
+    margin-bottom: 24px;
   }
 `
 
@@ -132,6 +206,8 @@ export const LoginLink = styled(Link)`
 export const ErrorMsg = styled.p`
   font-size: 11px;
   color: #fc4747;
+
+  /* Mobile */
 
   @media (max-width: 768px) {
     width: 30%;
