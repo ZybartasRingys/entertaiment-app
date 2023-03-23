@@ -23,17 +23,19 @@ import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import { useRegisterForm } from '../../hooks/useRegisterForm'
+import { useStateContext } from '../../Context/StateContext'
 
 function RegisterForm() {
   const { signup } = useRegisterForm()
+  const { errorMsg } = useStateContext()
 
   const {
     register,
     handleSubmit,
     watch,
     getValues,
-    formState: { errors },
-  } = useForm()
+    formState: { errors, isValid },
+  } = useForm({ mode: 'onChange' })
 
   /**
    * OnSubmit is an async function that takes in data, and then tries to post that data to the server.
@@ -45,7 +47,7 @@ function RegisterForm() {
   }
 
   const notify = () =>
-    toast.success(`User have been created `, {
+    toast.success(`${errorMsg ? 'User Created' : errorMsg} `, {
       position: 'bottom-center',
       autoClose: 3000,
       hideProgressBar: false,
@@ -108,7 +110,7 @@ function RegisterForm() {
           )}
         </InputContainer>
 
-        <SubmitButton onClick={notify} type='submit'>
+        <SubmitButton onClick={notify} type='submit' disabled={!isValid}>
           Create an account
         </SubmitButton>
         <FormText>

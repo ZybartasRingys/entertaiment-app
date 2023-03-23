@@ -13,6 +13,7 @@ export const StateContext = ({ children }) => {
   const [searchResults, setSearchResults] = useState([])
   const { user } = useAuthContext()
   const [recommended, setRecommended] = useState([])
+  const [errorMsg, setErrorMsg] = useState([])
 
   /* useEffects */
 
@@ -175,6 +176,8 @@ export const StateContext = ({ children }) => {
         remBookmark,
         recommended,
         setRecommended,
+        errorMsg,
+        setErrorMsg,
       }}
     >
       {children}
