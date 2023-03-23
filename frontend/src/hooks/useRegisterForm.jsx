@@ -9,10 +9,6 @@ export const useRegisterForm = () => {
   const { dispatch } = useAuthContext()
   const { errorMsg, setErrorMsg } = useStateContext()
 
-  console.log(errorMsg)
-  const { status, message } = errorMsg
-
-  console.log(status, message)
   /**
    * The signup function is an async function that takes in data as a parameter and then uses the axios
    * library to make a post request to the backend server. The response is then logged to the console

@@ -1,8 +1,8 @@
-import Header from "./Header";
-import Trending from "./Trending/Trending";
+import Header from './Header'
+import Trending from './Trending/Trending'
 
-import { Outlet } from "react-router-dom";
-import Search from "./Search";
+import { Outlet } from 'react-router-dom'
+import Search from './Search'
 
 export default function Layout({ children }) {
   return (
@@ -16,5 +16,5 @@ export default function Layout({ children }) {
 
       <Outlet />
     </>
-  );
+  )
 }
