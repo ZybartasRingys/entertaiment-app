@@ -151,14 +151,14 @@ export const Input = styled.input`
 `
 
 export const SubmitButton = styled.button`
-  background-color: #fc4747;
-  color: #ffffff;
+  background-color: var(--color-red);
+  color: var(--color-white);
   border-radius: 6px;
   cursor: pointer;
   border: none !important;
 
   &:hover {
-    background-color: #ffffff;
+    background-color: var(--color-white);
     color: #161d2f;
   }
 
@@ -205,7 +205,7 @@ export const LoginLink = styled(Link)`
 
 export const ErrorMsg = styled.p`
   font-size: 11px;
-  color: #fc4747;
+  color: var(--color-red);
 
   /* Mobile */
 
@@ -215,6 +215,16 @@ export const ErrorMsg = styled.p`
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1439px) {
+    margin-left: 85px;
+  }
+
+  /* Tablet */
+  @media (min-width: 1439px) {
+    margin-left: 85px;
   }
 `
 

@@ -108,9 +108,6 @@ function Header() {
               <StyledModalLink to='/Login'>Login</StyledModalLink>
             </>
           )}
-          <button onClick={toggleModal}>
-            <AiOutlineCloseCircle />
-          </button>
         </StyledModal>
       </UserDiv>
     </NavContainer>

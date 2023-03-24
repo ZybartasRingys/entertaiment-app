@@ -249,6 +249,7 @@ export const TextDiv = styled.div`
 export const TitleDiv = styled.div`
   width: 100%;
   text-align: start !important;
+  margin-top: 2px;
 `
 
 /* Search input Container */

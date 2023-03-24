@@ -13,14 +13,6 @@ export const register = async (req, res) => {
       res.status(400).json({ message: 'Please provide all values' })
     }
 
-    if (password !== comfirmedPassword) {
-      res.status(400).json({ message: 'Passwords do not match' })
-    }
-
-    const userAlreadyExists = await User.findOne({ email })
-    if (userAlreadyExists) {
-      res.status(409).json({ message: 'Email already in use' })
-    }
     /* Hashing the password. */
     const salt = bcrypt.genSaltSync(10)
     const hashedPassword = bcrypt.hashSync(req.body.password, salt)
@@ -40,7 +32,7 @@ export const register = async (req, res) => {
     await newUser.save()
     res.status(201).json('User have been created')
   } catch (error) {
-    res.status(400).json('Something went wrong')
+    console.log(error)
   }
 }
 

@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-import { RecommendedSection, RecommendedContainer } from "./Recommended";
+import { RecommendedSection, RecommendedContainer } from './Recommended'
 
 /* Recommended Section and Container */
 export const CardsSection = styled(RecommendedSection)`
@@ -17,10 +17,11 @@ export const CardsSection = styled(RecommendedSection)`
 
   @media (min-width: 1440px) {
     h1 {
-      font-size: var(----font-size-heading-l);
+      font-size: var(--font-size-heading-l);
+      font-weight: 300;
     }
   }
-`;
+`
 
 export const CardsContainer = styled(RecommendedContainer)`
   /* Mobile */
@@ -45,6 +46,6 @@ export const CardsContainer = styled(RecommendedContainer)`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr !important;
   }
-`;
+`
 
 /* Cards styling */

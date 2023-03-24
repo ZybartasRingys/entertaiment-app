@@ -34,8 +34,11 @@ function RegisterForm() {
     handleSubmit,
     watch,
     getValues,
-    formState: { errors, isValid },
-  } = useForm({ mode: 'onChange' })
+    formState: { errors },
+  } = useForm({
+    mode: 'onChange',
+    defaultValues: { email: '', password: '', comfirmedPassword: '' },
+  })
 
   /**
    * OnSubmit is an async function that takes in data, and then tries to post that data to the server.
@@ -47,16 +50,19 @@ function RegisterForm() {
   }
 
   const notify = () =>
-    toast.success(`${errorMsg ? 'User Created' : errorMsg} `, {
-      position: 'bottom-center',
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: 'dark',
-    })
+    toast.success(
+      `${errorMsg.length && errorMsg ? 'User Created' : errorMsg} `,
+      {
+        position: 'bottom-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      }
+    )
   return (
     <RegisterFormContainer>
       <h1>Sign Up</h1>
@@ -110,7 +116,7 @@ function RegisterForm() {
           )}
         </InputContainer>
 
-        <SubmitButton onClick={notify} type='submit' disabled={!isValid}>
+        <SubmitButton onClick={notify} type='submit'>
           Create an account
         </SubmitButton>
         <FormText>
