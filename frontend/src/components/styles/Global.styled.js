@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -43,16 +43,27 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 8px;
+  
   
 
   .slide {
+    padding: 15px;
+    min-width: 71% !important;
+    transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+
     
- 
-    min-width: 70% !important;
+  &:hover background {
+    filter: brightness(80%);
+    transform: scale(1.1);
+    
+
+  }
  
    /* tablet */
    @media (min-width: 768px) and (max-width: 1024px) {
-    min-width: 68% !important;
+    min-width: 69% !important;
     }
 
     /* Desktop */
@@ -88,4 +99,4 @@ body {
 .control-arrow {
   background-color: transparent !important;
 }
-`
+`;

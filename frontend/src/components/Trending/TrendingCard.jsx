@@ -11,32 +11,32 @@ import {
   IconContainer,
   EmptyIcon,
   MovieIcon,
-} from '../../components/styles/Trending.styled'
+} from "../../components/styles/Trending.styled";
 
-import { PlayDiv, PlayIcon } from '../../components/styles/Recommended'
+import { PlayDiv, PlayIcon } from "../../components/styles/Recommended";
 
 /* Icons */
 
-import { ReactComponent as BookFull } from '../../assets/icon-bookmark-full.svg'
+import { ReactComponent as BookFull } from "../../assets/icon-bookmark-full.svg";
 
-import { BsDot } from 'react-icons/bs'
+import { BsDot } from "react-icons/bs";
 
 /* Context */
-import { useStateContext } from '../../Context/StateContext'
-import { useAuthContext } from '../../hooks/useAuthContext'
+import { useStateContext } from "../../Context/StateContext";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 function TrendingCard({ movie }) {
-  const { title, _id, isBookmarked, year, category, rating, thumbnail } = movie
-  const { addBookmark, remBookmark } = useStateContext()
-  const { user } = useAuthContext()
+  const { title, _id, isBookmarked, year, category, rating, thumbnail } = movie;
+  const { addBookmark, remBookmark } = useStateContext();
+  const { user } = useAuthContext();
 
   return (
     <CardContainer
       key={_id}
       style={{
         backgroundImage: `url(/public/${thumbnail.trending.large})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
       }}
     >
       <PlayDiv>
@@ -46,11 +46,11 @@ function TrendingCard({ movie }) {
       {user ? (
         <IconContainer>
           {isBookmarked ? (
-            <IconDiv type='button' onClick={(e) => remBookmark(_id)}>
+            <IconDiv type="button" onClick={(e) => remBookmark(_id)}>
               <BookFull />
             </IconDiv>
           ) : (
-            <IconDiv type='button' onClick={(e) => addBookmark(_id)}>
+            <IconDiv type="button" onClick={(e) => addBookmark(_id)}>
               <EmptyIcon />
             </IconDiv>
           )}
@@ -74,7 +74,7 @@ function TrendingCard({ movie }) {
         </TitleDiv>
       </TextContainer>
     </CardContainer>
-  )
+  );
 }
 
-export default TrendingCard
+export default TrendingCard;

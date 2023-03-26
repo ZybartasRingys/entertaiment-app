@@ -1,38 +1,39 @@
 /* eslint-disable no-unused-vars */
 // Components
-import TrendingCard from './TrendingCard'
+import TrendingCard from "./TrendingCard";
 
 // Loader Component
-import Loading from '../Loading'
+import Loading from "../Loading";
 /* Styled Components imports */
-import { TrendingSection } from '../../components/styles/Trending.styled'
+import { TrendingSection } from "../../components/styles/Trending.styled";
 /* Context */
 
 /* react carousel */
-import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
-import { Carousel } from 'react-responsive-carousel'
-import { useStateContext } from '../../Context/StateContext'
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+import { useStateContext } from "../../Context/StateContext";
 function Trending({}) {
-  const { trending } = useStateContext()
+  const { trending } = useStateContext();
   const trendCard = trending.map((movie) => {
-    return <TrendingCard movie={movie} key={movie._id} />
-  })
+    return <TrendingCard movie={movie} key={movie._id} />;
+  });
 
   return (
     <TrendingSection>
       <h1>Trending</h1>
       <Carousel
-        className='carousel'
+        className="carousel"
         showArrows={true}
         showThumbs={false}
-        centerMode={false}
+        centerMode={true}
+        centerSlidePercentage={80}
         showIndicators={false}
         showStatus={false}
       >
         {trendCard?.length ? trendCard : <p>No movies</p>}
       </Carousel>
     </TrendingSection>
-  )
+  );
 }
 
-export default Trending
+export default Trending;

@@ -14,6 +14,7 @@ const UserSchema = new mongoose.Schema(
     comfirmedPassword: {
       type: String,
       default: false,
+      required: true,
     },
   },
   { timestamps: true }

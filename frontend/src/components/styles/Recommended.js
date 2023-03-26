@@ -1,12 +1,12 @@
-import styled from 'styled-components'
-import { ReactComponent as Play } from '../../assets/icon-play.svg'
+import styled from "styled-components";
+import { ReactComponent as Play } from "../../assets/icon-play.svg";
 /* Recommended Section */
 export const RecommendedSection = styled.section`
   width: 100%;
   height: 100%;
 
   h1 {
-    font-family: 'Outfit';
+    font-family: "Outfit";
   }
   /* Mobile */
   @media (max-width: 768px) {
@@ -46,7 +46,7 @@ export const RecommendedSection = styled.section`
       margin-bottom: 32px;
     }
   }
-`
+`;
 
 export const RecommendedContainer = styled.div`
   width: 100%;
@@ -74,7 +74,7 @@ export const RecommendedContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr !important;
   }
-`
+`;
 
 /* Recommended Card Container*/
 export const RecommendedCard = styled.div`
@@ -98,7 +98,7 @@ export const RecommendedCard = styled.div`
     max-width: 280px;
     margin-bottom: 23px;
   }
-`
+`;
 
 export const PlayDiv = styled.div`
   position: absolute;
@@ -136,7 +136,7 @@ export const PlayDiv = styled.div`
     height: 42px;
     font-size: 23px;
   }
-`
+`;
 
 /* Recommended card top section */
 
@@ -165,18 +165,17 @@ export const CardTop = styled.div`
   &:hover {
     filter: brightness(80%);
     transform: scale(1.1);
-
     ${PlayDiv} {
       filter: brightness(100%) !important;
-      opacity: 1;
+      opacity: 0.9;
     }
   }
-`
+`;
 
 /* Recommended card bottom section */
 
 export const CardBottom = styled.div`
-  font-family: 'Outfit';
+  font-family: "Outfit";
   font-style: medium;
   max-height: 44px;
   width: 100%;
@@ -207,7 +206,7 @@ export const CardBottom = styled.div`
   @media (min-width: 1439px) {
     height: 174px;
   }
-`
+`;
 
 /* Recommended card div */
 
@@ -216,7 +215,7 @@ export const CardDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const BottomCardDiv = styled.div`
   display: flex;
@@ -241,10 +240,10 @@ export const BottomCardDiv = styled.div`
   @media (min-width: 768px) and (max-width: 1439px) {
     width: 70%;
   }
-`
+`;
 
 export const CardP = styled.p`
-  font-family: 'Outfit';
+  font-family: "Outfit";
 
   /* tablet */
   @media (min-width: 768px) and (max-width: 1439px) {
@@ -258,7 +257,7 @@ export const CardP = styled.p`
   @media (min-width: 1439px) {
     font-size: 15px !important;
   }
-`
+`;
 
 export const PlayIcon = styled(Play)`
   fill: var(--color-white);
@@ -281,4 +280,4 @@ export const PlayIcon = styled(Play)`
     transform: scale(0.7);
     margin-right: 8px;
   }
-`
+`;

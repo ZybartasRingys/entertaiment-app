@@ -1,11 +1,12 @@
-import styled from 'styled-components'
-import Modal from 'styled-react-modal'
-import { Link } from 'react-router-dom'
-import { SubmitButton } from './Register.styled'
+import styled from "styled-components";
+import Modal from "styled-react-modal";
+import { Link } from "react-router-dom";
+import { SubmitButton } from "./Register.styled";
 
 export const StyledModal = Modal.styled`
-  width: 150px;
+  width: 100%;
   height: 100px;
+  max-width: 160px;
   background-color: transperant;
   display:flex;
   align-items:center;
@@ -13,7 +14,8 @@ export const StyledModal = Modal.styled`
   flex-direction: column;
   position: absolute;
   top: 50px;
-  right: 0px;
+ 
+  
   
 
   
@@ -21,22 +23,25 @@ export const StyledModal = Modal.styled`
    /* Mobile */
   @media (max-width: 768px) {
     
+    align-items: end;
+     right: 5px;
   }
 
   /* Tablet */
 
   @media (min-width: 768px) and (max-width: 1439px) {
     right: 10px;
-    top: 99px;
+    top: 98px;
+    padding-right: 5px;
   }
 
   /* Desktop  */
 
   @media (min-width: 1440px) {
-   left:10px;
+   left:4px;
    top: 550px;
   }
-`
+`;
 
 export const StyledModalLink = styled(Link)`
   background-color: var(--color-red);
@@ -50,7 +55,7 @@ export const StyledModalLink = styled(Link)`
 
   @media (max-width: 768px) {
     width: 60%;
-    margin-top: 12px;
+    margin-top: 13px;
     padding: 3px;
   }
 
@@ -59,7 +64,7 @@ export const StyledModalLink = styled(Link)`
   @media (min-width: 768px) and (max-width: 1439px) {
     width: 90%;
     margin-top: 14px;
-    padding: 4px;
+    padding: 6px;
   }
 
   /* Desktop  */
@@ -67,6 +72,25 @@ export const StyledModalLink = styled(Link)`
   @media (min-width: 1440px) {
     width: 90%;
     margin-top: 14px;
-    padding: 6px;
+    padding: 7px;
   }
-`
+`;
+
+export const LogoutBtn = styled.button`
+  background-color: var(--color-red);
+  border: none;
+  border-radius: 6px;
+  color: var(--color-white);
+  /* Mobile */
+  @media (max-width: 768px) {
+    padding: 8px;
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1439px) {
+  }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+  }
+`;

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from "react";
 /* Styled components  */
 
 import {
@@ -15,59 +15,61 @@ import {
   Series,
   Bookmarked,
   UserIcon,
-} from './styles/Header.styled'
+} from "./styles/Header.styled";
+
+import { LogoutBtn } from "./styles/Modal.styled";
 
 /* Icons */
 
-import { AiOutlineCloseCircle, AiOutlineLogin } from 'react-icons/ai'
+import { AiOutlineLogin } from "react-icons/ai";
 
 /* Context */
-import { useLogout } from '../hooks/useLogout'
-import { useAuthContext } from '../hooks/useAuthContext'
+import { useLogout } from "../hooks/useLogout";
+import { useAuthContext } from "../hooks/useAuthContext";
 /* Modal */
-import { StyledModal, StyledModalLink } from './styles/Modal.styled'
+import { StyledModal, StyledModalLink } from "./styles/Modal.styled";
 
 function Header() {
-  const [isOpen, setIsOpen] = useState(false)
-  const { logout } = useLogout()
-  const { user } = useAuthContext()
+  const [isOpen, setIsOpen] = useState(false);
+  const { logout } = useLogout();
+  const { user } = useAuthContext();
 
   const handleClick = () => {
-    logout()
-  }
+    logout();
+  };
 
   function toggleModal(e) {
-    setIsOpen(!isOpen)
+    setIsOpen(!isOpen);
   }
   return (
     <NavContainer>
       <LogoDiv>
-        <LogoLink to='/'>
+        <LogoLink to="/">
           <LogoIcon />
         </LogoLink>
       </LogoDiv>
       <IconsDiv>
         <BaseNavLink
-          to='/'
+          to="/"
           className={({ isActive, isPending }) =>
-            isPending ? 'pending' : isActive ? 'active' : ''
+            isPending ? "pending" : isActive ? "active" : ""
           }
         >
           <Home />
         </BaseNavLink>
         <BaseNavLink
-          to='/Movies'
+          to="/Movies"
           className={({ isActive, isPending }) =>
-            isPending ? 'pending' : isActive ? 'active' : ''
+            isPending ? "pending" : isActive ? "active" : ""
           }
         >
-          {' '}
+          {" "}
           <Movie />
         </BaseNavLink>
         <BaseNavLink
-          to='/TvSeries'
+          to="/TvSeries"
           className={({ isActive, isPending }) =>
-            isPending ? 'pending' : isActive ? 'active' : ''
+            isPending ? "pending" : isActive ? "active" : ""
           }
         >
           <Series />
@@ -75,9 +77,9 @@ function Header() {
 
         {user ? (
           <BaseNavLink
-            to='/Bookmarked'
+            to="/Bookmarked"
             className={({ isActive, isPending }) =>
-              isPending ? 'pending' : isActive ? 'active' : ''
+              isPending ? "pending" : isActive ? "active" : ""
             }
           >
             <Bookmarked />
@@ -87,9 +89,9 @@ function Header() {
 
       <UserDiv onClick={toggleModal}>
         {user ? (
-          <UserIcon fill='#ffff' size={30} />
+          <UserIcon fill="#ffff" size={32} />
         ) : (
-          <AiOutlineLogin fill='#ffff' size={32} />
+          <AiOutlineLogin fill="#ffff" size={32} />
         )}
         <StyledModal
           isOpen={isOpen}
@@ -98,20 +100,20 @@ function Header() {
         >
           {user ? (
             <Div>
+              <p>Welcome</p> <br />
               {user ? user.email : null}
-
-              <button onClick={handleClick}>Log out</button>
+              <LogoutBtn onClick={handleClick}>Log out</LogoutBtn>
             </Div>
           ) : (
             <>
-              <StyledModalLink to='/Register'>Register</StyledModalLink>
-              <StyledModalLink to='/Login'>Login</StyledModalLink>
+              <StyledModalLink to="/Register">Register</StyledModalLink>
+              <StyledModalLink to="/Login">Login</StyledModalLink>
             </>
           )}
         </StyledModal>
       </UserDiv>
     </NavContainer>
-  )
+  );
 }
 
-export default Header
+export default Header;

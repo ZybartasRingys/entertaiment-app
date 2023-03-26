@@ -18,10 +18,6 @@ import {
 import { useForm } from "react-hook-form";
 /* Axios */
 
-/* React toast */
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
 import { useLogin } from "../../hooks/useLogin";
 
 function LoginForm() {
@@ -38,17 +34,7 @@ function LoginForm() {
     await login(data);
   };
   /* React toast function */
-  const notify = () =>
-    toast.success(`Login successful `, {
-      position: "bottom-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
+
   return (
     <LoginFormContainer>
       <h1>Login</h1>
@@ -77,9 +63,7 @@ function LoginForm() {
           <ErrorMsg>{errors.password?.message}</ErrorMsg>
         </InputContainer>
 
-        <SubmitButton onClick={notify} type="submit">
-          Login to your account
-        </SubmitButton>
+        <SubmitButton type="submit">Login to your account</SubmitButton>
         <FormText>
           Don't have an account? <LoginLink to="/Register"> Sign Up</LoginLink>
         </FormText>
