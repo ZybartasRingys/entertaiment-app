@@ -23,7 +23,7 @@ function Trending({}) {
       <h1>Trending</h1>
       <Carousel
         className="carousel"
-        showArrows={true}
+        showArrows={false}
         showThumbs={false}
         centerMode={true}
         centerSlidePercentage={80}

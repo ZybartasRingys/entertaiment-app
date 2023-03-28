@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { ReactComponent as Search } from '../../assets/icon-search.svg'
+import styled from "styled-components";
+import { ReactComponent as Search } from "../../assets/icon-search.svg";
 
 /* Search input Container */
 
@@ -22,14 +22,14 @@ export const SearchContainer = styled.form`
   /* Mobile */
   @media (max-width: 768px) {
     padding-left: 15px;
-    margin-top: 25px;
+    margin-top: 24px;
   }
   /* Tablet */
   @media (min-width: 768px) and (max-width: 1439px) {
     width: 90%;
     margin-left: 24px;
     margin-top: 37px;
-    margin-bottom: 45px;
+    margin-bottom: 35px;
   }
 
   /* Desktop */
@@ -37,47 +37,42 @@ export const SearchContainer = styled.form`
     margin-top: 36px;
     margin-left: 164px;
   }
-`
+`;
 /* Input and text container Search   */
 
 export const Container = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-`
+`;
 
 /* Search input  */
 
 export const SearchInput = styled.input`
-  width: 100%;
+  width: 80%;
   outline: none;
   background-color: #10141e;
   border: none;
   color: var(--color-white);
   caret-color: var(--color-red);
-  font-family: 'Outfit';
+  font-family: "Outfit";
   font-weight: 300;
   min-height: 44px;
 
   &:focus {
-    text-decoration: underline;
-    text-underline-offset: 10px;
-    text-decoration-thickness: 2px;
-    color: var(--color-white);
-    text-decoration-color: var(--color-greyish-blue);
+    border-bottom: 1px solid;
+    border-color: var(--color-greyish-blue);
   }
 
   /* Mobile */
   @media (max-width: 768px) {
     font-size: 16px;
     line-height: 20px;
-    padding-left: 15px;
   }
 
   /* Tablet */
   @media (min-width: 768px) and (max-width: 1439px) {
     font-size: 24px;
-    margin-left: 23px;
     min-height: 42px;
   }
 
@@ -86,13 +81,14 @@ export const SearchInput = styled.input`
     margin-left: 24px;
     font-size: var(--font-size-heading-m);
   }
-`
+`;
 
 /* Search icon */
 
 export const SearchIcon = styled(Search)`
+  margin-right: 15px;
   /* Mobile */
   @media (max-width: 768px) {
     transform: scale(0.8);
   }
-`
+`;

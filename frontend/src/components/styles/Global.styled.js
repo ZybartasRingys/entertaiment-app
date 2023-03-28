@@ -64,11 +64,12 @@ body {
    /* tablet */
    @media (min-width: 768px) and (max-width: 1024px) {
     min-width: 69% !important;
+    padding-left: 23px;
     }
 
     /* Desktop */
   @media (min-width: 1439px) {
-   
+    padding-left: 28px;
    min-width: 36% !important;
   }
 

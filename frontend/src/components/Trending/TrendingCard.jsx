@@ -11,13 +11,12 @@ import {
   IconContainer,
   EmptyIcon,
   MovieIcon,
+  FullIcon,
 } from "../../components/styles/Trending.styled";
 
 import { PlayDiv, PlayIcon } from "../../components/styles/Recommended";
 
 /* Icons */
-
-import { ReactComponent as BookFull } from "../../assets/icon-bookmark-full.svg";
 
 import { BsDot } from "react-icons/bs";
 
@@ -47,7 +46,7 @@ function TrendingCard({ movie }) {
         <IconContainer>
           {isBookmarked ? (
             <IconDiv type="button" onClick={(e) => remBookmark(_id)}>
-              <BookFull />
+              <FullIcon />
             </IconDiv>
           ) : (
             <IconDiv type="button" onClick={(e) => addBookmark(_id)}>

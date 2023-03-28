@@ -30,17 +30,16 @@ export const TrendingSection = styled.section`
   }
   /* tablet */
   @media (min-width: 768px) and (max-width: 1439px) {
-    padding-left: 23px;
     h1 {
       font-size: 32px;
       font-style: light;
-      margin-bottom: 32px;
+      margin-bottom: 15px;
     }
   }
 
   /* Desktop */
   @media (min-width: 1439px) {
-    margin-left: 164px;
+    margin-left: 136px;
     margin-top: 34px;
 
     h1 {
@@ -119,6 +118,13 @@ export const EmptyIcon = styled(BookEmpty)`
   }
 `;
 
+export const FullIcon = styled(BookFull)`
+  &:hover {
+    color: #000000;
+    fill: #000000;
+  }
+`;
+
 /* Trending IconContainer */
 export const IconContainer = styled.div`
   display: flex;
@@ -146,7 +152,9 @@ export const IconDiv = styled.button`
     opacity: 1;
   }
 
-  &:hover svg {
+  &:hover svg path {
+    fill: white;
+    stroke-width: 2px;
     stroke: black;
   }
 

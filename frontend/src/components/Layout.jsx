@@ -1,20 +1,24 @@
-import Header from './Header'
-import Trending from './Trending/Trending'
+import Header from "./Header";
 
-import { Outlet } from 'react-router-dom'
-import Search from './Search'
+import { Outlet } from "react-router-dom";
+import Search from "./Search";
+
+import SmoothScroll from "./styles/SmoothScroll";
 
 export default function Layout({ children }) {
   return (
     <>
-      <header>
-        <Header />
-      </header>
-      <nav>
-        <Search />
-      </nav>
-
-      <Outlet />
+      <SmoothScroll>
+        <header>
+          <Header />
+        </header>
+        <nav>
+          <Search />
+        </nav>
+        <main>
+          <Outlet />
+        </main>
+      </SmoothScroll>
     </>
-  )
+  );
 }

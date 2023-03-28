@@ -28,7 +28,7 @@ BookmarkedCard component. */
     <CardsSection>
       <h1>Bookmarked Movies</h1>
       <CardsContainer>{bookmarkedMovieCard}</CardsContainer>
-      <h1>Bookmarked Tv Series</h1>
+      <h1>Bookmarked TV Series</h1>
       <CardsContainer>{bookmarkedSeriesCard}</CardsContainer>
     </CardsSection>
   );

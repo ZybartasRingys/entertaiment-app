@@ -44,6 +44,12 @@ export const RecommendedSection = styled.section`
 
     h1 {
       margin-bottom: 32px;
+      font-style: normal;
+      font-weight: 300;
+      font-size: var(--font-size-heading-l);
+      line-height: 40px;
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
     }
   }
 `;
