@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
 /* Styled components */
 
-import { LoginFormContainer } from "../styles/LoginPage.styled";
+import { LoginFormContainer } from '../styles/LoginPage.styled'
 import {
   InputContainer,
   Input,
@@ -10,29 +10,36 @@ import {
   SubmitButton,
   FormText,
   LoginLink,
-  ErrorMsg,
-} from "../styles/Register.styled";
+  ErrorMsgContainer,
+  ValidField,
+} from '../styles/Register.styled'
 
 /* React hook form */
 
-import { useForm } from "react-hook-form";
-/* Axios */
+import { useForm } from 'react-hook-form'
 
-import { useLogin } from "../../hooks/useLogin";
+/* Hooks */
+
+import { useLogin } from '../../hooks/useLogin'
+
+/* Context */
+
+import { useStateContext } from '../../Context/StateContext'
 
 function LoginForm() {
-  const { login } = useLogin();
+  const { login } = useLogin()
+  const { errorMsg, setErrorMsg } = useStateContext()
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm()
 
   /* onSubmit function */
 
   const onSubmit = async (data) => {
-    await login(data);
-  };
+    await login(data)
+  }
   /* React toast function */
 
   return (
@@ -41,35 +48,37 @@ function LoginForm() {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <InputContainer>
           <Input
-            {...register("email", {
+            {...register('email', {
               required: "Can't be empty",
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: "Wrong email",
+                message: 'Wrong email',
               },
             })}
-            placeholder="Email address"
-            autoComplete="off"
+            placeholder='Email address'
+            autoComplete='off'
           ></Input>
-          <ErrorMsg>{errors.email?.message}</ErrorMsg>
+          <ErrorMsgContainer>{errors.email?.message}</ErrorMsgContainer>
         </InputContainer>
         <InputContainer>
           <Input
-            {...register("password", { required: "Can't be empty" })}
-            placeholder="Password"
-            type="password"
-            autoComplete="off"
+            {...register('password', { required: "Can't be empty" })}
+            placeholder='Password'
+            type='password'
+            autoComplete='off'
           ></Input>
-          <ErrorMsg>{errors.password?.message}</ErrorMsg>
+          <ErrorMsgContainer>{errors.password?.message}</ErrorMsgContainer>
         </InputContainer>
 
-        <SubmitButton type="submit">Login to your account</SubmitButton>
+        {errorMsg ? <ValidField>{errorMsg}</ValidField> : null}
+
+        <SubmitButton type='submit'>Login to your account</SubmitButton>
         <FormText>
-          Don't have an account? <LoginLink to="/Register"> Sign Up</LoginLink>
+          Don't have an account? <LoginLink to='/Register'> Sign Up</LoginLink>
         </FormText>
       </Form>
     </LoginFormContainer>
-  );
+  )
 }
 
-export default LoginForm;
+export default LoginForm

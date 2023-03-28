@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 /* Styled components */
 
@@ -10,28 +10,28 @@ import {
   SubmitButton,
   FormText,
   LoginLink,
-  ErrorMsg,
+  ErrorMsgContainer,
   StyledToast,
   ValidField,
-} from "../styles/Register.styled";
+} from '../styles/Register.styled'
 
 /* React hook form */
 
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form'
 
 /* React Toast */
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 /* Context */
 
-import { useRegisterForm } from "../../hooks/useRegisterForm";
-import { useStateContext } from "../../Context/StateContext";
+import { useRegisterForm } from '../../hooks/useRegisterForm'
+import { useStateContext } from '../../Context/StateContext'
 
 function RegisterForm() {
-  const { signup } = useRegisterForm();
-  const { errorMsg, setErrorMsg } = useStateContext();
+  const { signup } = useRegisterForm()
+  const { errorMsg, setErrorMsg } = useStateContext()
 
   const {
     register,
@@ -40,13 +40,13 @@ function RegisterForm() {
     getValues,
     formState: { errors, isValid },
   } = useForm({
-    mode: "onChange",
+    mode: 'onChange',
     defaultValues: {
-      email: "",
-      password: "",
-      comfirmedPassword: "",
+      email: '',
+      password: '',
+      comfirmedPassword: '',
     },
-  });
+  })
 
   /**
    * OnSubmit is an async function that takes in data, and then tries to post that data to the server.
@@ -54,12 +54,12 @@ function RegisterForm() {
    * to the console.
    */
   const onSubmit = async (data) => {
-    await signup(data);
-  };
+    await signup(data)
+  }
 
   const removeError = () => {
-    setErrorMsg("");
-  };
+    setErrorMsg('')
+  }
 
   return (
     <RegisterFormContainer>
@@ -68,73 +68,71 @@ function RegisterForm() {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <InputContainer>
           <Input
-            {...register("email", {
+            {...register('email', {
               required: "Can't be empty",
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: "Wrong email",
+                message: 'Wrong email',
               },
             })}
-            placeholder="Email address"
-            autoComplete="off"
+            placeholder='Email address'
+            autoComplete='off'
           ></Input>
-          <ErrorMsg>{errors.email?.message}</ErrorMsg>
+          <ErrorMsgContainer>{errors.email?.message}</ErrorMsgContainer>
         </InputContainer>
         <InputContainer>
           <Input
-            {...register("password", {
+            {...register('password', {
               required: "Can't be empty",
               minLength: {
                 value: 8,
-                message: "Pass to short",
+                message: 'Pass to short',
               },
             })}
-            placeholder="Password"
-            type="password"
+            placeholder='Password'
+            type='password'
           ></Input>
-          <ErrorMsg>{errors.password?.message}</ErrorMsg>
+          <ErrorMsgContainer>{errors.password?.message}</ErrorMsgContainer>
         </InputContainer>
         <InputContainer>
           <Input
-            {...register("comfirmedPassword", {
+            {...register('comfirmedPassword', {
               required: "Can't be empty",
               minLength: {
                 value: 8,
-                message: "Pass to short",
+                message: 'Pass to short',
               },
             })}
-            placeholder="Repeat Password"
-            type="password"
+            placeholder='Repeat Password'
+            type='password'
           ></Input>
 
-          {watch("password") !== watch("comfirmedPassword") &&
-          getValues("password") ? (
-            <ErrorMsg>Wrong pass</ErrorMsg>
+          {watch('password') !== watch('comfirmedPassword') &&
+          getValues('password') ? (
+            <ErrorMsgContainer>Wrong pass</ErrorMsgContainer>
           ) : (
-            <ErrorMsg>{errors.comfirmedPassword?.message}</ErrorMsg>
+            <ErrorMsgContainer>
+              {errors.comfirmedPassword?.message}
+            </ErrorMsgContainer>
           )}
         </InputContainer>
 
         {!isValid ? <ValidField> All fields must be filled</ValidField> : null}
 
-        {errorMsg ? (
-          <ValidField>{errorMsg}</ValidField>
-        ) : (
-          <ValidField>User Created</ValidField>
-        )}
+        {errorMsg.length ? <ValidField>{errorMsg}</ValidField> : null}
 
-        <SubmitButton onClick={removeError} disabled={!isValid} type="submit">
+        <SubmitButton onClick={removeError} disabled={!isValid} type='submit'>
           Create an account
         </SubmitButton>
 
         <FormText>
-          Already have an account? <LoginLink to="/Login">Login</LoginLink>
+          Already have an account? <LoginLink to='/Login'>Login</LoginLink>
         </FormText>
 
         <StyledToast />
       </Form>
     </RegisterFormContainer>
-  );
+  )
 }
 
-export default RegisterForm;
+export default RegisterForm
