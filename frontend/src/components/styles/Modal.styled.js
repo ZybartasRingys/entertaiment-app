@@ -14,6 +14,7 @@ export const StyledModal = Modal.styled`
   flex-direction: column;
   position: absolute;
   top: 50px;
+  
  
   
   
@@ -81,16 +82,22 @@ export const LogoutBtn = styled.button`
   border: none;
   border-radius: 6px;
   color: var(--color-white);
+  width: 80%;
   /* Mobile */
   @media (max-width: 768px) {
-    padding: 8px;
+    padding: 3px;
+    margin-top: 5px;
   }
 
   /* Tablet */
   @media (min-width: 768px) and (max-width: 1439px) {
+    padding: 5px;
+    margin-top: 10px;
   }
 
   /* Desktop */
   @media (min-width: 1439px) {
+    padding: 7px;
+    margin-top: 10px;
   }
 `;

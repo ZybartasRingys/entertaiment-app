@@ -100,7 +100,7 @@ function Header() {
         >
           {user ? (
             <Div>
-              <p>Welcome</p> <br />
+              <p>Welcome</p>
               {user ? user.email : null}
               <LogoutBtn onClick={handleClick}>Log out</LogoutBtn>
             </Div>

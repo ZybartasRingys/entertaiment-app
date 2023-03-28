@@ -59,7 +59,18 @@ export const LogoDiv = styled.div`
   }
 `;
 
-export const Div = styled.div``;
+export const Div = styled.div`
+  /* Mobile */
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+  }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+  }
+`;
 
 export const IconsDiv = styled.div`
   display: flex;
