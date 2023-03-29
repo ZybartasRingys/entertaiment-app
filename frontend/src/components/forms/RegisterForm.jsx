@@ -13,6 +13,7 @@ import {
   ErrorMsgContainer,
   StyledToast,
   ValidField,
+  HttpErrorMsg,
 } from '../styles/Register.styled'
 
 /* React hook form */
@@ -119,7 +120,7 @@ function RegisterForm() {
 
         {!isValid ? <ValidField> All fields must be filled</ValidField> : null}
 
-        {errorMsg.length ? <ValidField>{errorMsg}</ValidField> : null}
+        {errorMsg.length ? <HttpErrorMsg>{errorMsg}</HttpErrorMsg> : null}
 
         <SubmitButton onClick={removeError} disabled={!isValid} type='submit'>
           Create an account

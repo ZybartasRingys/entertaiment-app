@@ -16,7 +16,6 @@ import Loading from '../Loading'
 import { useStateContext } from '../../Context/StateContext'
 
 function Recommended({}) {
-  /* Mapping through the filteredRecommendedMovies array and returning a Card component for each movie. */
   const { searchResults } = useStateContext()
 
   /* Filtering out the movies that are trending. */

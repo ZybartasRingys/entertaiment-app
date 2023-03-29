@@ -35,7 +35,7 @@ export const register = async (req, res, next) => {
 
     /* Saving the new user to the database. */
     await newUser.save()
-    res.status(201).json('User have been created')
+    res.status(201).json('User created you can login')
   } catch (error) {
     next(error)
   }

@@ -22,16 +22,8 @@ export const StateContext = ({ children }) => {
   }, [user])
 
   useEffect(() => {
-    setTrendingMovies()
-  }, [movies])
-
-  useEffect(() => {
     getMovies()
   }, [bookmarked])
-
-  useEffect(() => {
-    setRecommendedMovies()
-  }, [movies, user])
 
   useEffect(() => {
     const bookmarkedItems = JSON.parse(localStorage.getItem('bookmarkedMovie'))
@@ -57,27 +49,6 @@ export const StateContext = ({ children }) => {
     } catch (error) {
       console.log(error.message)
     }
-  }
-
-  /**
-   * The setTrendingMovies function filters through the movies array and returns the movies that have
-   * a property of isTrending set to true.
-   */
-
-  const setTrendingMovies = () => {
-    const trendingMovies = searchResults.filter(
-      (trendingMovie) => trendingMovie.isTrending === true
-    )
-
-    setTrending(trendingMovies)
-  }
-
-  const setRecommendedMovies = () => {
-    const recommendedMovies = movies.filter(
-      (movie) => movie.isTrending === false
-    )
-
-    setRecommended(recommendedMovies)
   }
 
   /**

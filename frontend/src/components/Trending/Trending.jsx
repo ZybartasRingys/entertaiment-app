@@ -13,8 +13,17 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loa
 import { Carousel } from 'react-responsive-carousel'
 import { useStateContext } from '../../Context/StateContext'
 function Trending({}) {
-  const { trending } = useStateContext()
-  const trendCard = trending.map((movie) => {
+  const { searchResults } = useStateContext()
+
+  /* Filtering the searchResults array and returning a new array with only the movies that have the
+  isTrending property set to true. */
+  const filteredTrendingCard = searchResults.filter(
+    (movie) => movie.isTrending === true
+  )
+
+  /* Mapping through the filteredTrendingCard array and returning a TrendingCard component for each
+  movie in the array. */
+  const trendCard = filteredTrendingCard.map((movie) => {
     return <TrendingCard movie={movie} key={movie._id} />
   })
 

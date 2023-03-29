@@ -105,6 +105,7 @@ export const UserDiv = styled.button`
   font-size: 9px;
   border: 1px solid var(--color-white);
   border-radius: 50%;
+  cursor: pointer;
 
   /* Mobile */
   @media (max-width: 768px) {
@@ -181,6 +182,7 @@ export const Bookmarked = styled(BookmarkedIcon)`
 `
 
 export const UserIcon = styled(FaUserNinja)`
+  cursor: pointer;
   /* Mobile */
   @media (max-width: 768px) {
     transform: scale(0.7);

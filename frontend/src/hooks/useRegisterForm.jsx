@@ -22,7 +22,7 @@ export const useRegisterForm = () => {
       )
 
       if (response.status === 201) {
-        alert('user created')
+        setErrorMsg(response.data)
         setTimeout(() => navigate('/Login'), 1500)
       }
     } catch (error) {

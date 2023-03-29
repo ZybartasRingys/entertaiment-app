@@ -230,23 +230,44 @@ export const ErrorMsgContainer = styled.p`
 export const ValidField = styled.div`
   font-size: 12px;
   color: var(--color-red);
+  padding-left: 16px;
+  margin-bottom: 5px;
 
   /* Mobile */
 
   @media (max-width: 768px) {
-    width: 50%;
+    width: 70%;
     display: flex;
-    padding-left: 16px;
   }
 
   /* Tablet */
   @media (min-width: 768px) and (max-width: 1439px) {
-    margin-left: 85px;
   }
 
   /* Tablet */
   @media (min-width: 1439px) {
-    margin-left: 85px;
+  }
+`
+
+export const HttpErrorMsg = styled.div`
+  font-size: 12px;
+  color: var(--color-red);
+  padding-left: 16px;
+  margin-bottom: 5px;
+  /* Mobile */
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1439px) {
+    font-size: 13px;
+  }
+
+  /* Tablet */
+  @media (min-width: 1439px) {
+    font-size: 14px;
   }
 `
 
