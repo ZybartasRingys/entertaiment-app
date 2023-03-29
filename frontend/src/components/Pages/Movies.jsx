@@ -8,6 +8,7 @@ import { useStateContext } from '../../Context/StateContext'
 
 /* Card import*/
 import MovieCard from '../cards/MovieCard'
+import Loading from '../Loading'
 
 function Movies() {
   const { searchResults } = useStateContext()
@@ -25,7 +26,7 @@ function Movies() {
     <CardsSection>
       <h1>Movies</h1>
       <CardsContainer>
-        {movieCard?.length ? movieCard : <p>No movies found...</p>}
+        {movieCard?.length ? movieCard : <Loading />}
       </CardsContainer>
     </CardsSection>
   )

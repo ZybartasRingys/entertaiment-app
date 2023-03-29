@@ -8,6 +8,9 @@ import {
 } from '../styles/Recommended'
 /* Card import*/
 import Card from './Card'
+
+import Loading from '../Loading'
+
 /* Context*/
 
 import { useStateContext } from '../../Context/StateContext'
@@ -30,11 +33,7 @@ function Recommended({}) {
     <RecommendedSection>
       <h1>Recommended for you</h1>
       <RecommendedContainer>
-        {recommendedCard?.length ? (
-          recommendedCard
-        ) : (
-          <CardP>No movies found...</CardP>
-        )}
+        {recommendedCard?.length ? recommendedCard : <Loading />}
       </RecommendedContainer>
     </RecommendedSection>
   )

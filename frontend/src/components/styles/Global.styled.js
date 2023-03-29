@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -36,6 +36,7 @@ body {
   color: white;
   font-family: "Outfit";
   font-weight: 300;
+  max-height: 1500px;
 }
 
 .carousel {
@@ -100,4 +101,4 @@ body {
 .control-arrow {
   background-color: transparent !important;
 }
-`;
+`
