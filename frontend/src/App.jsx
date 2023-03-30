@@ -14,6 +14,8 @@ import Bookmarked from './components/Pages/Bookmarked'
 import Login from './components/Pages/Login'
 import Register from './components/Pages/Register'
 
+import { ProtectRoutes } from './hooks/useProtectRoutes'
+
 function App() {
   return (
     <Router>
@@ -22,8 +24,11 @@ function App() {
           <Route index element={<Home />} />
           <Route path='/Movies' element={<Movies />} />
           <Route path='/TvSeries' element={<TvSeries />} />
-          <Route path='/Bookmarked' element={<Bookmarked />} />
+          <Route element={<ProtectRoutes />}>
+            <Route path='/Bookmarked' element={<Bookmarked />} />
+          </Route>
         </Route>
+
         <Route path='/Login' element={<Login />} />
         <Route path='/Register' element={<Register />} />
       </Routes>

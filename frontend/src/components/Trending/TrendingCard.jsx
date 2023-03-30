@@ -6,7 +6,6 @@ import {
   TextContainer,
   TitleDiv,
   TextDiv,
-  Div,
   IconContainer,
   EmptyIcon,
   MovieIcon,

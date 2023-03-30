@@ -148,12 +148,19 @@ export const LogoLink = styled(Link)``
 /* Icons styling */
 
 export const BaseNavLink = styled(NavLink)`
+  &.hover path {
+    background-color: var(--color-red);
+  }
+
   &.active path {
     fill: var(--color-white);
   }
 `
 
 export const Home = styled(HomeIcon)`
+  &:hover path {
+    fill: var(--color-red);
+  }
   /* Mobile */
   @media (max-width: 768px) {
     transform: scale(0.8);
@@ -161,6 +168,9 @@ export const Home = styled(HomeIcon)`
 `
 
 export const Movie = styled(MovieIcon)`
+  &:hover path {
+    fill: var(--color-red);
+  }
   /* Mobile */
   @media (max-width: 768px) {
     transform: scale(0.8);
@@ -168,6 +178,9 @@ export const Movie = styled(MovieIcon)`
 `
 
 export const Series = styled(TvSeriesIcon)`
+  &:hover path {
+    fill: var(--color-red);
+  }
   /* Mobile */
   @media (max-width: 768px) {
     transform: scale(0.8);
@@ -175,6 +188,9 @@ export const Series = styled(TvSeriesIcon)`
 `
 
 export const Bookmarked = styled(BookmarkedIcon)`
+  &:hover path {
+    fill: var(--color-red);
+  }
   /* Mobile */
   @media (max-width: 768px) {
     transform: scale(0.8);

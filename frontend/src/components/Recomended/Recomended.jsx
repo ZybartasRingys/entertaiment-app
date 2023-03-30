@@ -1,11 +1,7 @@
 import React from 'react'
 
 /* Styled components inputs*/
-import {
-  RecommendedSection,
-  RecommendedContainer,
-  CardP,
-} from '../styles/Recommended'
+import { RecommendedSection, RecommendedContainer } from '../styles/Recommended'
 /* Card import*/
 import Card from './Card'
 

@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react'
+/* Axios*/
 import axios from 'axios'
-
+/* Context*/
 import { useAuthContext } from '../hooks/useAuthContext'
 
 const Context = createContext()
@@ -24,13 +25,6 @@ export const StateContext = ({ children }) => {
   useEffect(() => {
     getMovies()
   }, [bookmarked])
-
-  useEffect(() => {
-    const bookmarkedItems = JSON.parse(localStorage.getItem('bookmarkedMovie'))
-    if (bookmarkedItems) {
-      setBookmarked([...bookmarked, bookmarkedItems])
-    }
-  }, [])
 
   /**
    * "getMovies" is an async function that sets the loading state to true, then it makes an axios request
