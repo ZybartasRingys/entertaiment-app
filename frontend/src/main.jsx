@@ -4,7 +4,7 @@ import App from "./App";
 
 import { GlobalStyles } from "../src/components/styles/Global.styled";
 import { StateContext } from "../src/Context/StateContext";
-import { AuthContextProvider } from "../src/Context/AuthContext";
+import { AuthContextProvider } from "../../frontend/src/Context/AuthContext";
 import { ModalProvider } from "styled-react-modal";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
