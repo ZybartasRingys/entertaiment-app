@@ -31,7 +31,7 @@ function TrendingCard({ movie }) {
     <CardContainer
       key={_id}
       style={{
-        backgroundImage: `url(/public/${thumbnail.trending.large})`,
+        backgroundImage: `url(/src/${thumbnail.trending.large})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
       }}
