@@ -13,7 +13,7 @@ export default defineConfig({
         entryFileNames: "assets/[name]-[hash].js",
 
         assetFileNames: ({ name }) => {
-          if (/\.(gif|jpe?g|png|svg)$/.test(name ?? "")) {
+          if (/\.(gif|jpg|png|svg)$/.test(name ?? "")) {
             return "assets/[name]-[hash][extname]";
           }
 
