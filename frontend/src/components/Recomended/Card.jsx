@@ -34,8 +34,6 @@ function Card({ movie }) {
   const { user } = useAuthContext();
   const { addBookmark, remBookmark } = useStateContext();
 
-  console.log(title);
-
   return (
     <RecommendedCard key={_id}>
       <CardTop

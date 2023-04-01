@@ -88,7 +88,7 @@ export const StateContext = ({ children }) => {
       setLoading(true);
       const response = await axios({
         method: "PUT",
-        url: `https://entertaiment-backend.onrender.com/movies${_id}`,
+        url: `https://entertaiment-backend.onrender.com/movies/${_id}`,
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
@@ -112,7 +112,7 @@ export const StateContext = ({ children }) => {
     try {
       const response = await axios({
         method: "PUT",
-        url: `https://entertaiment-backend.onrender.com/movies${_id}`,
+        url: `https://entertaiment-backend.onrender.com/movies/${_id}`,
         headers: {
           Authorization: `Bearer ${user.token}`,
         },

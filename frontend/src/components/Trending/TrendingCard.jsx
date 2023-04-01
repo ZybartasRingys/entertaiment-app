@@ -26,7 +26,6 @@ function TrendingCard({ movie }) {
   const { title, _id, isBookmarked, year, category, rating, thumbnail } = movie;
   const { addBookmark, remBookmark } = useStateContext();
   const { user } = useAuthContext();
-  console.log(title);
 
   return (
     <CardContainer
