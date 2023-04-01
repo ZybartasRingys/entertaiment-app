@@ -32,7 +32,7 @@ function TrendingCard({ movie }) {
     <CardContainer
       key={_id}
       style={{
-        backgroundImage: `url(/public/${title
+        backgroundImage: `url(/${title
           .trim()
           .toLowerCase()
           .replace(/ /g, "")}.jpg)`,

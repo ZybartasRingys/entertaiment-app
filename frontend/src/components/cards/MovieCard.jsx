@@ -41,7 +41,7 @@ function MovieCard({ movie }) {
     <RecommendedCard key={_id}>
       <CardTop
         style={{
-          backgroundImage: `url(/public/${title
+          backgroundImage: `url(/${title
             .trim()
             .toLowerCase()
             .replace(/ /g, "")}.jpg)`,
