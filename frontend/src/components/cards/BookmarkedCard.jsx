@@ -8,7 +8,7 @@ import {
   CardP,
   PlayDiv,
   PlayIcon,
-} from "./styles/Recommended";
+} from "../styles/Recommended";
 
 /* Styled Components imports*/
 
@@ -19,19 +19,19 @@ import {
   IconContainer,
   MovieIcon,
   TvIcon,
-} from "./styles/Trending.styled";
+} from "../styles/Trending.styled";
 
 /* Icons*/
 
-import { ReactComponent as BookEmpty } from "../assets/icon-bookmark-empty.svg";
-import { ReactComponent as BookFull } from "../assets/icon-bookmark-full.svg";
+import { ReactComponent as BookEmpty } from "../../assets/icon-bookmark-empty.svg";
+import { ReactComponent as BookFull } from "../../assets/icon-bookmark-full.svg";
 
 import { BsDot } from "react-icons/bs";
 
-import { useStateContext } from "../Context/StateContext";
+import { useStateContext } from "../../Context/StateContext";
 
 function BookmarkedCard({ movie }) {
-  const { title, isBookmarked, year, category, rating, _id, thumbnail } = movie;
+  const { title, isBookmarked, year, category, rating, _id } = movie;
   const { remBookmark } = useStateContext();
   return (
     <div>

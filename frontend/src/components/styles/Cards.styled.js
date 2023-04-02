@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-import { RecommendedSection, RecommendedContainer } from './Recommended'
+import { RecommendedSection, RecommendedContainer } from "./Recommended";
 
 /* Recommended Section and Container */
 export const CardsSection = styled(RecommendedSection)`
@@ -21,7 +21,7 @@ export const CardsSection = styled(RecommendedSection)`
       font-weight: 300;
     }
   }
-`
+`;
 
 export const CardsContainer = styled(RecommendedContainer)`
   /* Mobile */
@@ -29,7 +29,7 @@ export const CardsContainer = styled(RecommendedContainer)`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 7px;
-    margin-top: 30px;
+    margin-top: 24px;
     padding-right: 15px;
   }
 
@@ -46,6 +46,6 @@ export const CardsContainer = styled(RecommendedContainer)`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr !important;
   }
-`
+`;
 
 /* Cards styling */

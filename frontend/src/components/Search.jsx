@@ -5,6 +5,7 @@ import {
   SearchContainer,
   SearchIcon,
   Container,
+  SearchText,
 } from "./styles/Search.styled";
 
 /* Context*/
@@ -80,9 +81,9 @@ function Search() {
         ></SearchInput>
       </Container>
       {found.length ? (
-        <p className="search-text">
+        <SearchText className="search-text">
           Found {title.length} results for '{inputValue}'
-        </p>
+        </SearchText>
       ) : null}
     </SearchContainer>
   );

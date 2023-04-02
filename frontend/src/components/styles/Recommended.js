@@ -10,9 +10,8 @@ export const RecommendedSection = styled.section`
   }
   /* Mobile */
   @media (max-width: 768px) {
-    margin-top: 30px;
     margin-left: 15px;
-
+    margin-top: 5px;
     h1 {
       font-size: 20px;
       font-weight: 300;
@@ -23,7 +22,7 @@ export const RecommendedSection = styled.section`
 
   @media (min-width: 768px) and (max-width: 1439px) {
     margin-top: 30px;
-    margin-left: 24px;
+    margin-left: 25px;
 
     h1 {
       font-style: normal;
@@ -39,7 +38,7 @@ export const RecommendedSection = styled.section`
 
   @media (min-width: 1440px) {
     max-width: 1240px;
-    margin-left: 164px;
+    margin-left: 172px;
     margin-top: 40px;
 
     h1 {

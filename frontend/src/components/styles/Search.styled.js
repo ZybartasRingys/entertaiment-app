@@ -21,8 +21,8 @@ export const SearchContainer = styled.form`
 
   /* Mobile */
   @media (max-width: 768px) {
-    padding-left: 15px;
-    margin-top: 24px;
+    padding-left: 10px;
+    margin-top: 5px;
   }
   /* Tablet */
   @media (min-width: 768px) and (max-width: 1439px) {
@@ -35,7 +35,7 @@ export const SearchContainer = styled.form`
   /* Desktop */
   @media (min-width: 1439px) {
     margin-top: 36px;
-    margin-left: 164px;
+    margin-left: 168px;
   }
 `;
 /* Input and text container Search   */
@@ -57,7 +57,7 @@ export const SearchInput = styled.input`
   caret-color: var(--color-red);
   font-family: "Outfit";
   font-weight: 300;
-  min-height: 44px;
+  min-height: 64px;
 
   &:focus {
     border-bottom: 1px solid;
@@ -68,12 +68,13 @@ export const SearchInput = styled.input`
   @media (max-width: 768px) {
     font-size: 16px;
     line-height: 20px;
+    margin-left: 10px;
   }
 
   /* Tablet */
   @media (min-width: 768px) and (max-width: 1439px) {
-    font-size: 24px;
-    min-height: 42px;
+    font-size: var(--font-size-heading-m);
+    margin-left: 10px;
   }
 
   /* Desktop */
@@ -83,12 +84,42 @@ export const SearchInput = styled.input`
   }
 `;
 
+/* Search text for found items*/
+
+export const SearchText = styled.p`
+  margin-top: 15px;
+  
+  
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    font-size: 8px
+    margin-left: 5px;
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1439px) {
+    
+  }
+
+  /* Desktop */
+  @media (min-width: 1439px) {
+    font-size: var(--font-size-heading-l);
+  }
+`;
+
 /* Search icon */
 
 export const SearchIcon = styled(Search)`
-  margin-right: 15px;
   /* Mobile */
   @media (max-width: 768px) {
     transform: scale(0.8);
   }
+`;
+
+/* Found items error text */
+
+export const NoFound = styled.p`
+  color: #fc4747;
+  width: 100%;
 `;

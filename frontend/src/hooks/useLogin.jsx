@@ -1,13 +1,14 @@
 import { useAuthContext } from "./useAuthContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useStateContext } from "../Context/StateContext";
+
+/* Toast */
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const useLogin = () => {
   const { dispatch } = useAuthContext();
   const navigate = useNavigate();
-
-  const { errorMsg, setErrorMsg } = useStateContext();
 
   /**
    * It takes in a data object, sends it to the backend, and then sets the response to localStorage.
@@ -19,19 +20,32 @@ export const useLogin = () => {
         data
       );
 
-      if (response.status === 200) {
-        setErrorMsg("");
-        setTimeout(() => navigate("/"), 1500);
-      }
+      toast.success("Successfully logged in redirecting to home", {
+        position: "bottom-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
 
       localStorage.setItem("user", JSON.stringify(response.data));
       dispatch({ type: "LOGIN", payload: response.data });
-      console.log(response);
+      setTimeout(() => navigate("/"), 1500);
     } catch (error) {
-      console.log(error.response.data.message);
-      if (error) {
-        setErrorMsg(error.response.data.message);
-      }
+      toast.error(`${error.response.data.message}`, {
+        position: "bottom-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      console.log(error);
     }
   };
 

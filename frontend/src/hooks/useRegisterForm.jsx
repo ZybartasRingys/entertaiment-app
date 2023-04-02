@@ -2,12 +2,13 @@ import { useAuthContext } from "./useAuthContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-import { useStateContext } from "../Context/StateContext";
+/* Toast */
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const useRegisterForm = () => {
   const navigate = useNavigate();
   const { dispatch } = useAuthContext();
-  const { errorMsg, setErrorMsg } = useStateContext();
 
   /**
    * The signup function is an async function that takes in data as a parameter and then uses the axios
@@ -21,15 +22,29 @@ export const useRegisterForm = () => {
         data
       );
 
-      if (response.status === 201) {
-        setErrorMsg(response.data);
-        setTimeout(() => navigate("/Login"), 1500);
-      }
+      toast.success("Account successfully registered! you can login", {
+        position: "bottom-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      setTimeout(() => navigate("/Login"), 1500);
     } catch (error) {
-      console.log(error.response.data.message);
-      if (error) {
-        setErrorMsg(error.response.data.message);
-      }
+      console.log(error);
+      toast.error(`${error.response.data.message}`, {
+        position: "bottom-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     }
   };
 

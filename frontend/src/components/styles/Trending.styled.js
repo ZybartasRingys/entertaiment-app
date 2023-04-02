@@ -34,6 +34,7 @@ export const TrendingSection = styled.section`
       font-size: 32px;
       font-style: light;
       margin-bottom: 15px;
+      margin-left: 9px;
     }
   }
 
@@ -45,6 +46,7 @@ export const TrendingSection = styled.section`
     h1 {
       margin-bottom: 25px;
       font-size: var(--font-size-heading-l);
+      padding-left: 33px;
     }
   }
 `;

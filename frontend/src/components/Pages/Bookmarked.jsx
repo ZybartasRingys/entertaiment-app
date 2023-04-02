@@ -1,30 +1,28 @@
-import React from 'react'
+import React from "react";
 
 /* Styled components import*/
-import { CardsContainer, CardsSection } from '../styles/Cards.styled'
+import { CardsContainer, CardsSection } from "../styles/Cards.styled";
 
 /* Context*/
-import { useStateContext } from '../../Context/StateContext'
+import { useStateContext } from "../../Context/StateContext";
 
 /* BookmarkedCard*/
-import BookmarkedCard from '../BookmarkedCard'
-
-import Loading from '../Loading'
+import BookmarkedCard from "../cards/BookmarkedCard";
 
 function Bookmarked() {
-  const { bookmarked, setBookmarked } = useStateContext()
+  const { bookmarked, setBookmarked } = useStateContext();
 
   /* Filtering the bookmarked array and then mapping over the filtered array and returning a
 BookmarkedCard component. */
   const bookmarkedMovieCard = bookmarked
-    .filter((filtered) => filtered.category === 'Movie')
-    .map((movie) => <BookmarkedCard movie={movie} key={movie._id} />)
+    .filter((filtered) => filtered.category === "Movie")
+    .map((movie) => <BookmarkedCard movie={movie} key={movie._id} />);
 
   /* Filtering the bookmarked array and then mapping over the filtered array and returning a
 BookmarkedCard component. */
   const bookmarkedSeriesCard = bookmarked
-    .filter((filtered) => filtered.category === 'TV Series')
-    .map((movie) => <BookmarkedCard movie={movie} key={movie._id} />)
+    .filter((filtered) => filtered.category === "TV Series")
+    .map((movie) => <BookmarkedCard movie={movie} key={movie._id} />);
 
   return (
     <CardsSection>
@@ -33,7 +31,7 @@ BookmarkedCard component. */
       <h1>Bookmarked TV Series</h1>
       <CardsContainer>{bookmarkedSeriesCard}</CardsContainer>
     </CardsSection>
-  )
+  );
 }
 
-export default Bookmarked
+export default Bookmarked;

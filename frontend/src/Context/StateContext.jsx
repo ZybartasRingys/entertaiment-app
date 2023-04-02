@@ -4,6 +4,10 @@ import axios from "axios";
 /* Context*/
 import { useAuthContext } from "../hooks/useAuthContext";
 
+/* Toast */
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Context = createContext();
 
 export const StateContext = ({ children }) => {
@@ -14,7 +18,6 @@ export const StateContext = ({ children }) => {
   const [searchResults, setSearchResults] = useState([]);
   const { user } = useAuthContext();
   const [recommended, setRecommended] = useState([]);
-  const [errorMsg, setErrorMsg] = useState([]);
 
   /* useEffects */
 
@@ -143,8 +146,6 @@ export const StateContext = ({ children }) => {
         remBookmark,
         recommended,
         setRecommended,
-        errorMsg,
-        setErrorMsg,
       }}
     >
       {children}

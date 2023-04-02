@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer } from "react-toastify";
 
 export const RegisterContainer = styled.section`
   width: 100%;
@@ -9,7 +9,7 @@ export const RegisterContainer = styled.section`
   display: flex;
   justify-content: start;
   align-items: center;
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
 
   /* Mobile */
   @media (max-width: 768px) {
@@ -28,7 +28,7 @@ export const RegisterContainer = styled.section`
     flex-direction: column;
     margin-top: 78px;
   }
-`
+`;
 
 export const RegisterFormContainer = styled.div`
   width: 100%;
@@ -57,7 +57,7 @@ export const RegisterFormContainer = styled.div`
   /* Tablet */
   @media (min-width: 768px) and (max-width: 1439px) {
     max-width: 400px;
-    max-height: 420px;
+    max-height: 460px;
     margin-top: 72px;
     padding-left: 32px;
     padding-top: 38px;
@@ -68,14 +68,14 @@ export const RegisterFormContainer = styled.div`
   /* Desktop */
   @media (min-width: 1439px) {
     max-width: 400px;
-    max-height: 420px;
+    max-height: 460px;
     margin-top: 88px;
     padding-left: 32px;
     padding-top: 38px;
     flex-direction: column;
     align-items: start;
   }
-`
+`;
 
 export const Form = styled.form`
   width: 100%;
@@ -95,7 +95,7 @@ export const Form = styled.form`
   @media (min-width: 1439px) {
     max-width: 336px;
   }
-`
+`;
 
 export const InputContainer = styled.div`
   border-bottom: 1px solid grey;
@@ -109,7 +109,7 @@ export const InputContainer = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     height: 37px;
-    margin-bottom: 24px;
+    margin-bottom: 14px;
     display: flex;
     align-items: center;
   }
@@ -118,7 +118,7 @@ export const InputContainer = styled.div`
 
   @media (min-width: 768px) and (max-width: 1439px) {
     width: 100%;
-    height: 37px;
+    height: 40px;
     margin-bottom: 24px;
     display: flex;
     align-items: center;
@@ -132,7 +132,7 @@ export const InputContainer = styled.div`
     display: flex;
     align-items: center;
   }
-`
+`;
 export const Input = styled.input`
   background-color: #161d2f;
   border: none;
@@ -148,7 +148,7 @@ export const Input = styled.input`
     width: 70%;
     height: 100%;
   }
-`
+`;
 
 export const SubmitButton = styled.button`
   background-color: var(--color-red);
@@ -174,6 +174,7 @@ export const SubmitButton = styled.button`
     width: 100%;
     height: 48px;
     margin-bottom: 24px;
+    margin-top: 15px;
   }
 
   /* Desktop */
@@ -181,8 +182,9 @@ export const SubmitButton = styled.button`
     width: 100%;
     height: 48px;
     margin-bottom: 24px;
+    margin-top: 15px;
   }
-`
+`;
 
 export const FormText = styled.p`
   text-align: center;
@@ -192,14 +194,14 @@ export const FormText = styled.p`
   @media (max-width: 768px) {
     margin-top: 33px;
   }
-`
+`;
 
 export const LoginLink = styled(Link)`
   text-decoration: none;
   color: #fc4747;
   font-size: 15px;
   font-weight: 300;
-`
+`;
 
 /* Register form styling */
 
@@ -225,13 +227,12 @@ export const ErrorMsgContainer = styled.p`
   @media (min-width: 1439px) {
     margin-left: 85px;
   }
-`
+`;
 
 export const ValidField = styled.div`
   font-size: 12px;
   color: var(--color-red);
   padding-left: 16px;
-  margin-bottom: 5px;
 
   /* Mobile */
 
@@ -242,18 +243,21 @@ export const ValidField = styled.div`
 
   /* Tablet */
   @media (min-width: 768px) and (max-width: 1439px) {
+    margin-bottom: 10px;
   }
 
   /* Tablet */
   @media (min-width: 1439px) {
+    margin-bottom: 10px;
   }
-`
+`;
 
 export const HttpErrorMsg = styled.div`
   font-size: 12px;
   color: var(--color-red);
   padding-left: 16px;
   margin-bottom: 5px;
+  border: 1px solid red;
   /* Mobile */
 
   @media (max-width: 768px) {
@@ -269,7 +273,7 @@ export const HttpErrorMsg = styled.div`
   @media (min-width: 1439px) {
     font-size: 14px;
   }
-`
+`;
 
 export const StyledToast = styled(ToastContainer)`
   .Toastify__toast-body {
@@ -278,4 +282,4 @@ export const StyledToast = styled(ToastContainer)`
   .Toastify__progress-bar {
     background-color: #fc4747;
   }
-`
+`;

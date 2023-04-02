@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -31,13 +31,24 @@ export const GlobalStyles = createGlobalStyle`
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  overflow: scroll;
   background-color: #10141e;
   color: white;
   font-family: "Outfit";
   font-weight: 300;
   max-height: 1500px;
+
 }
+
+body::-webkit-scrollbar{
+    display: none;
+  }
+
+  .search-text {
+    display: none;
+    
+  }
+
 
 .carousel {
   width: 100%;
@@ -65,13 +76,13 @@ body {
    /* tablet */
    @media (min-width: 768px) and (max-width: 1024px) {
     min-width: 69% !important;
-    padding-left: 23px;
+    padding-left: 26px;
     }
 
     /* Desktop */
   @media (min-width: 1439px) {
-    padding-left: 28px;
-   min-width: 36% !important;
+    padding-left: 36px;
+    min-width: 36% !important;
   }
 
 
@@ -93,12 +104,10 @@ body {
 
 
 
-.movie-icon {
-  margin-right: 5px;
-}
+
 
 
 .control-arrow {
   background-color: transparent !important;
 }
-`
+`;
