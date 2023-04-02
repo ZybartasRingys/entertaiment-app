@@ -20,7 +20,7 @@ export const useLogin = () => {
         data
       );
 
-      toast.success("Successfully logged in redirecting to home", {
+      toast.success("Successfully logged in redirecting to home page", {
         position: "bottom-center",
         autoClose: 4000,
         hideProgressBar: false,
@@ -33,7 +33,7 @@ export const useLogin = () => {
 
       localStorage.setItem("user", JSON.stringify(response.data));
       dispatch({ type: "LOGIN", payload: response.data });
-      setTimeout(() => navigate("/"), 1500);
+      setTimeout(() => navigate("/"), 3500);
     } catch (error) {
       toast.error(`${error.response.data.message}`, {
         position: "bottom-center",

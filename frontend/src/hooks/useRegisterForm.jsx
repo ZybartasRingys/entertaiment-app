@@ -32,7 +32,7 @@ export const useRegisterForm = () => {
         progress: undefined,
         theme: "dark",
       });
-      setTimeout(() => navigate("/Login"), 1500);
+      setTimeout(() => navigate("/Login"), 3500);
     } catch (error) {
       console.log(error);
       toast.error(`${error.response.data.message}`, {

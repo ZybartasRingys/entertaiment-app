@@ -19,6 +19,9 @@ export const GlobalStyles = createGlobalStyle`
  
   --font-size-body-m: 15px;
   --font-size-body-s: 13px;
+
+  --toastify-color-dark:  #161D2F;
+  --toastify-text-color-success: #FFFFFF;
 }
   
 
