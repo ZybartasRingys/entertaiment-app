@@ -24,6 +24,7 @@ export const TrendingSection = styled.section`
     h1 {
       font-size: 20px;
       margin-bottom: 14px;
+      margin-top: 5px;
     }
   }
   /* tablet */

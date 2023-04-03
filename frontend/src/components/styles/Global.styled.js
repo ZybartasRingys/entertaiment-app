@@ -48,10 +48,6 @@ body::-webkit-scrollbar{
     display: none;
   }
 
-  .search-text {
-    display: none;
-    
-  }
 
 
 .carousel {

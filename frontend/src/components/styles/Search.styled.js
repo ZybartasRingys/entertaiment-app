@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { ReactComponent as Search } from "../../assets/icon-search.svg";
+import styled from 'styled-components'
+import { ReactComponent as Search } from '../../assets/icon-search.svg'
 
 /* Search input Container */
 
@@ -12,13 +12,20 @@ export const SearchContainer = styled.form`
 
   .search-text {
     display: none;
-    font-size: var(--font-size-heading-m);
+    /* Mobile */
+    @media (max-width: 768px) {
+      font-size: 16px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      margin-left: 6px;
+    }
   }
 
-  &:focus-within .search-text {
-    display: block;
+  &:focus-within {
+    .search-text {
+      display: block;
+    }
   }
-
   /* Mobile */
   @media (max-width: 768px) {
     padding-left: 10px;
@@ -37,14 +44,14 @@ export const SearchContainer = styled.form`
     margin-top: 36px;
     margin-left: 168px;
   }
-`;
+`
 /* Input and text container Search   */
 
 export const Container = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-`;
+`
 
 /* Search input  */
 
@@ -55,9 +62,9 @@ export const SearchInput = styled.input`
   border: none;
   color: var(--color-white);
   caret-color: var(--color-red);
-  font-family: "Outfit";
+  font-family: 'Outfit';
   font-weight: 300;
-  min-height: 64px;
+  min-height: 47px;
 
   &:focus {
     border-bottom: 1px solid;
@@ -82,31 +89,7 @@ export const SearchInput = styled.input`
     margin-left: 24px;
     font-size: var(--font-size-heading-m);
   }
-`;
-
-/* Search text for found items*/
-
-export const SearchText = styled.p`
-  margin-top: 15px;
-  
-  
-
-  /* Mobile */
-  @media (max-width: 768px) {
-    font-size: 8px
-    margin-left: 5px;
-  }
-
-  /* Tablet */
-  @media (min-width: 768px) and (max-width: 1439px) {
-    
-  }
-
-  /* Desktop */
-  @media (min-width: 1439px) {
-    font-size: var(--font-size-heading-l);
-  }
-`;
+`
 
 /* Search icon */
 
@@ -115,11 +98,11 @@ export const SearchIcon = styled(Search)`
   @media (max-width: 768px) {
     transform: scale(0.8);
   }
-`;
+`
 
 /* Found items error text */
 
 export const NoFound = styled.p`
   color: #fc4747;
   width: 100%;
-`;
+`
