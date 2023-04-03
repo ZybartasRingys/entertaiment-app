@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import { ReactComponent as BookEmpty } from "../../assets/icon-bookmark-empty.svg";
-import { ReactComponent as BookFull } from "../../assets/icon-bookmark-full.svg";
-import { PlayDiv } from "./Recommended";
-import { ReactComponent as Movie } from "../../assets/icon-category-movie.svg";
-import { ReactComponent as Tv } from "../../assets/icon-category-tv.svg";
+import styled from 'styled-components'
+import { ReactComponent as BookEmpty } from '../../assets/icon-bookmark-empty.svg'
+import { ReactComponent as BookFull } from '../../assets/icon-bookmark-full.svg'
+import { PlayDiv } from './Recommended'
+import { ReactComponent as Movie } from '../../assets/icon-category-movie.svg'
+import { ReactComponent as Tv } from '../../assets/icon-category-tv.svg'
 
 /* Trending Section */
 
@@ -15,17 +15,15 @@ export const TrendingSection = styled.section`
   flex-direction: column;
 
   h1 {
-    font-family: "Outfit";
+    font-family: 'Outfit';
     font-weight: 300;
     padding-left: 15px;
   }
   /* Mobile */
   @media (max-width: 768px) {
-    margin-top: 15px;
-
     h1 {
       font-size: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 14px;
     }
   }
   /* tablet */
@@ -49,7 +47,7 @@ export const TrendingSection = styled.section`
       padding-left: 33px;
     }
   }
-`;
+`
 
 export const TrendingCardContainer = styled.div`
   position: relative;
@@ -68,7 +66,7 @@ export const TrendingCardContainer = styled.div`
   /* Desktop */
   @media (min-width: 1439px) {
   }
-`;
+`
 
 /* Trending Card Container */
 export const CardContainer = styled.div`
@@ -109,7 +107,7 @@ export const CardContainer = styled.div`
     width: 470px;
     height: 230px;
   }
-`;
+`
 
 /* Full icon */
 
@@ -118,14 +116,14 @@ export const EmptyIcon = styled(BookEmpty)`
     color: #000000;
     fill: #000000;
   }
-`;
+`
 
 export const FullIcon = styled(BookFull)`
   &:hover {
     color: #000000;
     fill: #000000;
   }
-`;
+`
 
 /* Trending IconContainer */
 export const IconContainer = styled.div`
@@ -135,7 +133,7 @@ export const IconContainer = styled.div`
   @media (max-width: 768px) {
     width: 100%;
   }
-`;
+`
 /* Trending card bookmark Icon div*/
 export const IconDiv = styled.button`
   width: 32px;
@@ -177,7 +175,7 @@ export const IconDiv = styled.button`
     margin-top: 16px;
     margin-right: 16px;
   }
-`;
+`
 
 /* Trending card  text container*/
 export const TextContainer = styled.div`
@@ -254,7 +252,7 @@ export const TextContainer = styled.div`
       font-weight: 300;
     }
   }
-`;
+`
 
 /* Trending card  text div*/
 export const TextDiv = styled.div`
@@ -271,14 +269,14 @@ export const TextDiv = styled.div`
     width: 35%;
     justify-content: space-between;
   }
-`;
+`
 
 /* Trending card title div*/
 export const TitleDiv = styled.div`
   width: 100%;
   text-align: start !important;
   margin-top: 2px;
-`;
+`
 
 /* Search input Container */
 
@@ -291,7 +289,7 @@ export const Div = styled.div`
   /* Mobile */
   @media (max-width: 768px) {
   }
-`;
+`
 
 /* Icons */
 
@@ -313,7 +311,7 @@ export const MovieIcon = styled(Movie)`
     margin-right: 4px;
     transform: scale(1);
   }
-`;
+`
 
 export const TvIcon = styled(Tv)`
   transform: scale(0.9);
@@ -332,4 +330,4 @@ export const TvIcon = styled(Tv)`
     margin-right: 4px;
     transform: scale(1);
   }
-`;
+`

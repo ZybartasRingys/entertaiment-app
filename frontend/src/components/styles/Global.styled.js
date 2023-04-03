@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -40,6 +40,7 @@ body {
   font-family: "Outfit";
   font-weight: 300;
   max-height: 1500px;
+  scrollbar-width: none;
 
 }
 
@@ -113,4 +114,4 @@ body::-webkit-scrollbar{
 .control-arrow {
   background-color: transparent !important;
 }
-`;
+`
