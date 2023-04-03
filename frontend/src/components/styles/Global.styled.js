@@ -60,6 +60,7 @@ body::-webkit-scrollbar{
   justify-content: center;
   align-items: center;
   border-radius: 8px;
+  margin-top: 7px;
   
   
 
