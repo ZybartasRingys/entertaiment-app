@@ -37,8 +37,7 @@ Users should be able to:
 
 ### Screenshot
 
-https://ibb.co/yhtTZ1q)
-)
+![](./entertaiment.jpg)
 
 
 
