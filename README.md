@@ -69,6 +69,11 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### What I learned
 
+React state management with context APi
+React form handling with React hook form
+Node/Express - Login / Authentication
+Styled Components for styling
+MongoDb 
 
 
 ## Author
