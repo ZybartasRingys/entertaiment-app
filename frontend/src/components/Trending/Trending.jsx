@@ -2,8 +2,6 @@
 // Components
 import TrendingCard from './TrendingCard'
 
-// Loader Component
-import Loading from '../Loading'
 /* Styled Components imports */
 import { TrendingSection } from '../../components/styles/Trending.styled'
 /* Context */

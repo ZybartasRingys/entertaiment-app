@@ -5,10 +5,13 @@ import { CardsSection, CardsContainer } from '../styles/Cards.styled'
 
 /* Context*/
 import { useStateContext } from '../../Context/StateContext'
-
+/* Card*/
 import TvSeriesCard from '../cards/TvSeriesCard'
-
+/* Loading*/
 import Loading from '../Loading'
+
+/* Toast */
+import { ToastContainer, toast } from 'react-toastify'
 
 function TvSeries() {
   const { searchResults } = useStateContext()
@@ -30,6 +33,7 @@ function TvSeries() {
       <CardsContainer>
         {tvSeriesCard?.length ? tvSeriesCard : <Loading />}
       </CardsContainer>
+      <ToastContainer />
     </CardsSection>
   )
 }

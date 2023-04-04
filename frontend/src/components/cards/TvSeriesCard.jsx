@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 /* Styled Components imports*/
 
@@ -11,7 +11,7 @@ import {
   CardP,
   PlayDiv,
   PlayIcon,
-} from "../styles/Recommended";
+} from '../styles/Recommended'
 
 /* Styled Components imports*/
 import {
@@ -21,20 +21,20 @@ import {
   IconContainer,
   MovieIcon,
   TvIcon,
-} from "../styles/Trending.styled";
+} from '../styles/Trending.styled'
 
-import { ReactComponent as BookEmpty } from "../../assets/icon-bookmark-empty.svg";
-import { ReactComponent as BookFull } from "../../assets/icon-bookmark-full.svg";
+import { ReactComponent as BookEmpty } from '../../assets/icon-bookmark-empty.svg'
+import { ReactComponent as BookFull } from '../../assets/icon-bookmark-full.svg'
 
-import { BsDot } from "react-icons/bs";
+import { BsDot } from 'react-icons/bs'
 
-import { useAuthContext } from "../../hooks/useAuthContext";
-import { useStateContext } from "../../Context/StateContext";
+import { useAuthContext } from '../../hooks/useAuthContext'
+import { useStateContext } from '../../Context/StateContext'
 
 function TvSeriesCard({ movie }) {
-  const { title, year, category, rating, _id, thumbnail, isBookmarked } = movie;
-  const { user } = useAuthContext();
-  const { addBookmark, remBookmark } = useStateContext();
+  const { title, year, category, rating, _id, thumbnail, isBookmarked } = movie
+  const { user } = useAuthContext()
+  const { addBookmark, remBookmark } = useStateContext()
   return (
     <RecommendedCard key={_id}>
       <CardTop
@@ -42,35 +42,33 @@ function TvSeriesCard({ movie }) {
           backgroundImage: `url(/${title
             .trim()
             .toLowerCase()
-            .replace(/ /g, "")}.jpg)`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
+            .replace(/ /g, '')}.jpg)`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
         }}
       >
         <PlayDiv>
           <PlayIcon />
           <CardP>Play</CardP>
         </PlayDiv>
-        {user ? (
-          <IconContainer>
-            {isBookmarked ? (
-              <IconDiv type="button" onClick={(e) => remBookmark(_id)}>
-                <BookFull />
-              </IconDiv>
-            ) : (
-              <IconDiv type="button" onClick={(e) => addBookmark(_id)}>
-                <BookEmpty />
-              </IconDiv>
-            )}
-          </IconContainer>
-        ) : null}
+        <IconContainer>
+          {isBookmarked ? (
+            <IconDiv type='button' onClick={(e) => remBookmark(_id)}>
+              <BookFull />
+            </IconDiv>
+          ) : (
+            <IconDiv type='button' onClick={(e) => addBookmark(_id)}>
+              <BookEmpty />
+            </IconDiv>
+          )}
+        </IconContainer>
       </CardTop>
 
       <CardBottom>
         <BottomCardDiv>
           <CardP>{year}</CardP>
           <BsDot size={12} />
-          {category === "Movie" ? <MovieIcon /> : <TvIcon />}
+          {category === 'Movie' ? <MovieIcon /> : <TvIcon />}
           <CardP>{category}</CardP>
           <BsDot size={12} />
           <CardP>{rating}</CardP>
@@ -81,7 +79,7 @@ function TvSeriesCard({ movie }) {
         </TitleDiv>
       </CardBottom>
     </RecommendedCard>
-  );
+  )
 }
 
-export default TvSeriesCard;
+export default TvSeriesCard

@@ -1,15 +1,19 @@
 import { createContext, useContext, useState, useEffect } from 'react'
+
 /* Axios*/
 import axios from 'axios'
 /* Context*/
 import { useAuthContext } from '../hooks/useAuthContext'
+
+/* Toast */
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Context = createContext()
 
 export const StateContext = ({ children }) => {
   const [movies, setMovies] = useState([])
   const [loading, setLoading] = useState(false)
-
   const [bookmarked, setBookmarked] = useState([])
   const [searchResults, setSearchResults] = useState([])
   const { user } = useAuthContext()
@@ -98,7 +102,16 @@ export const StateContext = ({ children }) => {
       setRecommended([...recommended])
       setLoading(false)
     } catch (error) {
-      console.log(error.message)
+      toast.error(`Please Login to bookmark movies`, {
+        position: 'bottom-center',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      })
     }
   }
 

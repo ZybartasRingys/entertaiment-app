@@ -5,9 +5,11 @@ import { RecommendedSection, RecommendedContainer } from '../styles/Recommended'
 /* Card import*/
 import Card from './Card'
 
-import NoMoviesFound from '../NoMoviesFound'
-
 import Loading from '../Loading'
+
+/* Toast */
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 /* Context*/
 
@@ -29,6 +31,7 @@ function Recommended({}) {
   return (
     <RecommendedSection>
       <h1>Recommended for you</h1>
+      <ToastContainer />
       <RecommendedContainer>
         {recommendedCard?.length ? recommendedCard : <Loading />}
       </RecommendedContainer>

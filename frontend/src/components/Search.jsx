@@ -18,9 +18,6 @@ function Search() {
   const [inputValue, setInputValue] = useState('')
   const [text, setText] = useState('')
 
-  console.log(found)
-  console.log(inputValue)
-
   let location = useLocation()
   const { pathname } = location
 
